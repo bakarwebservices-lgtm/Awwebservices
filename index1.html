@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AW WebServices - Professional Digital Solutions for Growing Businesses</title>
+    <meta name="description" content="Award-winning web design, digital marketing, and business automation services. Trusted by 50+ businesses worldwide. Get your free consultation today.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #0f172a;
+            --accent: #10b981;
+            --accent-light: #34d399;
+            --text: #334155;
+            --text-light: #64748b;
+            --bg: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-accent: #ecfdf5;
+            --border: #e2e8f0;
+            --gold: #fbbf24;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background: var(--secondary);
+            color: white;
+            padding: 0.8rem 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .trust-bar span {
+            margin: 0 1.5rem;
+            display: inline-block;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--bg);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: black;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: var(--accent);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: var(--accent-light);
+            color: white;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: 
+                linear-gradient(135deg, rgba(30, 64, 175, 0.88) 0%, rgba(59, 130, 246, 0.82) 50%, rgba(16, 185, 129, 0.88) 100%), 
+                url('images/hero (1).webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 6rem 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            padding: 3rem 20px;
+            background: white;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .badges-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .badge-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        /* Services Section */
+        .services-preview {
+            padding: 5rem 20px;
+            background: var(--bg-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            transition: all 0.3s;
+            border-top: 4px solid var(--primary);
+        }
+
+        .service-card:nth-child(2) {
+            border-top-color: var(--accent);
+        }
+
+        .service-card:nth-child(3) {
+            border-top-color: #8b5cf6;
+        }
+
+        .service-card:nth-child(4) {
+            border-top-color: #f59e0b;
+        }
+
+        .service-card:nth-child(5) {
+            border-top-color: #ec4899;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        }
+
+        .service-icon {
+            width: 100%;
+            height: 180px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .service-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 20px;
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .author-info h4 {
+            color: var(--secondary);
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Portfolio Preview */
+        .portfolio-preview {
+            padding: 5rem 20px;
+            background: var(--bg-light);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            transition: all 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.15);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover .portfolio-image img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-content {
+            padding: 2rem;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: var(--bg-accent);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .portfolio-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--secondary);
+        }
+
+        .portfolio-content p {
+            color: var(--text-light);
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .portfolio-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+
+        .portfolio-link:hover {
+            gap: 1rem;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 5rem 20px;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .feature:hover {
+            background: var(--bg-accent);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+
+        .feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--secondary);
+        }
+
+        .feature p {
+            color: var(--text-light);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #10b981 100%);
+            color: white;
+            padding: 5rem 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 3rem 20px 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            display: inline-block;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Services Page */
+        .services-detail {
+            padding: 5rem 20px;
+        }
+
+        .service-detail-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--primary);
+        }
+
+        .service-detail-card:nth-child(2) {
+            border-left-color: var(--accent);
+        }
+
+        .service-detail-card:nth-child(3) {
+            border-left-color: #8b5cf6;
+        }
+
+        .service-detail-card:nth-child(4) {
+            border-left-color: #f59e0b;
+        }
+
+        .service-detail-card:nth-child(5) {
+            border-left-color: #ec4899;
+        }
+
+        .service-detail-card h3 {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-detail-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-detail-card li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text);
+        }
+
+        .service-detail-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* About Page */
+        .about-section {
+            padding: 5rem 20px;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border-top: 4px solid var(--primary);
+            transition: all 0.3s;
+        }
+
+        .value-card:nth-child(2) {
+            border-top-color: var(--accent);
+        }
+
+        .value-card:nth-child(3) {
+            border-top-color: #8b5cf6;
+        }
+
+        .value-card:nth-child(4) {
+            border-top-color: #f59e0b;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .value-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Contact Page */
+        .contact-section {
+            padding: 5rem 20px;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            padding: 2.5rem;
+            border-radius: 12px;
+            color: white;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .contact-item-icon {
+            font-size: 1.5rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #10b981 100%);
+            color: white;
+            padding: 4rem 20px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .trust-bar span {
+                display: block;
+                margin: 0.3rem 0;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <span>⭐ 5.0 Rating on Google</span>
+        <span>✓ 50+ Projects Completed</span>
+        <span>🏆 Award-Winning Service</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showPage('home'); return false;">
+                <img src="images/logo (1).png" alt="AW Web Services Logo" class="logo-img">
+                <span>AW Web Services</span>
+            </a>
+            <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="showPage('home'); return false;">Home</a></li>
+                <li><a href="#" onclick="showPage('services'); return false;">Services</a></li>
+                <li><a href="#" onclick="showPage('portfolio'); return false;">Portfolio</a></li>
+                <li><a href="#" onclick="showPage('about'); return false;">About</a></li>
+                <li><a href="#" onclick="showPage('contact'); return false;">Contact</a></li>
+                <li><a href="#" class="cta-button" onclick="showPage('contact'); return false;">Get a Quote</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="homePage">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Professional Digital Solutions for Growing Businesses</h1>
+                <p>Transform your online presence with award-winning web design, digital marketing, and automation services. Trusted by 50+ businesses worldwide.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-primary" onclick="showPage('services'); return false;">Explore Services</a>
+                    <a href="#" class="btn-secondary" onclick="showPage('contact'); return false;">Free Consultation</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Happy Clients</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Projects Delivered</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5.0</span>
+                        <span class="stat-label">Client Rating</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Badges -->
+        <section class="trust-badges">
+            <div class="container">
+                <div class="badges-grid">
+                    <div class="badge">
+                        <div class="badge-icon">🔒</div>
+                        <div class="badge-text">SSL Secured</div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">⚡</div>
+                        <div class="badge-text">Fast Delivery</div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">💯</div>
+                        <div class="badge-text">100% Satisfaction</div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">🎯</div>
+                        <div class="badge-text">Result-Driven</div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">🏆</div>
+                        <div class="badge-text">Award-Winning</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Preview -->
+        <section class="services-preview">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Services</h2>
+                    <p>Comprehensive digital solutions to help your business thrive online</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop" alt="Website Design">
+                        </div>
+                        <h3>Website Design</h3>
+                        <p>Custom, responsive websites that captivate your audience and convert visitors into customers. Modern designs built with the latest technologies.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Digital Marketing">
+                        </div>
+                        <h3>Digital Marketing</h3>
+                        <p>Strategic social media management and digital campaigns that amplify your brand reach and engage your target audience effectively.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop" alt="E-commerce Setup">
+                        </div>
+                        <h3>E-commerce Setup</h3>
+                        <p>Complete e-commerce solutions from store setup to payment integration. Start selling online with a professional storefront.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&h=600&fit=crop" alt="Business Automation">
+                        </div>
+                        <h3>Business Automation</h3>
+                        <p>Streamline operations with smart automation tools. Save time and reduce errors with efficient workflow solutions.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop" alt="Virtual Assistance">
+                        </div>
+                        <h3>Virtual Assistance</h3>
+                        <p>Professional virtual support for administrative tasks, allowing you to focus on growing your business while we handle the details.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What Our Clients Say</h2>
+                    <p>Real feedback from real businesses we've helped grow</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"AW Web Services transformed our online presence completely. The website they built is not only beautiful but also drives real results. Our online inquiries increased by 200% in just 3 months!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SM</div>
+                            <div class="author-info">
+                                <h4>Sarah Mitchell</h4>
+                                <p>CEO, TechStart Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"Professional, responsive, and incredibly talented. They took the time to understand our business and delivered exactly what we needed. The e-commerce platform they set up has been flawless."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JC</div>
+                            <div class="author-info">
+                                <h4>James Chen</h4>
+                                <p>Founder, Urban Boutique</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"The digital marketing strategy they implemented has been a game-changer for us. Our social media engagement tripled, and we're seeing consistent growth in our customer base. Highly recommend!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MR</div>
+                            <div class="author-info">
+                                <h4>Maria Rodriguez</h4>
+                                <p>Marketing Director, GreenLife Co.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"Outstanding service from start to finish. They automated several of our business processes, saving us countless hours each week. The ROI has been incredible. True professionals!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">DK</div>
+                            <div class="author-info">
+                                <h4>David Kim</h4>
+                                <p>Operations Manager, Swift Logistics</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"Working with AW Web Services was a pleasure. They're responsive, creative, and deliver on time. Our new website has received so many compliments from clients. Worth every penny!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">LT</div>
+                            <div class="author-info">
+                                <h4>Lisa Thompson</h4>
+                                <p>Owner, Bella Spa & Wellness</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"Their virtual assistance service has been invaluable. Professional, reliable, and always available when we need support. They've become an essential part of our team."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">RB</div>
+                            <div class="author-info">
+                                <h4>Robert Brown</h4>
+                                <p>Director, Apex Consulting</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Preview -->
+        <section class="portfolio-preview">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Featured Projects</h2>
+                    <p>Showcasing our recent work and success stories</p>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="images/project1.png" alt="ZN Enterprises Website">
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-tags">
+                                <span class="tag">Web Design</span>
+                                <span class="tag">SEO</span>
+                            </div>
+                            <h3>ZN Enterprises</h3>
+                            <p>Professional business website with modern design and seamless user experience. Built with responsive layouts and optimized performance.</p>
+                            <a href="https://znenterprises.com" target="_blank" class="portfolio-link">View Project →</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="images/project2.png" alt="CSS Kro Website">
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-tags">
+                                <span class="tag">Development</span>
+                                <span class="tag">UI/UX</span>
+                            </div>
+                            <h3>CSS Kro</h3>
+                            <p>Dynamic web platform showcasing custom development and responsive design. Features interactive elements and smooth animations.</p>
+                            <a href="https://csskro.com" target="_blank" class="portfolio-link">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="why-choose">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Why Choose AW Web Services</h2>
+                    <p>We deliver excellence in every project</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Fast Delivery</h3>
+                        <p>Quick turnaround times without compromising on quality</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">💎</div>
+                        <h3>Quality Work</h3>
+                        <p>Professional results that exceed expectations</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Result-Driven</h3>
+                        <p>Solutions focused on achieving your business goals</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">💬</div>
+                        <h3>Clear Communication</h3>
+                        <p>Transparent updates throughout your project</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>Reliable Support</h3>
+                        <p>Ongoing maintenance and dedicated customer service</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">💰</div>
+                        <h3>Great Value</h3>
+                        <p>Competitive pricing with exceptional ROI</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Elevate Your Digital Presence?</h2>
+                <p>Join 50+ businesses that trust us with their digital success. Get a free consultation today!</p>
+                <a href="#" class="btn-primary" onclick="showPage('contact'); return false;">Get Started Today</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Services Page -->
+    <div id="servicesPage" class="hidden">
+        <div class="page-header">
+            <h1>Our Services</h1>
+            <p>Comprehensive digital solutions tailored to your business needs</p>
+        </div>
+        <section class="services-detail">
+            <div class="container">
+                <div class="service-detail-card">
+                    <h3>🎨 Website Design & Development</h3>
+                    <p>We create stunning, responsive websites that represent your brand and drive conversions. Every site is custom-built with attention to detail and optimized for performance.</p>
+                    <ul>
+                        <li>Custom responsive design for all devices</li>
+                        <li>Modern, user-friendly interfaces</li>
+                        <li>Fast loading speeds and SEO optimization</li>
+                        <li>Content management systems</li>
+                        <li>Ongoing maintenance and support</li>
+                        <li>SSL security and GDPR compliance</li>
+                        <li>Analytics integration and tracking</li>
+                    </ul>
+                </div>
+
+                <div class="service-detail-card">
+                    <h3>📱 Digital Marketing & Social Media Management</h3>
+                    <p>Build your brand presence and engage your audience across digital channels. We develop strategic campaigns that deliver measurable results.</p>
+                    <ul>
+                        <li>Social media strategy and content creation</li>
+                        <li>Platform management (Facebook, Instagram, LinkedIn)</li>
+                        <li>Audience engagement and community building</li>
+                        <li>Analytics and performance reporting</li>
+                        <li>Paid advertising campaigns (PPC, Social Ads)</li>
+                        <li>Email marketing campaigns</li>
+                        <li>Brand identity development</li>
+                    </ul>
+                </div>
+
+                <div class="service-detail-card">
+                    <h3>🛍️ E-commerce Setup</h3>
+                    <p>Launch your online store with confidence. We handle everything from platform selection to payment gateway integration.</p>
+                    <ul>
+                        <li>Complete store setup and configuration</li>
+                        <li>Product catalog management</li>
+                        <li>Secure payment gateway integration</li>
+                        <li>Shopping cart optimization</li>
+                        <li>Inventory and order management systems</li>
+                        <li>Shipping integration and automation</li>
+                        <li>Customer account management</li>
+                    </ul>
+                </div>
+
+                <div class="service-detail-card">
+                    <h3>🤖 Business Automation</h3>
+                    <p>Increase efficiency and reduce manual work with smart automation solutions tailored to your business processes.</p>
+                    <ul>
+                        <li>Workflow automation and optimization</li>
+                        <li>Email marketing automation</li>
+                        <li>Customer relationship management (CRM) setup</li>
+                        <li>Data synchronization between platforms</li>
+                        <li>Custom automation solutions</li>
+                        <li>Reporting and analytics automation</li>
+                        <li>Integration with existing tools</li>
+                    </ul>
+                </div>
+
+                <div class="service-detail-card">
+                    <h3>💼 Virtual Assistance</h3>
+                    <p>Professional administrative support to help you focus on what matters most—growing your business.</p>
+                    <ul>
+                        <li>Email and calendar management</li>
+                        <li>Data entry and organization</li>
+                        <li>Customer service support</li>
+                        <li>Research and documentation</li>
+                        <li>Administrative task coordination</li>
+                        <li>Social media management</li>
+                        <li>Project coordination and follow-up</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Interested in Our Services?</h2>
+                <p>Request a custom quote tailored to your specific needs</p>
+                <a href="#" class="btn-primary" onclick="showPage('contact'); return false;">Request a Quote</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Portfolio Page -->
+    <div id="portfolioPage" class="hidden">
+        <div class="page-header">
+            <h1>Our Portfolio</h1>
+            <p>Explore our recent projects and success stories</p>
+        </div>
+        <section class="portfolio-preview">
+            <div class="container">
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="images/project1.png" alt="ZN Enterprises Website">
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-tags">
+                                <span class="tag">Web Design</span>
+                                <span class="tag">SEO</span>
+                                <span class="tag">Branding</span>
+                            </div>
+                            <h3>ZN Enterprises</h3>
+                            <p>Professional business website with modern design and seamless user experience. Built with responsive layouts, optimized performance, and integrated SEO strategies that increased organic traffic by 150%.</p>
+                            <a href="https://znenterprises.com" target="_blank" class="portfolio-link">View Project →</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="images/project2.png" alt="CSS Kro Website">
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-tags">
+                                <span class="tag">Development</span>
+                                <span class="tag">UI/UX</span>
+                                <span class="tag">Animation</span>
+                            </div>
+                            <h3>CSS Kro</h3>
+                            <p>Dynamic web platform showcasing custom development and responsive design. Features interactive elements, smooth animations, and an intuitive user interface that enhances user engagement.</p>
+                            <a href="https://csskro.com" target="_blank" class="portfolio-link">View Project →</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="E-commerce Platform">
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-tags">
+                                <span class="tag">E-commerce</span>
+                                <span class="tag">Payment Integration</span>
+                            </div>
+                            <h3>Urban Boutique Store</h3>
+                            <p>Complete e-commerce solution with secure payment processing, inventory management, and customer account features. Achieved 300% increase in online sales within 6 months.</p>
+                            <a href="#" class="portfolio-link">View Case Study →</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" alt="Marketing Campaign">
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-tags">
+                                <span class="tag">Digital Marketing</span>
+                                <span class="tag">Social Media</span>
+                            </div>
+                            <h3>GreenLife Marketing Campaign</h3>
+                            <p>Comprehensive digital marketing strategy including social media management, content creation, and paid advertising. Resulted in 250% increase in social engagement and 180% growth in leads.</p>
+                            <a href="#" class="portfolio-link">View Case Study →</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&h=600&fit=crop" alt="Business Automation">
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-tags">
+                                <span class="tag">Automation</span>
+                                <span class="tag">CRM</span>
+                            </div>
+                            <h3>Swift Logistics Automation</h3>
+                            <p>Custom automation solution streamlining order processing, customer communications, and reporting. Reduced manual work by 60% and improved response times by 75%.</p>
+                            <a href="#" class="portfolio-link">View Case Study →</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop" alt="Corporate Website">
+                        </div>
+                        <div class="portfolio-content">
+                            <div class="portfolio-tags">
+                                <span class="tag">Corporate</span>
+                                <span class="tag">Multi-page</span>
+                            </div>
+                            <h3>Apex Consulting Website</h3>
+                            <p>Professional corporate website with service pages, team profiles, and client portal. Enhanced brand credibility and generated 40% more qualified leads.</p>
+                            <a href="#" class="portfolio-link">View Case Study →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Client Success Stories</h2>
+                    <p>Real results from real businesses</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"The website exceeded all our expectations. Professional, fast, and exactly what we needed to take our business to the next level."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">ZN</div>
+                            <div class="author-info">
+                                <h4>ZN Enterprises</h4>
+                                <p>Business Services</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"Outstanding work! The design is modern, functional, and our customers love it. Highly professional team."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">CK</div>
+                            <div class="author-info">
+                                <h4>CSS Kro</h4>
+                                <p>Technology</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Let's create something amazing together</p>
+                <a href="#" class="btn-primary" onclick="showPage('contact'); return false;">Get Your Free Quote</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="aboutPage" class="hidden">
+        <div class="page-header">
+            <h1>About AW Web Services</h1>
+            <p>Your trusted partner in digital transformation</p>
+        </div>
+        <section class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <h2>Who We Are</h2>
+                    <p>AW Web Services is an award-winning digital solutions agency dedicated to helping businesses establish and grow their online presence. Since our founding, we've successfully delivered 100+ projects for clients across various industries, from startups to established enterprises.</p>
+                    
+                    <p>Our mission is to empower businesses with cutting-edge digital tools and strategies that drive measurable results. We believe that every business deserves a professional online presence that reflects their unique value proposition and connects authentically with their target audience.</p>
+                    
+                    <p>With a proven track record of success and a 5.0 client satisfaction rating, we combine technical expertise with creative innovation to deliver solutions that exceed expectations. Our team stays ahead of industry trends to ensure your business benefits from the latest digital technologies and best practices.</p>
+
+                    <h2 style="margin-top: 3rem;">Our Achievements</h2>
+                    <div class="features-grid" style="margin-top: 2rem;">
+                        <div class="feature">
+                            <div class="feature-icon">🏆</div>
+                            <h3>Award-Winning</h3>
+                            <p>Recognized for excellence in web design and digital solutions</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">⭐</div>
+                            <h3>5.0 Rating</h3>
+                            <p>Perfect client satisfaction score across all platforms</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">📈</div>
+                            <h3>Proven Results</h3>
+                            <p>Average 200% increase in client online engagement</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🌍</div>
+                            <h3>Global Reach</h3>
+                            <p>Serving clients across multiple countries and industries</p>
+                        </div>
+                    </div>
+
+                    <h2 style="margin-top: 3rem;">Our Values</h2>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <h3>Excellence</h3>
+                            <p>We deliver high-quality work that exceeds industry standards and client expectations in every project.</p>
+                        </div>
+                        <div class="value-card">
+                            <h3>Integrity</h3>
+                            <p>Honest communication and transparent processes build lasting client relationships based on trust.</p>
+                        </div>
+                        <div class="value-card">
+                            <h3>Innovation</h3>
+                            <p>We stay ahead of digital trends to provide cutting-edge solutions that give our clients a competitive advantage.</p>
+                        </div>
+                        <div class="value-card">
+                            <h3>Results</h3>
+                            <p>Our focus is on delivering measurable outcomes that drive business growth and ROI for our clients.</p>
+                        </div>
+                    </div>
+
+                    <h2 style="margin-top: 3rem;">Why Businesses Trust Us</h2>
+                    <div class="service-detail-card" style="margin-top: 2rem;">
+                        <ul>
+                            <li>3+ years of proven experience in digital solutions</li>
+                            <li>50+ satisfied clients across diverse industries</li>
+                            <li>100+ successful projects delivered on time</li>
+                            <li>5.0 average client rating and testimonials</li>
+                            <li>Certified professionals with industry expertise</li>
+                            <li>Dedicated support and ongoing maintenance</li>
+                            <li>Transparent pricing with no hidden fees</li>
+                            <li>Money-back satisfaction guarantee</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What Sets Us Apart</h2>
+                    <p>Hear from businesses we've helped succeed</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"Their professionalism and expertise are unmatched. They truly care about their clients' success and go above and beyond to deliver exceptional results."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SM</div>
+                            <div class="author-info">
+                                <h4>Sarah Mitchell</h4>
+                                <p>CEO, TechStart Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"Working with AW Web Services was the best decision for our business. They're reliable, creative, and deliver outstanding quality every time."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JC</div>
+                            <div class="author-info">
+                                <h4>James Chen</h4>
+                                <p>Founder, Urban Boutique</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Work Together?</h2>
+                <p>Join our growing list of satisfied clients</p>
+                <a href="#" class="btn-primary" onclick="showPage('contact'); return false;">Start Your Project</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contactPage" class="hidden">
+        <div class="page-header">
+            <h1>Get In Touch</h1>
+            <p>Let's discuss how we can help your business grow</p>
+        </div>
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p style="margin-bottom: 2rem;">Ready to start your project? Reach out to us and we'll get back to you within 24 hours. Free consultation for all new clients!</p>
+                        
+                        <div class="contact-item">
+                            <span class="contact-item-icon">📧</span>
+                            <div>
+                                <strong>Email</strong><br>
+                                <a href="mailto:bakarwebservices@gmail.com">bakarwebservices@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="contact-item-icon">🌐</span>
+                            <div>
+                                <strong>Website</strong><br>
+                                <a href="https://awweb.online" target="_blank">awweb.online</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="contact-item-icon"><svg width="24px" height="24px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="16" cy="16" r="14" fill="url(#paint0_linear_87_7208)"/>
+<path d="M21.2137 20.2816L21.8356 16.3301H17.9452V13.767C17.9452 12.6857 18.4877 11.6311 20.2302 11.6311H22V8.26699C22 8.26699 20.3945 8 18.8603 8C15.6548 8 13.5617 9.89294 13.5617 13.3184V16.3301H10V20.2816H13.5617V29.8345C14.2767 29.944 15.0082 30 15.7534 30C16.4986 30 17.2302 29.944 17.9452 29.8345V20.2816H21.2137Z" fill="white"/>
+<defs>
+<linearGradient id="paint0_linear_87_7208" x1="16" y1="2" x2="16" y2="29.917" gradientUnits="userSpaceOnUse">
+<stop stop-color="#18ACFE"/>
+<stop offset="1" stop-color="#0163E0"/>
+</linearGradient>
+</defs>
+</svg></span>
+                            <div>
+                                <strong>Social Media</strong><br>
+                                <a href="https://web.facebook.com/profile.php?id=61573852657162" target="_blank">Follow us on Facebook</a>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                            <h4 style="margin-bottom: 1rem;">Business Hours</h4>
+                            <p style="margin-bottom: 0.5rem;">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                            <p style="margin-bottom: 0.5rem;">Saturday: 10:00 AM - 4:00 PM</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3>Request a Free Quote</h3>
+                        <p style="color: var(--text-light); margin-bottom: 1.5rem;">Fill out the form below and we'll get back to you with a custom quote within 24 hours.</p>
+                        <form id="contactForm" onsubmit="handleSubmit(event)">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number (Optional)</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service Interested In *</label>
+                                <select id="service" name="service" required>
+                                    <option value="">Select a service</option>
+                                    <option value="website">Website Design & Development</option>
+                                    <option value="marketing">Digital Marketing</option>
+                                    <option value="ecommerce">E-commerce Setup</option>
+                                    <option value="automation">Business Automation</option>
+                                    <option value="virtual">Virtual Assistance</option>
+                                    <option value="multiple">Multiple Services</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="budget">Estimated Budget (Optional)</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Select budget range</option>
+                                    <option value="under-1k">Under $1,000</option>
+                                    <option value="1k-3k">$1,000 - $3,000</option>
+                                    <option value="3k-5k">$3,000 - $5,000</option>
+                                    <option value="5k-10k">$5,000 - $10,000</option>
+                                    <option value="over-10k">Over $10,000</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Project Details *</label>
+                                <textarea id="message" name="message" required placeholder="Tell us about your project, goals, and any specific requirements..."></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                            <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 1rem; text-align: center;">We respect your privacy and will never share your information.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trust-badges" style="background: var(--bg-light);">
+            <div class="container">
+                <div class="section-header" style="margin-bottom: 2rem;">
+                    <h2>Why Choose Us</h2>
+                </div>
+                <div class="badges-grid">
+                    <div class="badge">
+                        <div class="badge-icon">⚡</div>
+                        <div class="badge-text">24-Hour Response</div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">💯</div>
+                        <div class="badge-text">Satisfaction Guaranteed</div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">🏆</div>
+                        <div class="badge-text">Award-Winning Service</div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">🔒</div>
+                        <div class="badge-text">Secure & Confidential</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AW Web Services</h3>
+                    <p>Professional digital solutions for growing businesses. Award-winning service trusted by 50+ clients worldwide.</p>
+                    <p style="margin-top: 1rem;"><a href="https://awweb.online" style="color: var(--accent);">awweb.online</a></p>
+                    <div class="social-links">
+                        <a href="https://web.facebook.com/profile.php?id=61573852657162" target="_blank" title="Facebook"><svg width="24px" height="24px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="16" cy="16" r="14" fill="url(#paint0_linear_87_7208)"/>
+<path d="M21.2137 20.2816L21.8356 16.3301H17.9452V13.767C17.9452 12.6857 18.4877 11.6311 20.2302 11.6311H22V8.26699C22 8.26699 20.3945 8 18.8603 8C15.6548 8 13.5617 9.89294 13.5617 13.3184V16.3301H10V20.2816H13.5617V29.8345C14.2767 29.944 15.0082 30 15.7534 30C16.4986 30 17.2302 29.944 17.9452 29.8345V20.2816H21.2137Z" fill="white"/>
+<defs>
+<linearGradient id="paint0_linear_87_7208" x1="16" y1="2" x2="16" y2="29.917" gradientUnits="userSpaceOnUse">
+<stop stop-color="#18ACFE"/>
+<stop offset="1" stop-color="#0163E0"/>
+</linearGradient>
+</defs>
+</svg></a>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">⭐⭐⭐⭐⭐ 5.0 Rating</p>
+                        <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">Based on 50+ client reviews</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#" onclick="showPage('home'); return false;">Home</a>
+                    <a href="#" onclick="showPage('services'); return false;">Services</a>
+                    <a href="#" onclick="showPage('portfolio'); return false;">Portfolio</a>
+                    <a href="#" onclick="showPage('about'); return false;">About</a>
+                    <a href="#" onclick="showPage('contact'); return false;">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <a href="#" onclick="showPage('services'); return false;">Website Design</a>
+                    <a href="#" onclick="showPage('services'); return false;">Digital Marketing</a>
+                    <a href="#" onclick="showPage('services'); return false;">E-commerce Setup</a>
+                    <a href="#" onclick="showPage('services'); return false;">Business Automation</a>
+                    <a href="#" onclick="showPage('services'); return false;">Virtual Assistance</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <a href="mailto:bakarwebservices@gmail.com">bakarwebservices@gmail.com</a>
+                    <p style="margin-top: 1rem;">Monday - Friday: 9AM - 6PM</p>
+                    <p>Saturday: 10AM - 4PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AW Web Services. All rights reserved. | Professional Digital Solutions</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(page) {
+            document.getElementById('homePage').classList.add('hidden');
+            document.getElementById('servicesPage').classList.add('hidden');
+            document.getElementById('portfolioPage').classList.add('hidden');
+            document.getElementById('aboutPage').classList.add('hidden');
+            document.getElementById('contactPage').classList.add('hidden');
+            
+            document.getElementById(page + 'Page').classList.remove('hidden');
+            
+            window.scrollTo(0, 0);
+            
+            const navLinks = document.getElementById('navLinks');
+            if (window.innerWidth <= 768) {
+                navLinks.classList.remove('active');
+            }
+        }
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            const subject = `Quote Request: ${data.service}`;
+            let body = `Name: ${data.name}%0D%0AEmail: ${data.email}%0D%0A`;
+            
+            if (data.phone) {
+                body += `Phone: ${data.phone}%0D%0A`;
+            }
+            
+            body += `Service: ${data.service}%0D%0A`;
+            
+            if (data.budget) {
+                body += `Budget: ${data.budget}%0D%0A`;
+            }
+            
+            body += `%0D%0AMessage:%0D%0A${data.message}`;
+            
+            window.location.href = `mailto:bakarwebservices@gmail.com?subject=${subject}&body=${body}`;
+            
+            alert('Thank you for your interest! Your message will open in your email client. Please send it to complete your quote request. We\'ll respond within 24 hours.');
+        }
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                document.getElementById('navLinks').classList.remove('active');
+            }
+        });
+
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
