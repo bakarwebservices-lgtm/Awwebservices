@@ -248,6 +248,11 @@
         .badge-icon {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .badge-icon svg {
+            stroke: var(--primary);
         }
 
         .badge-text {
@@ -775,6 +780,13 @@
 
         .contact-item-icon {
             font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-item-icon svg {
+            stroke: white;
         }
 
         .contact-item a {
@@ -928,9 +940,9 @@
 <body>
     <!-- Trust Bar -->
     <div class="trust-bar">
-        <span>⭐ 5.0 Rating on Google</span>
+        <span>★ 5.0 Rating on Google</span>
         <span>✓ 50+ Projects Completed</span>
-        <span>🏆 Award-Winning Service</span>
+        <span>Award-Winning Service</span>
     </div>
 
     <!-- Navigation -->
@@ -989,23 +1001,47 @@
             <div class="container">
                 <div class="badges-grid">
                     <div class="badge">
-                        <div class="badge-icon">🔒</div>
+                        <div class="badge-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
                         <div class="badge-text">SSL Secured</div>
                     </div>
                     <div class="badge">
-                        <div class="badge-icon">⚡</div>
+                        <div class="badge-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                        </div>
                         <div class="badge-text">Fast Delivery</div>
                     </div>
                     <div class="badge">
-                        <div class="badge-icon">💯</div>
+                        <div class="badge-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                        </div>
                         <div class="badge-text">100% Satisfaction</div>
                     </div>
                     <div class="badge">
-                        <div class="badge-icon">🎯</div>
+                        <div class="badge-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <polyline points="19 12 12 19 5 12"></polyline>
+                            </svg>
+                        </div>
                         <div class="badge-text">Result-Driven</div>
                     </div>
                     <div class="badge">
-                        <div class="badge-icon">🏆</div>
+                        <div class="badge-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="8" r="7"></circle>
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                            </svg>
+                        </div>
                         <div class="badge-text">Award-Winning</div>
                     </div>
                 </div>
@@ -1186,32 +1222,59 @@
                 </div>
                 <div class="features-grid">
                     <div class="feature">
-                        <div class="feature-icon">⚡</div>
+                        <div class="feature-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
                         <h3>Fast Delivery</h3>
                         <p>Quick turnaround times without compromising on quality</p>
                     </div>
                     <div class="feature">
-                        <div class="feature-icon">💎</div>
+                        <div class="feature-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                            </svg>
+                        </div>
                         <h3>Quality Work</h3>
                         <p>Professional results that exceed expectations</p>
                     </div>
                     <div class="feature">
-                        <div class="feature-icon">🎯</div>
+                        <div class="feature-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </div>
                         <h3>Result-Driven</h3>
                         <p>Solutions focused on achieving your business goals</p>
                     </div>
                     <div class="feature">
-                        <div class="feature-icon">💬</div>
+                        <div class="feature-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                        </div>
                         <h3>Clear Communication</h3>
                         <p>Transparent updates throughout your project</p>
                     </div>
                     <div class="feature">
-                        <div class="feature-icon">🛡️</div>
+                        <div class="feature-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
                         <h3>Reliable Support</h3>
                         <p>Ongoing maintenance and dedicated customer service</p>
                     </div>
                     <div class="feature">
-                        <div class="feature-icon">💰</div>
+                        <div class="feature-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
                         <h3>Great Value</h3>
                         <p>Competitive pricing with exceptional ROI</p>
                     </div>
@@ -1238,7 +1301,7 @@
         <section class="services-detail">
             <div class="container">
                 <div class="service-detail-card">
-                    <h3>🎨 Website Design & Development</h3>
+                    <h3>Website Design & Development</h3>
                     <p>We create stunning, responsive websites that represent your brand and drive conversions. Every site is custom-built with attention to detail and optimized for performance.</p>
                     <ul>
                         <li>Custom responsive design for all devices</li>
@@ -1252,7 +1315,7 @@
                 </div>
 
                 <div class="service-detail-card">
-                    <h3>📱 Digital Marketing & Social Media Management</h3>
+                    <h3>Digital Marketing & Social Media Management</h3>
                     <p>Build your brand presence and engage your audience across digital channels. We develop strategic campaigns that deliver measurable results.</p>
                     <ul>
                         <li>Social media strategy and content creation</li>
@@ -1266,7 +1329,7 @@
                 </div>
 
                 <div class="service-detail-card">
-                    <h3>🛍️ E-commerce Setup</h3>
+                    <h3>E-commerce Setup</h3>
                     <p>Launch your online store with confidence. We handle everything from platform selection to payment gateway integration.</p>
                     <ul>
                         <li>Complete store setup and configuration</li>
@@ -1280,7 +1343,7 @@
                 </div>
 
                 <div class="service-detail-card">
-                    <h3>🤖 Business Automation</h3>
+                    <h3>Business Automation</h3>
                     <p>Increase efficiency and reduce manual work with smart automation solutions tailored to your business processes.</p>
                     <ul>
                         <li>Workflow automation and optimization</li>
@@ -1294,7 +1357,7 @@
                 </div>
 
                 <div class="service-detail-card">
-                    <h3>💼 Virtual Assistance</h3>
+                    <h3>Virtual Assistance</h3>
                     <p>Professional administrative support to help you focus on what matters most—growing your business.</p>
                     <ul>
                         <li>Email and calendar management</li>
@@ -1478,22 +1541,41 @@
                     <h2 style="margin-top: 3rem;">Our Achievements</h2>
                     <div class="features-grid" style="margin-top: 2rem;">
                         <div class="feature">
-                            <div class="feature-icon">🏆</div>
+                            <div class="feature-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <circle cx="12" cy="8" r="7"></circle>
+                                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                                </svg>
+                            </div>
                             <h3>Award-Winning</h3>
                             <p>Recognized for excellence in web design and digital solutions</p>
                         </div>
                         <div class="feature">
-                            <div class="feature-icon">⭐</div>
+                            <div class="feature-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                </svg>
+                            </div>
                             <h3>5.0 Rating</h3>
                             <p>Perfect client satisfaction score across all platforms</p>
                         </div>
                         <div class="feature">
-                            <div class="feature-icon">📈</div>
+                            <div class="feature-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                </svg>
+                            </div>
                             <h3>Proven Results</h3>
                             <p>Average 200% increase in client online engagement</p>
                         </div>
                         <div class="feature">
-                            <div class="feature-icon">🌍</div>
+                            <div class="feature-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                </svg>
+                            </div>
                             <h3>Global Reach</h3>
                             <p>Serving clients across multiple countries and industries</p>
                         </div>
@@ -1592,7 +1674,12 @@
                         <p style="margin-bottom: 2rem;">Ready to start your project? Reach out to us and we'll get back to you within 24 hours. Free consultation for all new clients!</p>
                         
                         <div class="contact-item">
-                            <span class="contact-item-icon">📧</span>
+                            <span class="contact-item-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </span>
                             <div>
                                 <strong>Email</strong><br>
                                 <a href="mailto:bakarwebservices@gmail.com">bakarwebservices@gmail.com</a>
@@ -1600,7 +1687,13 @@
                         </div>
 
                         <div class="contact-item">
-                            <span class="contact-item-icon">🌐</span>
+                            <span class="contact-item-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                </svg>
+                            </span>
                             <div>
                                 <strong>Website</strong><br>
                                 <a href="https://awweb.online" target="_blank">awweb.online</a>
@@ -1691,19 +1784,39 @@
                 </div>
                 <div class="badges-grid">
                     <div class="badge">
-                        <div class="badge-icon">⚡</div>
+                        <div class="badge-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
                         <div class="badge-text">24-Hour Response</div>
                     </div>
                     <div class="badge">
-                        <div class="badge-icon">💯</div>
+                        <div class="badge-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                        </div>
                         <div class="badge-text">Satisfaction Guaranteed</div>
                     </div>
                     <div class="badge">
-                        <div class="badge-icon">🏆</div>
+                        <div class="badge-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="8" r="7"></circle>
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                            </svg>
+                        </div>
                         <div class="badge-text">Award-Winning Service</div>
                     </div>
                     <div class="badge">
-                        <div class="badge-icon">🔒</div>
+                        <div class="badge-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
                         <div class="badge-text">Secure & Confidential</div>
                     </div>
                 </div>
@@ -1732,7 +1845,7 @@
 </svg></a>
                     </div>
                     <div style="margin-top: 1.5rem;">
-                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">⭐⭐⭐⭐⭐ 5.0 Rating</p>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">★★★★★ 5.0 Rating</p>
                         <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">Based on 50+ client reviews</p>
                     </div>
                 </div>
