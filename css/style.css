@@ -76,7 +76,7 @@ button { font: inherit; border: none; background: none; cursor: pointer; }
 .mesh-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
 .mesh-orb {
     position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.35;
-    animation: orbFloat 20s ease-in-out infinite;
+    animation: orbFloat 20s ease-in-out infinite; will-change: transform;
 }
 .mesh-orb--1 { width: 600px; height: 600px; background: #6366f1; top: -200px; right: -100px; }
 .mesh-orb--2 { width: 500px; height: 500px; background: #22d3ee; bottom: -150px; left: -100px; animation-delay: -7s; }
@@ -116,12 +116,14 @@ button { font: inherit; border: none; background: none; cursor: pointer; }
 /* ── Custom Cursor ── */
 .cursor { position: fixed; z-index: 9999; pointer-events: none; mix-blend-mode: difference; }
 .cursor__dot {
-    position: fixed; width: 8px; height: 8px; background: #fff; border-radius: 50%;
-    transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s, opacity 0.3s;
+    position: fixed; top: 0; left: 0; width: 8px; height: 8px; background: #fff; border-radius: 50%;
+    transform: translate3d(0, 0, 0) translate(-50%, -50%); will-change: transform; transition: width 0.3s, height 0.3s, opacity 0.3s;
+    pointer-events: none;
 }
 .cursor__ring {
-    position: fixed; width: 40px; height: 40px; border: 1.5px solid rgba(255,255,255,0.5); border-radius: 50%;
-    transform: translate(-50%, -50%); transition: width 0.4s var(--ease), height 0.4s var(--ease), border-color 0.3s;
+    position: fixed; top: 0; left: 0; width: 40px; height: 40px; border: 1.5px solid rgba(255,255,255,0.5); border-radius: 50%;
+    transform: translate3d(0, 0, 0) translate(-50%, -50%); will-change: transform; transition: width 0.4s var(--ease), height 0.4s var(--ease), border-color 0.3s;
+    pointer-events: none;
 }
 .cursor.is-hover .cursor__dot { width: 0; height: 0; opacity: 0; }
 .cursor.is-hover .cursor__ring { width: 64px; height: 64px; border-color: rgba(255,255,255,0.8); }
