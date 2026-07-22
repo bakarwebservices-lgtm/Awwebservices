@@ -348,22 +348,47 @@
         e.preventDefault();
         const form = e.target;
         const btn = form.querySelector('button[type="submit"]');
-        const span = btn.querySelector('span');
-        const orig = span.textContent;
+        const span = btn ? btn.querySelector('span') : null;
+        const orig = span ? span.textContent : 'Send Message';
 
         const data = Object.fromEntries(new FormData(form));
-        span.textContent = 'Sending...';
+        if (span) span.textContent = 'Generating Quote Request...';
 
-        let body = `Name: ${data.name}%0D%0AEmail: ${data.email}%0D%0A`;
-        if (data.phone) body += `Phone: ${data.phone}%0D%0A`;
-        body += `Service: ${data.service}%0D%0A`;
-        if (data.budget) body += `Budget: ${data.budget}%0D%0A`;
-        body += `%0D%0AMessage:%0D%0A${data.message}`;
+        let bodyText = `Name: ${data.name || ''}\nEmail: ${data.email || ''}\n`;
+        if (data.phone) bodyText += `Phone: ${data.phone}\n`;
+        if (data.service) bodyText += `Service Requested: ${data.service}\n`;
+        if (data.budget) bodyText += `Estimated Budget: ${data.budget}\n`;
+        bodyText += `\nProject Details:\n${data.message || ''}`;
+
+        const subject = `Quote Request: ${data.service || 'New Project'} (${data.name || 'Client'})`;
+        const mailtoUrl = `mailto:bakarwebservices@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
+
+        // Synchronous trigger to preserve browser user activation
+        window.location.href = mailtoUrl;
+
+        // Render on-page UI feedback box
+        let feedback = document.getElementById('formFeedback');
+        if (!feedback) {
+            feedback = document.createElement('div');
+            feedback.id = 'formFeedback';
+            feedback.className = 'form-feedback';
+            form.appendChild(feedback);
+        }
+
+        feedback.innerHTML = `
+            <div class="form-feedback__inner">
+                <span class="form-feedback__icon">✓</span>
+                <div>
+                    <strong>Quote Request Generated!</strong>
+                    <p>Thank you! Your project details have been formatted for instant submission.</p>
+                </div>
+            </div>
+        `;
 
         setTimeout(() => {
-            window.location.href = `mailto:bakarwebservices@gmail.com?subject=${encodeURIComponent('Quote Request: ' + data.service)}&body=${body}`;
-            span.textContent = orig;
-        }, 800);
+            if (span) span.textContent = orig;
+            form.reset();
+        }, 1000);
     };
 
     /* ── Work Scroll Drag ── */
