@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attireburg — Case Study | AW Web Services</title>
+    <meta name="description" content="A fully owned e-commerce platform for a German apparel brand, built without platform lock-in using Next.js, Supabase, and PayPal.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="mesh-bg" aria-hidden="true">
+        <div class="mesh-orb mesh-orb--1"></div>
+        <div class="mesh-orb mesh-orb--2"></div>
+        <div class="mesh-orb mesh-orb--3"></div>
+    </div>
+
+    <div class="preloader" id="preloader">
+        <div class="preloader__inner">
+            <div class="preloader__logo">
+                <img src="images/logo.webp" alt="" width="56" height="56">
+                <span>AW Web Services</span>
+            </div>
+            <div class="preloader__bar"><div class="preloader__fill" id="preloaderFill"></div></div>
+            <p class="preloader__pct" id="preloaderPct">0%</p>
+        </div>
+    </div>
+
+    <div class="cursor" id="cursor" aria-hidden="true">
+        <div class="cursor__dot"></div>
+        <div class="cursor__ring"></div>
+    </div>
+
+    <div class="page-curtain" id="pageCurtain" aria-hidden="true"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <header class="header" id="header">
+        <div class="header__inner container">
+            <a href="index.html" class="header__logo" data-magnetic>
+                <img src="images/logo.webp" alt="AW Web Services" width="36" height="36">
+                <span>AW<span class="header__logo-accent">.</span></span>
+            </a>
+            <nav class="header__nav" id="mainNav">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#portfolio" class="is-active">Work</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+            <a href="index.html#contact" class="btn btn--primary btn--sm header__cta" data-magnetic>
+                <span>Start a Project</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <button class="header__burger" id="burger" aria-label="Menu" aria-expanded="false">
+                <span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu__nav">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#portfolio">Work</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+        <a href="index.html#contact" class="btn btn--primary">Start a Project</a>
+    </div>
+
+    <main id="main">
+        <div class="page is-active" id="page-project-attireburg" data-page="project-attireburg">
+            <section class="cs-hero">
+                <div class="container">
+                    <a href="index.html#portfolio" class="cs-back" data-magnetic>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        <span>Back to All Work</span>
+                    </a>
+                    <div class="cs-hero__header">
+                        <span class="cs-badge cs-badge--live">Live Platform</span>
+                        <span class="cs-badge cs-badge--category">E-Commerce &amp; Custom Infrastructure</span>
+                    </div>
+                    <h1 class="cs-hero__title">Attireburg</h1>
+                    <p class="cs-hero__tagline">A fully owned e-commerce platform for a German apparel brand, built without platform lock-in.</p>
+                    
+                    <div class="cs-stats">
+                        <div class="cs-stat" data-tilt>
+                            <span class="cs-stat__val">$0</span>
+                            <span class="cs-stat__label">Recurring Platform Fees</span>
+                        </div>
+                        <div class="cs-stat" data-tilt>
+                            <span class="cs-stat__val">100%</span>
+                            <span class="cs-stat__label">Infrastructure Ownership</span>
+                        </div>
+                        <div class="cs-stat" data-tilt>
+                            <span class="cs-stat__val">Native</span>
+                            <span class="cs-stat__label">PayPal Integration</span>
+                        </div>
+                    </div>
+
+                    <div class="cs-hero__banner">
+                        <img src="images/project-3.webp" alt="Attireburg E-Commerce Experience" class="cs-hero__img">
+                        <div class="cs-hero__banner-overlay"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cs-section">
+                <div class="container">
+                    <div class="cs-grid">
+                        <div class="cs-main">
+                            <div class="cs-block gs-reveal">
+                                <div class="cs-block__header">
+                                    <span class="cs-block__icon">⚠️</span>
+                                    <h2>The Problem</h2>
+                                </div>
+                                <p class="cs-text">Attireburg needed an online store, but the client wanted to actually own their infrastructure rather than rent it through a platform like Shopify. Platform fees, limited customisation, and no real ownership of the data or codebase were the core concerns going in.</p>
+                                <div class="cs-quote">
+                                    <p>"We wanted complete autonomy over our brand experience and customer data without recurring percentage fees."</p>
+                                </div>
+                            </div>
+
+                            <div class="cs-block gs-reveal">
+                                <div class="cs-block__header">
+                                    <span class="cs-block__icon">⚡</span>
+                                    <h2>The System We Built</h2>
+                                </div>
+                                <div class="cs-features">
+                                    <div class="cs-feature">
+                                        <h3>Fully Custom Storefront</h3>
+                                        <p>A complete e-commerce frontend and backend built from the ground up rather than assembled from a platform's theme system, giving full control over UX, performance, and future changes.</p>
+                                        <span class="cs-feature__tech">Built on Next.js with a Supabase backend, deployed on Vercel.</span>
+                                    </div>
+                                    <div class="cs-feature">
+                                        <h3>Direct Infrastructure Ownership</h3>
+                                        <p>Every piece of infrastructure — the database, the code repository, and the hosting — is handed directly to the client. No dependency on a third party platform, no recurring platform fees.</p>
+                                        <span class="cs-feature__tech">Ownership transfer covers Supabase project, GitHub repository, and Vercel deployment access.</span>
+                                    </div>
+                                    <div class="cs-feature">
+                                        <h3>Integrated Payment Processing</h3>
+                                        <p>Card payments through PayPal are built directly into checkout rather than redirecting customers off site, keeping the buying experience seamless for a European customer base.</p>
+                                        <span class="cs-feature__tech">PayPal integration handling live transactions with proper sandbox to production credential separation.</span>
+                                    </div>
+                                    <div class="cs-feature">
+                                        <h3>Efficient Media Handling</h3>
+                                        <p>Product imagery and assets are managed within Supabase storage, with attention paid to staying within efficient limits as the catalog grows.</p>
+                                        <span class="cs-feature__tech">Optimized CDN delivery and automatic format conversion.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cs-block gs-reveal">
+                                <div class="cs-block__header">
+                                    <span class="cs-block__icon">🚀</span>
+                                    <h2>The Result</h2>
+                                </div>
+                                <div class="cs-result-box">
+                                    <p class="cs-result-box__highlight">Attireburg operates on infrastructure it fully owns, with no platform fees and no vendor lock-in, while running a checkout experience built specifically around its market and customers.</p>
+                                    <div class="cs-result-metrics">
+                                        <div class="cs-metric-card">
+                                            <span class="cs-metric-card__before">Before</span>
+                                            <p>Platform Rent &amp; Third-Party Fees</p>
+                                        </div>
+                                        <div class="cs-metric-card">
+                                            <span class="cs-metric-card__after">After</span>
+                                            <p>100% Owned Infrastructure &amp; $0 Platform Rent</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <aside class="cs-sidebar">
+                            <div class="cs-card gs-reveal">
+                                <h3>Project Overview</h3>
+                                <dl class="cs-details">
+                                    <div><dt>Client</dt><dd>Attireburg (German Apparel)</dd></div>
+                                    <div><dt>Category</dt><dd>Custom E-Commerce</dd></div>
+                                    <div><dt>Status</dt><dd><span class="cs-status-dot"></span> Live Platform</dd></div>
+                                    <div><dt>Market</dt><dd>Germany &amp; EU</dd></div>
+                                </dl>
+                            </div>
+                            <div class="cs-card gs-reveal">
+                                <h3>Built With</h3>
+                                <div class="cs-tags">
+                                    <span class="cs-tag">Next.js</span>
+                                    <span class="cs-tag">Supabase</span>
+                                    <span class="cs-tag">Vercel</span>
+                                    <span class="cs-tag">PayPal API</span>
+                                </div>
+                            </div>
+                            <div class="cs-card cs-card--cta gs-reveal">
+                                <h3>Own your platform</h3>
+                                <p>Get custom e-commerce architecture without platform lock-in or recurring vendor commission.</p>
+                                <a href="index.html#contact" class="btn btn--primary btn--full" data-magnetic>
+                                    <span>Start a Project</span>
+                                </a>
+                            </div>
+                        </aside>
+                    </div>
+
+                    <div class="cs-nav gs-reveal">
+                        <a href="vortex-rings.html" class="cs-nav__link cs-nav__link--prev">
+                            <small>← Previous Case Study</small>
+                            <strong>Vortex Rings</strong>
+                        </a>
+                        <a href="zn-enterprises.html" class="cs-nav__link cs-nav__link--next">
+                            <small>Next Case Study →</small>
+                            <strong>ZN Enterprises</strong>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__grid">
+            <div class="footer__brand">
+                <a href="index.html" class="header__logo">
+                    <img src="images/logo.webp" alt="AW Web Services" width="32" height="32">
+                    <span>AW<span class="header__logo-accent">.</span></span>
+                </a>
+                <p>Professional digital solutions for growing businesses. Trusted by 50+ clients worldwide.</p>
+                <div class="footer__rating">★★★★★ <span>5.0 · 50+ reviews</span></div>
+            </div>
+            <div class="footer__col">
+                <h4>Navigate</h4>
+                <a href="index.html#home">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#portfolio">Work</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <div class="footer__col">
+                <h4>Services</h4>
+                <a href="index.html#services">Web Design</a>
+                <a href="index.html#services">Digital Marketing</a>
+                <a href="index.html#services">E-Commerce</a>
+                <a href="index.html#services">Automation</a>
+            </div>
+            <div class="footer__col">
+                <h4>Contact</h4>
+                <a href="mailto:bakarwebservices@gmail.com">bakarwebservices@gmail.com</a>
+                <a href="https://awweb.online" target="_blank" rel="noopener">awweb.online</a>
+                <a href="https://web.facebook.com/profile.php?id=61573852657162" target="_blank" rel="noopener">Facebook</a>
+            </div>
+        </div>
+        <div class="footer__bottom container">
+            <p>&copy; 2026 AW Web Services. All rights reserved.</p>
+            <p>Crafted with precision.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

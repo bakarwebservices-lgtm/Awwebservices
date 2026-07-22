@@ -2,7 +2,11 @@
 (function () {
     'use strict';
 
-    const PAGES = ['home', 'services', 'portfolio', 'about', 'contact'];
+    const PAGES = [
+        'home', 'services', 'portfolio', 'about', 'contact',
+        'project-vortex-rings', 'project-attireburg', 'project-zn-enterprises',
+        'project-css-kro', 'project-swift-logistics', 'project-apex-consulting'
+    ];
     let currentPage = 'home';
     let lenis = null;
     let isTransitioning = false;
@@ -29,17 +33,43 @@
         requestAnimationFrame(tick);
     }
 
+    function checkInitialHash() {
+        const hash = window.location.hash.replace('#', '');
+        if (!hash) return;
+        let targetPage = hash;
+        if (hash === 'vortex-rings') targetPage = 'project-vortex-rings';
+        if (hash === 'attireburg') targetPage = 'project-attireburg';
+        if (hash === 'zn-enterprises') targetPage = 'project-zn-enterprises';
+        if (hash === 'css-kro') targetPage = 'project-css-kro';
+        if (hash === 'swift-logistics') targetPage = 'project-swift-logistics';
+        if (hash === 'apex-consulting') targetPage = 'project-apex-consulting';
+
+        if (PAGES.includes(targetPage) && targetPage !== 'home') {
+            const homeEl = document.getElementById('page-home');
+            const nextEl = document.getElementById('page-' + targetPage);
+            if (homeEl && nextEl) {
+                homeEl.classList.remove('is-active');
+                nextEl.classList.add('is-active');
+                currentPage = targetPage;
+                updateNavActive(targetPage);
+            }
+        }
+    }
+
     function finishPreloader() {
         const preloader = document.getElementById('preloader');
         document.body.classList.remove('is-loading');
+
+        checkInitialHash();
 
         gsap.to(preloader, {
             opacity: 0, duration: 0.8, ease: 'power3.inOut',
             onComplete: () => {
                 preloader.classList.add('is-done');
+                const activeEl = document.getElementById('page-' + currentPage) || document.getElementById('page-home');
                 initHeroAnimation();
-                initScrollAnimations(document.getElementById('page-home'));
-                animateCounters(document.getElementById('page-home'));
+                initScrollAnimations(activeEl);
+                if (currentPage === 'home' || currentPage === 'about') animateCounters(activeEl);
             }
         });
     }
@@ -220,9 +250,18 @@
     }
 
     /* ── Page Navigation ── */
-    window.navigate = function (page) {
+    window.navigate = function (page, skipHashUpdate) {
+        if (!document.getElementById('page-' + page)) return;
         if (page === currentPage || isTransitioning) return;
         isTransitioning = true;
+
+        if (!skipHashUpdate) {
+            if (history.pushState) {
+                history.pushState(null, null, '#' + page);
+            } else {
+                location.hash = '#' + page;
+            }
+        }
 
         const curtain = document.getElementById('pageCurtain');
         const currentEl = document.getElementById('page-' + currentPage);
@@ -239,12 +278,12 @@
             scaleY: 1, transformOrigin: 'bottom', duration: 0.5, ease: 'power4.inOut'
         })
         .add(() => {
-            currentEl.classList.remove('is-active');
+            if (currentEl) currentEl.classList.remove('is-active');
             nextEl.classList.add('is-active');
             currentPage = page;
 
             ScrollTrigger.getAll().forEach(st => {
-                if (st.trigger && currentEl.contains(st.trigger)) st.kill();
+                if (st.trigger && currentEl && currentEl.contains(st.trigger)) st.kill();
             });
 
             if (lenis) lenis.scrollTo(0, { immediate: true });
@@ -252,23 +291,38 @@
             initScrollAnimations(nextEl);
             if (page === 'about') animateCounters(nextEl);
 
-            gsap.set(nextEl.querySelectorAll('.page-hero__title, .page-hero__desc, .eyebrow'), {
+            gsap.set(nextEl.querySelectorAll('.page-hero__title, .page-hero__desc, .eyebrow, .cs-hero__title, .cs-hero__tagline'), {
                 opacity: 0, y: 30
             });
         })
         .to(curtain, {
             scaleY: 0, transformOrigin: 'top', duration: 0.5, ease: 'power4.inOut'
         })
-        .to(nextEl.querySelectorAll('.eyebrow, .page-hero__title, .page-hero__desc'), {
+        .to(nextEl.querySelectorAll('.eyebrow, .page-hero__title, .page-hero__desc, .cs-hero__title, .cs-hero__tagline'), {
             opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out'
         }, '-=0.2');
     };
 
     function updateNavActive(page) {
+        const activeTarget = page.startsWith('project-') ? 'portfolio' : page;
         document.querySelectorAll('.header__nav a[data-page]').forEach(a => {
-            a.classList.toggle('is-active', a.dataset.page === page);
+            a.classList.toggle('is-active', a.dataset.page === activeTarget);
         });
     }
+
+    window.addEventListener('popstate', () => {
+        const hash = window.location.hash.replace('#', '') || 'home';
+        let targetPage = hash;
+        if (hash === 'vortex-rings') targetPage = 'project-vortex-rings';
+        if (hash === 'attireburg') targetPage = 'project-attireburg';
+        if (hash === 'zn-enterprises') targetPage = 'project-zn-enterprises';
+        if (hash === 'css-kro') targetPage = 'project-css-kro';
+        if (hash === 'swift-logistics') targetPage = 'project-swift-logistics';
+        if (hash === 'apex-consulting') targetPage = 'project-apex-consulting';
+        if (PAGES.includes(targetPage) && targetPage !== currentPage) {
+            window.navigate(targetPage, true);
+        }
+    });
 
     /* ── Mobile Menu ── */
     function initMobileMenu() {

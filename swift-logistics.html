@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swift Logistics — Case Study | AW Web Services</title>
+    <meta name="description" content="End-to-end operational automation and real-time shipment tracking platform for enterprise logistics.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="mesh-bg" aria-hidden="true">
+        <div class="mesh-orb mesh-orb--1"></div>
+        <div class="mesh-orb mesh-orb--2"></div>
+        <div class="mesh-orb mesh-orb--3"></div>
+    </div>
+
+    <div class="preloader" id="preloader">
+        <div class="preloader__inner">
+            <div class="preloader__logo">
+                <img src="images/logo.webp" alt="" width="56" height="56">
+                <span>AW Web Services</span>
+            </div>
+            <div class="preloader__bar"><div class="preloader__fill" id="preloaderFill"></div></div>
+            <p class="preloader__pct" id="preloaderPct">0%</p>
+        </div>
+    </div>
+
+    <div class="cursor" id="cursor" aria-hidden="true">
+        <div class="cursor__dot"></div>
+        <div class="cursor__ring"></div>
+    </div>
+
+    <div class="page-curtain" id="pageCurtain" aria-hidden="true"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <header class="header" id="header">
+        <div class="header__inner container">
+            <a href="index.html" class="header__logo" data-magnetic>
+                <img src="images/logo.webp" alt="AW Web Services" width="36" height="36">
+                <span>AW<span class="header__logo-accent">.</span></span>
+            </a>
+            <nav class="header__nav" id="mainNav">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#portfolio" class="is-active">Work</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+            <a href="index.html#contact" class="btn btn--primary btn--sm header__cta" data-magnetic>
+                <span>Start a Project</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <button class="header__burger" id="burger" aria-label="Menu" aria-expanded="false">
+                <span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu__nav">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#portfolio">Work</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+        <a href="index.html#contact" class="btn btn--primary">Start a Project</a>
+    </div>
+
+    <main id="main">
+        <div class="page is-active" id="page-project-swift-logistics" data-page="project-swift-logistics">
+            <section class="cs-hero">
+                <div class="container">
+                    <a href="index.html#portfolio" class="cs-back" data-magnetic>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        <span>Back to All Work</span>
+                    </a>
+                    <div class="cs-hero__header">
+                        <span class="cs-badge cs-badge--live">Live System</span>
+                        <span class="cs-badge cs-badge--category">Operations &amp; Fleet Automation</span>
+                    </div>
+                    <h1 class="cs-hero__title">Swift Logistics</h1>
+                    <p class="cs-hero__tagline">End-to-end operational automation and real-time shipment tracking for enterprise logistics.</p>
+                    
+                    <div class="cs-stats">
+                        <div class="cs-stat" data-tilt>
+                            <span class="cs-stat__val">60%</span>
+                            <span class="cs-stat__label">Reduction in Manual Work</span>
+                        </div>
+                        <div class="cs-stat" data-tilt>
+                            <span class="cs-stat__val">35%</span>
+                            <span class="cs-stat__label">On-Time Delivery Lift</span>
+                        </div>
+                        <div class="cs-stat" data-tilt>
+                            <span class="cs-stat__val">Real-Time</span>
+                            <span class="cs-stat__label">GPS Dispatch &amp; Tracking</span>
+                        </div>
+                    </div>
+
+                    <div class="cs-hero__banner">
+                        <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=1200&h=800&fit=crop" alt="Swift Logistics Tracking Platform" class="cs-hero__img">
+                        <div class="cs-hero__banner-overlay"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cs-section">
+                <div class="container">
+                    <div class="cs-grid">
+                        <div class="cs-main">
+                            <div class="cs-block gs-reveal">
+                                <div class="cs-block__header">
+                                    <span class="cs-block__icon">⚠️</span>
+                                    <h2>The Problem</h2>
+                                </div>
+                                <p class="cs-text">Swift Logistics struggled with manual dispatch coordination, fragmented driver updates, and delayed client notifications, resulting in high support ticket volumes and delivery bottlenecks across regional routes.</p>
+                                <div class="cs-quote">
+                                    <p>"Dispatchers spent over half their shift manually calling drivers for updates and updating customer spreadsheets."</p>
+                                </div>
+                            </div>
+
+                            <div class="cs-block gs-reveal">
+                                <div class="cs-block__header">
+                                    <span class="cs-block__icon">⚡</span>
+                                    <h2>The System We Built</h2>
+                                </div>
+                                <div class="cs-features">
+                                    <div class="cs-feature">
+                                        <h3>Automated Dispatch Engine</h3>
+                                        <p>Intelligent route assignment and dispatch workflows that cut manual dispatch delays by over 65%.</p>
+                                        <span class="cs-feature__tech">Custom routing algorithm integrated with real-time driver updates.</span>
+                                    </div>
+                                    <div class="cs-feature">
+                                        <h3>Real-Time Fleet &amp; Order Tracking</h3>
+                                        <p>Integrated tracking dashboard giving dispatchers and end clients live visibility into package movements and estimated delivery times.</p>
+                                        <span class="cs-feature__tech">WebSockets and Google Maps API integration for live coordinate streaming.</span>
+                                    </div>
+                                    <div class="cs-feature">
+                                        <h3>Automated Client Notifications</h3>
+                                        <p>SMS and Email triggers keeping customers updated at every delivery milestone.</p>
+                                        <span class="cs-feature__tech">Twilio &amp; SendGrid webhook pipelines for instant alerts.</span>
+                                    </div>
+                                    <div class="cs-feature">
+                                        <h3>Centralized Operational CRM</h3>
+                                        <p>Unified customer shipment history, rate cards, and automated billing generation.</p>
+                                        <span class="cs-feature__tech">Custom CRM layer with role-based dispatcher access control.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cs-block gs-reveal">
+                                <div class="cs-block__header">
+                                    <span class="cs-block__icon">🚀</span>
+                                    <h2>The Result</h2>
+                                </div>
+                                <div class="cs-result-box">
+                                    <p class="cs-result-box__highlight">Reduced manual operational workload by 60%, improved on-time delivery rates by 35%, and provided full transparency to drivers, dispatchers, and customers.</p>
+                                    <div class="cs-result-metrics">
+                                        <div class="cs-metric-card">
+                                            <span class="cs-metric-card__before">Before</span>
+                                            <p>High Support Volume &amp; Delayed Driver Statuses</p>
+                                        </div>
+                                        <div class="cs-metric-card">
+                                            <span class="cs-metric-card__after">After</span>
+                                            <p>60% Manual Work Reduction &amp; Instant Live Tracking</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <aside class="cs-sidebar">
+                            <div class="cs-card gs-reveal">
+                                <h3>Project Overview</h3>
+                                <dl class="cs-details">
+                                    <div><dt>Client</dt><dd>Swift Logistics</dd></div>
+                                    <div><dt>Category</dt><dd>Operations &amp; CRM</dd></div>
+                                    <div><dt>Status</dt><dd><span class="cs-status-dot"></span> Live System</dd></div>
+                                    <div><dt>Scale</dt><dd>Regional Fleet Operations</dd></div>
+                                </dl>
+                            </div>
+                            <div class="cs-card gs-reveal">
+                                <h3>Built With</h3>
+                                <div class="cs-tags">
+                                    <span class="cs-tag">React</span>
+                                    <span class="cs-tag">Node.js</span>
+                                    <span class="cs-tag">Express</span>
+                                    <span class="cs-tag">MongoDB</span>
+                                    <span class="cs-tag">Google Maps API</span>
+                                    <span class="cs-tag">Twilio API</span>
+                                </div>
+                            </div>
+                            <div class="cs-card cs-card--cta gs-reveal">
+                                <h3>Streamline operations</h3>
+                                <p>We build automated dispatch and operational dashboards for logistics and service operations.</p>
+                                <a href="index.html#contact" class="btn btn--primary btn--full" data-magnetic>
+                                    <span>Start a Project</span>
+                                </a>
+                            </div>
+                        </aside>
+                    </div>
+
+                    <div class="cs-nav gs-reveal">
+                        <a href="css-kro.html" class="cs-nav__link cs-nav__link--prev">
+                            <small>← Previous Case Study</small>
+                            <strong>CSS Kro</strong>
+                        </a>
+                        <a href="apex-consulting.html" class="cs-nav__link cs-nav__link--next">
+                            <small>Next Case Study →</small>
+                            <strong>Apex Consulting</strong>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__grid">
+            <div class="footer__brand">
+                <a href="index.html" class="header__logo">
+                    <img src="images/logo.webp" alt="AW Web Services" width="32" height="32">
+                    <span>AW<span class="header__logo-accent">.</span></span>
+                </a>
+                <p>Professional digital solutions for growing businesses. Trusted by 50+ clients worldwide.</p>
+                <div class="footer__rating">★★★★★ <span>5.0 · 50+ reviews</span></div>
+            </div>
+            <div class="footer__col">
+                <h4>Navigate</h4>
+                <a href="index.html#home">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#portfolio">Work</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <div class="footer__col">
+                <h4>Services</h4>
+                <a href="index.html#services">Web Design</a>
+                <a href="index.html#services">Digital Marketing</a>
+                <a href="index.html#services">E-Commerce</a>
+                <a href="index.html#services">Automation</a>
+            </div>
+            <div class="footer__col">
+                <h4>Contact</h4>
+                <a href="mailto:bakarwebservices@gmail.com">bakarwebservices@gmail.com</a>
+                <a href="https://awweb.online" target="_blank" rel="noopener">awweb.online</a>
+                <a href="https://web.facebook.com/profile.php?id=61573852657162" target="_blank" rel="noopener">Facebook</a>
+            </div>
+        </div>
+        <div class="footer__bottom container">
+            <p>&copy; 2026 AW Web Services. All rights reserved.</p>
+            <p>Crafted with precision.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZN Enterprises — Case Study | AW Web Services</title>
+    <meta name="description" content="An AI assisted bill of quantities generator for an interior design firm, cutting estimation time by 10x.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="mesh-bg" aria-hidden="true">
+        <div class="mesh-orb mesh-orb--1"></div>
+        <div class="mesh-orb mesh-orb--2"></div>
+        <div class="mesh-orb mesh-orb--3"></div>
+    </div>
+
+    <div class="preloader" id="preloader">
+        <div class="preloader__inner">
+            <div class="preloader__logo">
+                <img src="images/logo.webp" alt="" width="56" height="56">
+                <span>AW Web Services</span>
+            </div>
+            <div class="preloader__bar"><div class="preloader__fill" id="preloaderFill"></div></div>
+            <p class="preloader__pct" id="preloaderPct">0%</p>
+        </div>
+    </div>
+
+    <div class="cursor" id="cursor" aria-hidden="true">
+        <div class="cursor__dot"></div>
+        <div class="cursor__ring"></div>
+    </div>
+
+    <div class="page-curtain" id="pageCurtain" aria-hidden="true"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <header class="header" id="header">
+        <div class="header__inner container">
+            <a href="index.html" class="header__logo" data-magnetic>
+                <img src="images/logo.webp" alt="AW Web Services" width="36" height="36">
+                <span>AW<span class="header__logo-accent">.</span></span>
+            </a>
+            <nav class="header__nav" id="mainNav">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#portfolio" class="is-active">Work</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+            <a href="index.html#contact" class="btn btn--primary btn--sm header__cta" data-magnetic>
+                <span>Start a Project</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <button class="header__burger" id="burger" aria-label="Menu" aria-expanded="false">
+                <span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu__nav">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#portfolio">Work</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+        <a href="index.html#contact" class="btn btn--primary">Start a Project</a>
+    </div>
+
+    <main id="main">
+        <div class="page is-active" id="page-project-zn-enterprises" data-page="project-zn-enterprises">
+            <section class="cs-hero">
+                <div class="container">
+                    <a href="index.html#portfolio" class="cs-back" data-magnetic>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        <span>Back to All Work</span>
+                    </a>
+                    <div class="cs-hero__header">
+                        <span class="cs-badge cs-badge--dev">Case Study</span>
+                        <span class="cs-badge cs-badge--category">Interior Design &amp; AI Automation</span>
+                    </div>
+                    <h1 class="cs-hero__title">ZN Enterprises</h1>
+                    <p class="cs-hero__tagline">An AI-assisted bill of quantities generator for an interior design firm.</p>
+                    
+                    <div class="cs-stats">
+                        <div class="cs-stat" data-tilt>
+                            <span class="cs-stat__val">10x</span>
+                            <span class="cs-stat__label">Faster Estimation Speed</span>
+                        </div>
+                        <div class="cs-stat" data-tilt>
+                            <span class="cs-stat__val">Structured</span>
+                            <span class="cs-stat__label">AI Material Breakdown</span>
+                        </div>
+                        <div class="cs-stat" data-tilt>
+                            <span class="cs-stat__val">Unified</span>
+                            <span class="cs-stat__label">Client Intake Pipeline</span>
+                        </div>
+                    </div>
+
+                    <div class="cs-hero__banner">
+                        <img src="images/project-1.webp" alt="ZN Enterprises AI BOQ System" class="cs-hero__img">
+                        <div class="cs-hero__banner-overlay"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cs-section">
+                <div class="container">
+                    <div class="cs-grid">
+                        <div class="cs-main">
+                            <div class="cs-block gs-reveal">
+                                <div class="cs-block__header">
+                                    <span class="cs-block__icon">⚠️</span>
+                                    <h2>The Problem</h2>
+                                </div>
+                                <p class="cs-text">ZN Enterprises, an interior design firm, needed a faster way to generate bills of quantities (BOQs) for client projects. Manually itemizing materials, quantities, and costs for every project was slow and inconsistent between team members.</p>
+                                <div class="cs-quote">
+                                    <p>"Manually compiling detailed material cost breakdowns for large interior builds consumed days of engineering overhead."</p>
+                                </div>
+                            </div>
+
+                            <div class="cs-block gs-reveal">
+                                <div class="cs-block__header">
+                                    <span class="cs-block__icon">⚡</span>
+                                    <h2>The System We Built</h2>
+                                </div>
+                                <div class="cs-features">
+                                    <div class="cs-feature">
+                                        <h3>AI Powered BOQ Generation</h3>
+                                        <p>Instead of manually building cost breakdowns from scratch for every project, the system generates structured bills of quantities using AI, cutting down the time needed to produce accurate estimates.</p>
+                                        <span class="cs-feature__tech">AI integration generating structured, itemized output from project inputs.</span>
+                                    </div>
+                                    <div class="cs-feature">
+                                        <h3>Client Requirements Intake</h3>
+                                        <p>A structured intake process captures project requirements up front, feeding directly into the estimation and BOQ process rather than being handled over email and calls.</p>
+                                        <span class="cs-feature__tech">Multi-step intake wizard capturing space requirements, material tiers, and specifications.</span>
+                                    </div>
+                                    <div class="cs-feature">
+                                        <h3>Material Catalog &amp; Pricing Engine</h3>
+                                        <p>Centralized matrix for interior materials, unit pricing, and labor estimates ensuring consistency across all generated proposals.</p>
+                                        <span class="cs-feature__tech">Dynamic pricing database with automated volume scaling.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cs-block gs-reveal">
+                                <div class="cs-block__header">
+                                    <span class="cs-block__icon">🚀</span>
+                                    <h2>The Result</h2>
+                                </div>
+                                <div class="cs-result-box">
+                                    <p class="cs-result-box__highlight">A faster, more consistent path from client requirements to a usable bill of quantities with automated estimation.</p>
+                                    <div class="cs-result-metrics">
+                                        <div class="cs-metric-card">
+                                            <span class="cs-metric-card__before">Before</span>
+                                            <p>Days Spent Building Manual BOQ Spreadsheets</p>
+                                        </div>
+                                        <div class="cs-metric-card">
+                                            <span class="cs-metric-card__after">After</span>
+                                            <p>Instant AI-Generated Itemized Cost Estimates</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <aside class="cs-sidebar">
+                            <div class="cs-card gs-reveal">
+                                <h3>Project Overview</h3>
+                                <dl class="cs-details">
+                                    <div><dt>Client</dt><dd>ZN Enterprises (Interior Design)</dd></div>
+                                    <div><dt>Category</dt><dd>AI BOQ Generation</dd></div>
+                                    <div><dt>Status</dt><dd><span class="cs-status-dot" style="background:#f59e0b"></span> Completed Build</dd></div>
+                                    <div><dt>Domain</dt><dd>Interior Architecture</dd></div>
+                                </dl>
+                            </div>
+                            <div class="cs-card gs-reveal">
+                                <h3>Built With</h3>
+                                <div class="cs-tags">
+                                    <span class="cs-tag">Next.js</span>
+                                    <span class="cs-tag">Node.js</span>
+                                    <span class="cs-tag">OpenAI API</span>
+                                    <span class="cs-tag">PostgreSQL</span>
+                                    <span class="cs-tag">Tailwind CSS</span>
+                                </div>
+                            </div>
+                            <div class="cs-card cs-card--cta gs-reveal">
+                                <h3>Automate your workflow</h3>
+                                <p>We build tailored AI estimation and workflow engines for architectural and industrial firms.</p>
+                                <a href="index.html#contact" class="btn btn--primary btn--full" data-magnetic>
+                                    <span>Start a Project</span>
+                                </a>
+                            </div>
+                        </aside>
+                    </div>
+
+                    <div class="cs-nav gs-reveal">
+                        <a href="attireburg.html" class="cs-nav__link cs-nav__link--prev">
+                            <small>← Previous Case Study</small>
+                            <strong>Attireburg</strong>
+                        </a>
+                        <a href="css-kro.html" class="cs-nav__link cs-nav__link--next">
+                            <small>Next Case Study →</small>
+                            <strong>CSS Kro</strong>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__grid">
+            <div class="footer__brand">
+                <a href="index.html" class="header__logo">
+                    <img src="images/logo.webp" alt="AW Web Services" width="32" height="32">
+                    <span>AW<span class="header__logo-accent">.</span></span>
+                </a>
+                <p>Professional digital solutions for growing businesses. Trusted by 50+ clients worldwide.</p>
+                <div class="footer__rating">★★★★★ <span>5.0 · 50+ reviews</span></div>
+            </div>
+            <div class="footer__col">
+                <h4>Navigate</h4>
+                <a href="index.html#home">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#portfolio">Work</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <div class="footer__col">
+                <h4>Services</h4>
+                <a href="index.html#services">Web Design</a>
+                <a href="index.html#services">Digital Marketing</a>
+                <a href="index.html#services">E-Commerce</a>
+                <a href="index.html#services">Automation</a>
+            </div>
+            <div class="footer__col">
+                <h4>Contact</h4>
+                <a href="mailto:bakarwebservices@gmail.com">bakarwebservices@gmail.com</a>
+                <a href="https://awweb.online" target="_blank" rel="noopener">awweb.online</a>
+                <a href="https://web.facebook.com/profile.php?id=61573852657162" target="_blank" rel="noopener">Facebook</a>
+            </div>
+        </div>
+        <div class="footer__bottom container">
+            <p>&copy; 2026 AW Web Services. All rights reserved.</p>
+            <p>Crafted with precision.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
