@@ -1,12 +1,12 @@
 # Vercel Deployment Guide
 
-## ✅ Issues Fixed
+## Issues Fixed
 
 1. **Renamed `index1.html` to `index.html`** - Vercel expects the main file to be named `index.html`
 2. **Fixed image paths** - Changed from `images/` to root directory paths
 3. **Added `vercel.json`** - Configuration file for clean URLs
 
-## 🚀 How to Deploy on Vercel
+## How to Deploy on Vercel
 
 ### Option 1: Push to GitHub (Recommended)
 
@@ -68,7 +68,7 @@ If you can't push to GitHub:
    vercel
    ```
 
-## 📝 What Was Changed
+## What Was Changed
 
 ### File Renamed
 - `index1.html` → `index.html`
@@ -82,11 +82,11 @@ If you can't push to GitHub:
 ### Files Added
 - `vercel.json` - Configuration for clean URLs
 
-## ✨ Your Site is Ready!
+## Your Site is Ready!
 
 All the 404 errors should be fixed now. Once deployed, your website will work perfectly on Vercel.
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 If you still see 404 errors after deployment:
 1. Make sure all files are uploaded

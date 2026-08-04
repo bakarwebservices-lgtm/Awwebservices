@@ -377,7 +377,7 @@
 
         feedback.innerHTML = `
             <div class="form-feedback__inner">
-                <span class="form-feedback__icon">✓</span>
+                <span class="form-feedback__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
                 <div>
                     <strong>Quote Request Generated!</strong>
                     <p>Thank you! Your project details have been formatted for instant submission.</p>
