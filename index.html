@@ -13,6 +13,12 @@
         href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 </head>
 
 <body>
@@ -61,16 +67,27 @@
                 <a href="#" data-page="about" onclick="navigate('about'); return false;">About</a>
                 <a href="#" data-page="contact" onclick="navigate('contact'); return false;">Contact</a>
             </nav>
-            <a href="#" class="btn btn--primary btn--sm header__cta" onclick="navigate('contact'); return false;"
-                data-magnetic>
-                <span>Start a Project</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-            </a>
-            <button class="header__burger" id="burger" aria-label="Menu" aria-expanded="false">
-                <span></span><span></span>
-            </button>
+            <div class="header__actions">
+                <button class="theme-toggle-btn" aria-label="Toggle dark and light theme" title="Toggle theme" data-magnetic>
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                    </svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                    </svg>
+                </button>
+                <a href="#" class="btn btn--primary btn--sm header__cta" onclick="navigate('contact'); return false;"
+                    data-magnetic>
+                    <span>Start a Project</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <button class="header__burger" id="burger" aria-label="Menu" aria-expanded="false">
+                    <span></span><span></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -90,58 +107,73 @@
         <!-- HOME -->
         <div class="page is-active" id="page-home" data-page="home">
             <section class="hero">
-                <div class="hero__bg">
-                    <video autoplay loop muted playsinline class="hero__img" poster="images/hero.webp">
-                        <source src="images/hero-section.mp4" type="video/mp4">
-                    </video>
-                    <div class="hero__overlay"></div>
-                </div>
-                <div class="container hero__content">
-                    <p class="eyebrow hero__eyebrow">Custom Web &amp; Automation Agency</p>
-                    <h1 class="hero__title">
-                        <span class="line"><span class="word">We</span> <span class="word">build</span></span>
-                        <span class="line"><span class="word">digital</span> <span
-                                class="word gradient-text">experiences</span></span>
-                        <span class="line"><span class="word">that</span> <span class="word">move</span> <span
-                                class="word">brands.</span></span>
-                    </h1>
-                    <p class="hero__desc">Web design, marketing, automation &amp; e-commerce — engineered for growth.
-                        Built for ambitious businesses seeking production-grade systems.</p>
-                    <div class="hero__actions">
-                        <a href="#" class="btn btn--primary btn--lg" onclick="navigate('contact'); return false;"
-                            data-magnetic>
-                            <span>Free Consultation</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7" />
-                            </svg>
-                        </a>
-                        <a href="#" class="btn btn--ghost btn--lg" onclick="navigate('portfolio'); return false;"
-                            data-magnetic>
-                            <span>View Our Work</span>
-                        </a>
+                <div class="container">
+                    <div class="hero__grid">
+                        <!-- Left: Video Square Block -->
+                        <div class="hero__video-wrapper" data-tilt>
+                            <div class="hero__video-block">
+                                <video autoplay loop muted playsinline class="hero__video" poster="images/hero.webp">
+                                    <source src="images/hero-section.mp4" type="video/mp4">
+                                </video>
+                                <div class="hero__video-overlay"></div>
+                                <div class="hero__video-badge">
+                                    <span class="hero__video-dot"></span>
+                                    <span>Digital Excellence</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Text Section -->
+                        <div class="hero__content">
+                            <p class="eyebrow hero__eyebrow">Custom Web &amp; Automation Agency</p>
+                            <h1 class="hero__title">
+                                <span class="line"><span class="word">We</span> <span class="word">build</span></span>
+                                <span class="line"><span class="word">digital</span> <span
+                                        class="word gradient-text">experiences</span></span>
+                                <span class="line"><span class="word">that</span> <span class="word">move</span> <span
+                                        class="word">brands.</span></span>
+                            </h1>
+                            <p class="hero__desc">Web design, marketing, automation &amp; e-commerce — engineered for growth.
+                                Built for ambitious businesses seeking production-grade systems.</p>
+                            <div class="hero__actions">
+                                <a href="#" class="btn btn--primary btn--lg" onclick="navigate('contact'); return false;"
+                                    data-magnetic>
+                                    <span>Free Consultation</span>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </a>
+                                <a href="#" class="btn btn--ghost btn--lg" onclick="navigate('portfolio'); return false;"
+                                    data-magnetic>
+                                    <span>View Our Work</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="hero__stats container">
-                    <div class="stat-card" data-tilt>
-                        <span class="stat-card__num"
-                            style="font-size:1.35rem;line-height:1.2;margin-bottom:0.35rem">Custom Systems</span>
-                        <span class="stat-card__label">Tailored Web Platforms</span>
-                    </div>
-                    <div class="stat-card" data-tilt>
-                        <span class="stat-card__num"
-                            style="font-size:1.35rem;line-height:1.2;margin-bottom:0.35rem">Full Ownership</span>
-                        <span class="stat-card__label">Zero Vendor Lock-In</span>
-                    </div>
-                    <div class="stat-card" data-tilt>
-                        <span class="stat-card__num"
-                            style="font-size:1.35rem;line-height:1.2;margin-bottom:0.35rem">Direct APIs</span>
-                        <span class="stat-card__label">PostEx &amp; PayPal Integration</span>
-                    </div>
-                    <div class="stat-card" data-tilt>
-                        <span class="stat-card__num"
-                            style="font-size:1.35rem;line-height:1.2;margin-bottom:0.35rem">End-to-End</span>
-                        <span class="stat-card__label">Production Reliability</span>
+
+                    <!-- Stats Bar -->
+                    <div class="hero__stats">
+                        <div class="stat-card" data-tilt>
+                            <span class="stat-card__num"
+                                style="font-size:1.35rem;line-height:1.2;margin-bottom:0.35rem">Custom Systems</span>
+                            <span class="stat-card__label">Tailored Web Platforms</span>
+                        </div>
+                        <div class="stat-card" data-tilt>
+                            <span class="stat-card__num"
+                                style="font-size:1.35rem;line-height:1.2;margin-bottom:0.35rem">Full Ownership</span>
+                            <span class="stat-card__label">Zero Vendor Lock-In</span>
+                        </div>
+                        <div class="stat-card" data-tilt>
+                            <span class="stat-card__num"
+                                style="font-size:1.35rem;line-height:1.2;margin-bottom:0.35rem">Direct APIs</span>
+                            <span class="stat-card__label">PostEx &amp; PayPal Integration</span>
+                        </div>
+                        <div class="stat-card" data-tilt>
+                            <span class="stat-card__num"
+                                style="font-size:1.35rem;line-height:1.2;margin-bottom:0.35rem">End-to-End</span>
+                            <span class="stat-card__label">Production Reliability</span>
+                        </div>
                     </div>
                 </div>
                 <div class="hero__scroll">

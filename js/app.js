@@ -195,9 +195,10 @@
           }, '-=0.4')
           .to('.hero__scroll', { opacity: 1, duration: 0.6 }, '-=0.3');
 
-        gsap.to('.hero__img', {
-            scale: 1, duration: 2, ease: 'power2.out'
-        });
+        gsap.fromTo('.hero__video-block', 
+            { opacity: 0, scale: 0.92, y: 20 },
+            { opacity: 1, scale: 1, y: 0, duration: 1.2, ease: 'power3.out' }
+        );
     }
 
     /* ── Scroll Reveals ── */
@@ -415,10 +416,28 @@
         });
     }
 
+    /* ── Theme Toggle ── */
+    function initThemeToggle() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
+        toggleBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        });
+    }
+
     /* ── Init ── */
     document.body.classList.add('is-loading');
     gsap.registerPlugin(ScrollTrigger);
 
+    initThemeToggle();
     runPreloader();
     initLenis();
     initHeader();
