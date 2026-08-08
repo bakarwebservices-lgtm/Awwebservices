@@ -55,13 +55,13 @@ export default function BlogIndexPage() {
 
       <section className="blog-section py-20">
         <div className="container max-w-4xl mx-auto">
-          <div className="content-box content-box--spacious text-center py-16">
-            <h2 className="text-3xl font-extrabold mb-4">Articles &amp; Case Analysis Coming Soon</h2>
-            <p className="max-w-xl mx-auto text-muted text-base leading-relaxed mb-8">
+          <div className="content-box content-box--spacious text-center py-20 px-8">
+            <h2 className="text-3xl font-extrabold mb-6">Articles &amp; Case Analysis Coming Soon</h2>
+            <p className="max-w-xl mx-auto text-muted text-lg leading-relaxed mb-10">
               We are preparing detailed technical deep-dives on building owned e-commerce infrastructure, automating cash-on-delivery profit tracking, and designing high-converting local service websites.
             </p>
-            <div>
-              <Link href="/contact" className="btn btn--primary btn--lg">
+            <div className="my-8">
+              <Link href="/contact" className="btn btn--primary btn--lg px-8 py-4">
                 <span>Subscribe or Request a Topic</span>
               </Link>
             </div>

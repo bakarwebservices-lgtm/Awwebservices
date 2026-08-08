@@ -108,11 +108,11 @@ export default function DynamicProjectPage({ params }: ProjectPageProps) {
         </div>
       </section>
 
-      {/* PROJECT DETAIL SECTION WITH SPACED HERO IMAGE & STANDALONE HEADINGS */}
-      <section className="project-detail-section py-24">
-        <div className="container max-w-5xl mx-auto flex flex-col gap-16">
+      {/* PROJECT DETAIL SECTION WITH SPACED HERO IMAGE & SEPARATED BOXES */}
+      <section className="project-detail-section py-20">
+        <div className="container max-w-5xl mx-auto flex flex-col gap-10">
           
-          {/* HERO IMAGE WITH SPACIOUS TOP MARGIN */}
+          {/* HERO IMAGE WITH SPACIOUS TOP MARGIN (SEPARATED FROM HERO BANNER) */}
           <div className="project-hero-image">
             <img
               src={project.heroImage}
@@ -149,73 +149,73 @@ export default function DynamicProjectPage({ params }: ProjectPageProps) {
             </div>
           </div>
 
-          {/* SECTION 1: THE CHALLENGE & CONTEXT */}
-          <div className="project-section-block">
-            <h2 className="section-standalone-heading">The Challenge &amp; Context</h2>
-            <div className="content-box content-box--spacious">
-              <p className="text-base leading-relaxed text-muted">{project.body.problem}</p>
-            </div>
-          </div>
-
-          {/* SECTION 2: SOLUTION & TECHNICAL EXECUTION */}
-          <div className="project-section-block">
-            <h2 className="section-standalone-heading">Solution &amp; Technical Execution</h2>
-            <div className="solution-steps flex flex-col gap-6">
-              {project.body.solution.map((sol, index) => (
-                <div key={index} className="solution-step-item p-6 rounded-xl bg-surface-3 border border-border">
-                  <h3 className="text-lg font-bold text-accent-1 mb-2">{sol.heading}</h3>
-                  <p className="text-base leading-relaxed text-muted">{sol.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* SECTION 3: RESULTS & IMPACT */}
-          {project.body.result && (
-            <div className="project-section-block">
-              <h2 className="section-standalone-heading">Results &amp; Impact</h2>
+          {/* PROJECT BODY CONTENT WITH SEPARATED CONTENT BOXES */}
+          <div className="project-body-grid">
+            <div className="project-main-content flex flex-col gap-10">
+              
               <div className="content-box content-box--spacious">
-                <p className="text-base leading-relaxed mb-6">{project.body.result}</p>
-
-                {(project.body.before || project.body.after) && (
-                  <div className="before-after-grid grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
-                    {project.body.before && (
-                      <div className="metric-card metric-card--before p-6">
-                        <span className="metric-label">Before</span>
-                        <span className="metric-value text-xl">{project.body.before}</span>
-                      </div>
-                    )}
-                    {project.body.after && (
-                      <div className="metric-card metric-card--after p-6">
-                        <span className="metric-label">After</span>
-                        <span className="metric-value text-xl">{project.body.after}</span>
-                      </div>
-                    )}
-                  </div>
-                )}
+                <h2 className="text-2xl font-bold mb-4">The Challenge &amp; Context</h2>
+                <p className="text-base leading-relaxed text-muted">{project.body.problem}</p>
               </div>
-            </div>
-          )}
 
-          {/* SECTION 4: INTERFACE GALLERY & SCREENSHOTS */}
-          {project.screenshots && project.screenshots.length > 0 && (
-            <div className="project-section-block">
-              <h2 className="section-standalone-heading">Interface Gallery &amp; Screenshots</h2>
-              <div className="screenshots-gallery-grid grid grid-cols-1 md:grid-cols-2 gap-8">
-                {project.screenshots.map((src, i) => (
-                  <div key={i} className="screenshot-item">
-                    <img
-                      src={src}
-                      alt={`${project.title} Interface Screenshot ${i + 1}`}
-                      className="rounded-xl shadow-lg border border-border w-full object-cover"
-                    />
-                  </div>
-                ))}
+              <div className="content-box content-box--spacious">
+                <h2 className="text-2xl font-bold mb-6">Solution &amp; Technical Execution</h2>
+                <div className="solution-steps flex flex-col gap-6">
+                  {project.body.solution.map((sol, index) => (
+                    <div key={index} className="solution-step-item p-6 rounded-xl bg-surface-3 border border-border">
+                      <h3 className="text-lg font-bold text-accent-1 mb-2">{sol.heading}</h3>
+                      <p className="text-base leading-relaxed text-muted">{sol.text}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
 
-          <div className="cta-card mt-12">
+              {project.body.result && (
+                <div className="content-box content-box--spacious">
+                  <h2 className="text-2xl font-bold mb-4">Results &amp; Impact</h2>
+                  <p className="text-base leading-relaxed mb-6">{project.body.result}</p>
+
+                  {(project.body.before || project.body.after) && (
+                    <div className="before-after-grid grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+                      {project.body.before && (
+                        <div className="metric-card metric-card--before p-6">
+                          <span className="metric-label">Before</span>
+                          <span className="metric-value text-xl">{project.body.before}</span>
+                        </div>
+                      )}
+                      {project.body.after && (
+                        <div className="metric-card metric-card--after p-6">
+                          <span className="metric-label">After</span>
+                          <span className="metric-value text-xl">{project.body.after}</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* SCREENSHOT GALLERY */}
+              {project.screenshots && project.screenshots.length > 0 && (
+                <div className="content-box content-box--spacious">
+                  <h2 className="text-2xl font-bold mb-6">Interface Gallery &amp; Screenshots</h2>
+                  <div className="screenshots-gallery-grid grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {project.screenshots.map((src, i) => (
+                      <div key={i} className="screenshot-item">
+                        <img
+                          src={src}
+                          alt={`${project.title} Interface Screenshot ${i + 1}`}
+                          className="rounded-xl shadow-lg border border-border w-full object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+            </div>
+          </div>
+
+          <div className="cta-card mt-20">
             <h2 className="text-3xl font-extrabold">Want a Similar System Built for Your Business?</h2>
             <p className="text-muted text-base mt-2">Let's discuss your project goals, timelines, and technical requirements.</p>
             <div className="mt-6">

@@ -107,62 +107,45 @@ export default function DynamicServicePage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* SERVICE DETAIL SECTION - HEADLINES OUTSIDE BOXES WITH SPACIOUS GAPS */}
-      <section className="service-detail-section py-24">
-        <div className="container max-w-4xl mx-auto flex flex-col gap-16">
-          
-          {/* SECTION 1: OVERVIEW */}
-          <div className="service-block">
-            <h2 className="section-standalone-heading">Overview</h2>
+      {/* SERVICE DETAIL SECTION - HEADLINES INSIDE DISTINCTLY SEPARATED BOXES */}
+      <section className="service-detail-section py-20">
+        <div className="container max-w-4xl mx-auto">
+          <div className="service-main flex flex-col gap-10">
+            
             <div className="content-box content-box--spacious">
+              <h2 className="text-2xl font-bold mb-4">Overview</h2>
               <p className="lead-text text-lg leading-relaxed">{service.intro}</p>
             </div>
-          </div>
 
-          {/* SECTION 2: WHAT WE HANDLE */}
-          <div className="service-block">
-            <h2 className="section-standalone-heading">What We Handle</h2>
             <div className="content-box content-box--spacious">
+              <h2 className="text-2xl font-bold mb-4">What We Handle</h2>
               <ul className="custom-bullets text-base leading-relaxed space-y-3">
                 {service.whatWeHandle.map((item, idx) => (
                   <li key={idx} className="pl-6">{item}</li>
                 ))}
               </ul>
             </div>
-          </div>
 
-          {/* SECTION 3: WHY IT MATTERS */}
-          <div className="service-block">
-            <h2 className="section-standalone-heading">Why It Matters</h2>
             <div className="content-box content-box--spacious">
+              <h2 className="text-2xl font-bold mb-4">Why It Matters</h2>
               <p className="text-base leading-relaxed">{service.whyItMatters}</p>
             </div>
-          </div>
 
-          {/* SECTION 4: OPERATIONAL STRATEGY & EXECUTION (Integrated Keywords) */}
-          <div className="service-block">
-            <h2 className="section-standalone-heading">Operational Strategy &amp; Execution</h2>
             <div className="content-box content-box--spacious">
-              <p className="text-base leading-relaxed mb-4">
-                Our approach to <strong className="gradient-text font-semibold">{service.primaryKeyword}</strong> centers on building resilient, self-sustaining workflows tailored to your business needs. Rather than implementing quick patches, we design custom systems that eliminate operational bottlenecks and drive measurable growth.
+              <h2 className="text-2xl font-bold mb-4">Target Keywords &amp; Technical Scope</h2>
+              <p className="text-base mb-3">
+                Primary focus keyword: <strong className="gradient-text">{service.primaryKeyword}</strong>
               </p>
-              <p className="text-base leading-relaxed mb-4">
-                We integrate solutions covering:
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+              <div className="tech-pills-list flex flex-wrap gap-2 mt-4">
                 {service.longTailKeywords.map((kw, i) => (
-                  <div key={i} className="flex items-center gap-2 p-3 rounded-lg bg-surface-3 border border-border">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-accent-2 flex-shrink-0">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <span className="text-sm font-medium">{kw}</span>
-                  </div>
+                  <span key={i} className="tech-pill">{kw}</span>
                 ))}
               </div>
             </div>
+
           </div>
 
-          <div className="cta-card mt-12">
+          <div className="cta-card mt-20">
             <h2 className="text-3xl font-extrabold">Build Your Customized System Today</h2>
             <p className="text-muted text-base mt-2">Our team is ready to engineer production-grade solutions tailored to your brand.</p>
             <div className="mt-6">
@@ -171,7 +154,6 @@ export default function DynamicServicePage({ params }: ServicePageProps) {
               </Link>
             </div>
           </div>
-
         </div>
       </section>
     </>

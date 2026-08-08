@@ -1734,19 +1734,38 @@ main { min-height: 100vh; }
 }
 
 /* Content Box Spacious Layout & Gap */
-.content-box--spacious {
-    padding: 3rem 2.5rem;
+.content-box {
     background: var(--surface-2);
     border: 1px solid var(--border);
     border-radius: 1.25rem;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.content-box:hover,
 .content-box--spacious:hover {
-    border-color: rgba(49, 99, 207, 0.35);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+    border-color: rgba(49, 99, 207, 0.45);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.22);
 }
+
+.content-box--spacious {
+    padding: 3rem 2.5rem;
+}
+
+/* Clear Outer Section Padding to prevent boxes from sticking to Hero or Footer */
+.service-detail-section,
+.project-detail-section,
+.legal-content-section,
+.about-content,
+.blog-section,
+.services-list-section,
+.portfolio-section {
+    padding-top: clamp(4rem, 7vw, 6rem);
+    padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
 
 .service-detail-grid {
     display: grid;
