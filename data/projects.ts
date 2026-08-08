@@ -30,7 +30,7 @@ export const projects: ProjectItem[] = [
   {
     slug: "vortex-rings",
     title: "Vortex Rings — Real-Time COD Profit Engine",
-    metaDescription: "Custom order-to-profit system for a Pakistani COD wearable tech brand with automated PostEx sync and real-time P&L tracking. Built with Next.js and PostgreSQL.",
+    metaDescription: "Custom order-to-profit system for a Pakistani COD wearable tech brand with automated PostEx sync and real-time P&L tracking.",
     category: "Order & Profit Engine · PostEx API",
     client: "Vortex Rings (Wearable Tech)",
     status: "Live System",
@@ -44,14 +44,14 @@ export const projects: ProjectItem[] = [
       "/images/vortexwearables/Screenshot 2026-07-18 121243.png",
       "/images/vortexwearables/Screenshot 2026-07-18 121303.png"
     ],
-    builtWith: ["Next.js", "Node.js", "PostgreSQL", "PostEx API", "Tailwind CSS"],
+    builtWith: ["PostEx Courier Auto-Sync", "Real-Time P&L Tracking", "0-Spreadsheet Operations", "COD Return Mitigation"],
     location: "Pakistan (COD E-Commerce)",
     body: {
       problem: "Vortex Rings sells wearable tech across Pakistan on a cash-on-delivery model. Before this system, order tracking, shipping costs, and profit calculations lived in disconnected spreadsheets, with no way to know true daily profitability without hours of manual reconciliation.",
       solution: [
         {
           heading: "Unified Admin Portal",
-          text: "Every order, whether placed through the storefront or handled manually, lives in one system. Built with a custom Next.js admin layer on PostgreSQL with role-based access control."
+          text: "Every order, whether placed through the storefront or handled manually, lives in one system. Built with a custom admin layer on PostgreSQL with role-based access control."
         },
         {
           heading: "PostEx Auto Sync Bridge",
@@ -75,7 +75,7 @@ export const projects: ProjectItem[] = [
   {
     slug: "attireburg",
     title: "Attireburg — Fully Owned E-Commerce Platform",
-    metaDescription: "Custom e-commerce platform for a German apparel brand built on Next.js and Supabase, with zero platform fees and full infrastructure ownership.",
+    metaDescription: "Custom e-commerce platform for a German apparel brand built with zero platform fees and full infrastructure ownership.",
     category: "E-Commerce · Custom Infrastructure",
     client: "Attireburg (German Apparel)",
     status: "Live Platform",
@@ -87,14 +87,14 @@ export const projects: ProjectItem[] = [
       "/images/attireburg/Screenshot 2026-08-08 015037.png",
       "/images/attireburg/Screenshot 2026-08-08 015227.png"
     ],
-    builtWith: ["Next.js", "Supabase", "PayPal API", "Prisma", "TypeScript"],
+    builtWith: ["Zero Platform Fees", "100% Owned Storefront", "Native PayPal Checkout", "German & EU Compliance"],
     location: "Germany & EU",
     body: {
       problem: "Attireburg needed an online store but wanted to actually own their infrastructure rather than rent it through a platform like Shopify — platform fees, limited customization, and no real ownership of data or codebase were the core concerns.",
       solution: [
         {
           heading: "Fully Custom Storefront",
-          text: "A complete e-commerce frontend and backend built from the ground up rather than assembled from a platform's theme system, built on Next.js with a Supabase backend (Frankfurt region)."
+          text: "A complete e-commerce frontend and backend built from the ground up rather than assembled from a platform's theme system."
         },
         {
           heading: "Direct Infrastructure Ownership",
@@ -102,7 +102,7 @@ export const projects: ProjectItem[] = [
         },
         {
           heading: "Native Payment Processing",
-          text: "Card payments through PayPal Hosted Fields are built directly into checkout rather than redirecting customers off-site, with Google OAuth layered onto a custom JWT auth system for account access."
+          text: "Card payments through PayPal Hosted Fields are built directly into checkout rather than redirecting customers off-site, with Google OAuth layered onto custom authentication for account access."
         },
         {
           heading: "Security-Hardened",
@@ -118,7 +118,7 @@ export const projects: ProjectItem[] = [
   {
     slug: "css-kro",
     title: "CSS Kro — AI-Powered Exam Prep Platform",
-    metaDescription: "Centralized CSS exam prep platform for Pakistani aspirants with a 24-year past papers archive and instant AI essay scoring. Built with Next.js and OpenAI API.",
+    metaDescription: "Centralized CSS exam prep platform for Pakistani aspirants with a 24-year past papers archive and instant AI essay scoring.",
     category: "EdTech · AI Evaluation",
     client: "CSS Kro (EdTech)",
     status: "Live Platform",
@@ -132,7 +132,7 @@ export const projects: ProjectItem[] = [
       "/images/css-kro/Screenshot 2026-08-08 015539.png",
       "/images/css-kro/Screenshot 2026-08-08 015609.png"
     ],
-    builtWith: ["Next.js", "Python", "OpenAI API", "PostgreSQL", "Tailwind CSS"],
+    builtWith: ["Instant AI Essay Marking", "24-Yr Past Paper Archive", "Automated Daily Current Affairs", "Exam-Grade Scoring"],
     location: "Pakistan",
     body: {
       problem: "CSS exam aspirants in Pakistan had to piece together prep material from scattered sources — newspapers, old past papers, essay feedback — with no single place to study from or get consistent feedback on their writing.",
@@ -170,7 +170,7 @@ export const projects: ProjectItem[] = [
       "/images/zn-enterprises/Screenshot 2026-08-08 015936.png",
       "/images/zn-enterprises/Screenshot 2026-08-08 015955.png"
     ],
-    builtWith: ["Next.js", "Node.js", "OpenAI API", "PostgreSQL", "Tailwind CSS"],
+    builtWith: ["Instant AI BOQ Generation", "10x Faster Project Estimation", "Multi-Step Client Intake Wizard", "Dynamic Pricing Matrix"],
     location: "Pakistan",
     body: {
       problem: "ZN Enterprises needed a faster way to generate bills of quantities for client projects. Manually itemizing materials, quantities, and costs for every project was slow and inconsistent between team members.",
@@ -210,14 +210,14 @@ export const projects: ProjectItem[] = [
       "/images/ventura-autoshop/Screenshot 2026-08-08 011346.png",
       "/images/ventura-autoshop/Screenshot 2026-08-08 011415.png"
     ],
-    builtWith: ["Next.js", "Google Flow (Imagen + Veo)", "Tailwind CSS"],
+    builtWith: ["Online Appointment Booking", "AI Frame Animation Visuals", "Google Local SEO Optimized", "Mobile Booking Flow"],
     location: null,
     body: {
       problem: "Many local service businesses (auto shops, repair services) have a Facebook page but no real website, losing potential customers who search on Google before calling.",
       solution: [
         {
           heading: "Custom Frame-Sequence Animation",
-          text: "AI-generated hero animations built with Google Flow (Imagen + Veo/Omni Flash), optimized to WebP for a 92% size reduction versus raw video, keeping load times fast."
+          text: "AI-generated hero animations optimized for WebP for a 92% size reduction versus raw video, keeping load times fast."
         },
         {
           heading: "Scroll-Stitched Services Page",
@@ -249,7 +249,7 @@ export const projects: ProjectItem[] = [
       "/images/swannah-clothing/Screenshot 2026-08-08 011113.png",
       "/images/swannah-clothing/Screenshot 2026-08-08 011136.png"
     ],
-    builtWith: ["Next.js", "Tailwind CSS", "TypeScript"],
+    builtWith: ["Zero Monthly Subscription", "Editorial Lookbook Layout", "Owned Checkout Flow", "Custom Fit & Size Guide"],
     location: null,
     body: {
       problem: "Fashion brands often default to Shopify and accept recurring platform fees and limited design control as the cost of doing business online.",
@@ -288,7 +288,7 @@ export const projects: ProjectItem[] = [
       "/images/gull-flowers/Screenshot 2026-08-08 010920.png",
       "/images/gull-flowers/Screenshot 2026-08-08 010955.png"
     ],
-    builtWith: ["Next.js", "Tailwind CSS", "TypeScript"],
+    builtWith: ["Occasion-Based E-Commerce", "Bespoke Concierge Ordering", "Curated Premium Collections", "Local Florist Booking"],
     location: null,
     body: {
       problem: "Local florists competing on quality and presentation need a storefront that reflects a premium positioning, not a generic template.",

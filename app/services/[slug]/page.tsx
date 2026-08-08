@@ -107,7 +107,7 @@ export default function DynamicServicePage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* SERVICE DETAIL SECTION - HEADLINES INSIDE DISTINCTLY SEPARATED BOXES */}
+      {/* SERVICE DETAIL SECTION - DISTINCTLY SEPARATED CARD BOXES */}
       <section className="service-detail-section py-20">
         <div className="container max-w-4xl mx-auto">
           <div className="service-main flex flex-col gap-10">
@@ -131,14 +131,27 @@ export default function DynamicServicePage({ params }: ServicePageProps) {
               <p className="text-base leading-relaxed">{service.whyItMatters}</p>
             </div>
 
+            {/* REWRITTEN 4TH BOX: OPERATIONAL STRATEGY & EXECUTION WITH INTEGRATED NARRATIVE KEYWORDS */}
             <div className="content-box content-box--spacious">
-              <h2 className="text-2xl font-bold mb-4">Target Keywords &amp; Technical Scope</h2>
-              <p className="text-base mb-3">
-                Primary focus keyword: <strong className="gradient-text">{service.primaryKeyword}</strong>
+              <h2 className="text-2xl font-bold mb-4">Operational Strategy &amp; Execution</h2>
+              <p className="text-base leading-relaxed mb-4">
+                Our approach to <strong className="gradient-text font-semibold">{service.primaryKeyword}</strong> focuses on constructing resilient, self-sustaining workflows tailored to your specific market demands. Rather than deploying temporary fixes, we build scalable architectures designed for long-term operational efficiency.
               </p>
-              <div className="tech-pills-list flex flex-wrap gap-2 mt-4">
+              <p className="text-base leading-relaxed mb-4">
+                Our execution framework directly addresses key business requirements, including:
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                 {service.longTailKeywords.map((kw, i) => (
-                  <span key={i} className="tech-pill">{kw}</span>
+                  <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-surface-3 border border-border">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-accent-2 mt-1 flex-shrink-0">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <div>
+                      <span className="text-sm font-semibold text-text capitalize">{kw}</span>
+                      <p className="text-xs text-muted mt-1">Integrated into system architecture &amp; core execution workflows.</p>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>

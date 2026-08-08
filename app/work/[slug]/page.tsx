@@ -140,7 +140,7 @@ export default function DynamicProjectPage({ params }: ProjectPageProps) {
               </div>
             )}
             <div className="meta-box">
-              <span className="meta-label">Technologies</span>
+              <span className="meta-label">Solutions Delivered</span>
               <div className="tech-pills-list mt-2 flex flex-wrap gap-2">
                 {project.builtWith.map((tech) => (
                   <span key={tech} className="tech-pill">{tech}</span>
