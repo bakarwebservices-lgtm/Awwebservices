@@ -76,7 +76,7 @@ export const services: ServiceItem[] = [
     whatWeHandle: [
       "Custom design built around your business, not a recycled template",
       "Mobile-first, fast-loading pages (most visitors are on their phone, and slow sites lose them before they read anything)",
-      "Built on modern infrastructure (Next.js, Vercel) rather than page builders that slow down as content grows",
+      "Built on modern infrastructure (Next.js, Node.js) rather than page builders that slow down as content grows",
       "Booking, quote, or contact forms built directly into the site so visitors can act immediately",
       "SEO structure from day one, so the site is actually findable, not just online"
     ],

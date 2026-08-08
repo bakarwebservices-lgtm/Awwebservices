@@ -44,7 +44,7 @@ export const projects: ProjectItem[] = [
       "/images/vortexwearables/Screenshot 2026-07-18 121243.png",
       "/images/vortexwearables/Screenshot 2026-07-18 121303.png"
     ],
-    builtWith: ["Next.js", "Node.js", "PostgreSQL", "PostEx API", "Vercel"],
+    builtWith: ["Next.js", "Node.js", "PostgreSQL", "PostEx API", "Tailwind CSS"],
     location: "Pakistan (COD E-Commerce)",
     body: {
       problem: "Vortex Rings sells wearable tech across Pakistan on a cash-on-delivery model. Before this system, order tracking, shipping costs, and profit calculations lived in disconnected spreadsheets, with no way to know true daily profitability without hours of manual reconciliation.",
@@ -87,14 +87,14 @@ export const projects: ProjectItem[] = [
       "/images/attireburg/Screenshot 2026-08-08 015037.png",
       "/images/attireburg/Screenshot 2026-08-08 015227.png"
     ],
-    builtWith: ["Next.js", "Supabase", "Vercel", "PayPal API", "Prisma"],
+    builtWith: ["Next.js", "Supabase", "PayPal API", "Prisma", "TypeScript"],
     location: "Germany & EU",
     body: {
       problem: "Attireburg needed an online store but wanted to actually own their infrastructure rather than rent it through a platform like Shopify — platform fees, limited customization, and no real ownership of data or codebase were the core concerns.",
       solution: [
         {
           heading: "Fully Custom Storefront",
-          text: "A complete e-commerce frontend and backend built from the ground up rather than assembled from a platform's theme system, built on Next.js with a Supabase backend (Frankfurt region), deployed on Vercel."
+          text: "A complete e-commerce frontend and backend built from the ground up rather than assembled from a platform's theme system, built on Next.js with a Supabase backend (Frankfurt region)."
         },
         {
           heading: "Direct Infrastructure Ownership",
@@ -132,7 +132,7 @@ export const projects: ProjectItem[] = [
       "/images/css-kro/Screenshot 2026-08-08 015539.png",
       "/images/css-kro/Screenshot 2026-08-08 015609.png"
     ],
-    builtWith: ["Next.js", "Python", "OpenAI API", "PostgreSQL", "Vercel"],
+    builtWith: ["Next.js", "Python", "OpenAI API", "PostgreSQL", "Tailwind CSS"],
     location: "Pakistan",
     body: {
       problem: "CSS exam aspirants in Pakistan had to piece together prep material from scattered sources — newspapers, old past papers, essay feedback — with no single place to study from or get consistent feedback on their writing.",
@@ -210,7 +210,7 @@ export const projects: ProjectItem[] = [
       "/images/ventura-autoshop/Screenshot 2026-08-08 011346.png",
       "/images/ventura-autoshop/Screenshot 2026-08-08 011415.png"
     ],
-    builtWith: ["Next.js", "Google Flow (Imagen + Veo)", "Vercel"],
+    builtWith: ["Next.js", "Google Flow (Imagen + Veo)", "Tailwind CSS"],
     location: null,
     body: {
       problem: "Many local service businesses (auto shops, repair services) have a Facebook page but no real website, losing potential customers who search on Google before calling.",
@@ -249,7 +249,7 @@ export const projects: ProjectItem[] = [
       "/images/swannah-clothing/Screenshot 2026-08-08 011113.png",
       "/images/swannah-clothing/Screenshot 2026-08-08 011136.png"
     ],
-    builtWith: ["Next.js", "Vercel"],
+    builtWith: ["Next.js", "Tailwind CSS", "TypeScript"],
     location: null,
     body: {
       problem: "Fashion brands often default to Shopify and accept recurring platform fees and limited design control as the cost of doing business online.",
@@ -288,7 +288,7 @@ export const projects: ProjectItem[] = [
       "/images/gull-flowers/Screenshot 2026-08-08 010920.png",
       "/images/gull-flowers/Screenshot 2026-08-08 010955.png"
     ],
-    builtWith: ["Next.js", "Vercel"],
+    builtWith: ["Next.js", "Tailwind CSS", "TypeScript"],
     location: null,
     body: {
       problem: "Local florists competing on quality and presentation need a storefront that reflects a premium positioning, not a generic template.",
