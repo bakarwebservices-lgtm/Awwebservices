@@ -107,56 +107,43 @@ export default function DynamicServicePage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* SERVICE DETAIL SECTION WITH SPACIOUS BOXES */}
-      <section className="service-detail-section py-16">
-        <div className="container">
-          <div className="service-detail-grid">
-            <div className="service-main flex flex-col gap-12">
-              <div className="content-box content-box--spacious">
-                <h2 className="text-2xl font-bold mb-4">Overview</h2>
-                <p className="lead-text text-lg leading-relaxed">{service.intro}</p>
-              </div>
-
-              <div className="content-box content-box--spacious">
-                <h2 className="text-2xl font-bold mb-4">What We Handle</h2>
-                <ul className="custom-bullets text-base leading-relaxed space-y-3">
-                  {service.whatWeHandle.map((item, idx) => (
-                    <li key={idx} className="pl-6">{item}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="content-box content-box--spacious">
-                <h2 className="text-2xl font-bold mb-4">Why It Matters</h2>
-                <p className="text-base leading-relaxed">{service.whyItMatters}</p>
-              </div>
-
-              <div className="content-box content-box--spacious">
-                <h2 className="text-2xl font-bold mb-4">Target Keywords &amp; Technical Scope</h2>
-                <p className="text-base mb-3">
-                  Primary focus keyword: <strong className="gradient-text">{service.primaryKeyword}</strong>
-                </p>
-                <div className="tech-pills-list flex flex-wrap gap-2 mt-4">
-                  {service.longTailKeywords.map((kw, i) => (
-                    <span key={i} className="tech-pill">{kw}</span>
-                  ))}
-                </div>
-              </div>
+      {/* SERVICE DETAIL SECTION WITH SPACED OUT RECTANGULAR BOXES */}
+      <section className="service-detail-section py-20">
+        <div className="container max-w-4xl mx-auto">
+          <div className="service-main flex flex-col gap-8">
+            <div className="content-box content-box--spacious">
+              <h2 className="text-2xl font-bold mb-4">Overview</h2>
+              <p className="lead-text text-lg leading-relaxed">{service.intro}</p>
             </div>
 
-            <div className="service-sidebar">
-              <div className="sidebar-card sticky top-28 p-8">
-                <h3 className="text-xl font-bold mb-3">Ready to discuss {service.title}?</h3>
-                <p className="text-sm text-muted mb-6">Let's map out your requirements and build a solution tailored for your business.</p>
-                <Link href="/contact" className="btn btn--primary btn--lg w-full">
-                  <span>{service.cta || 'Get Started Now'}</span>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </Link>
+            <div className="content-box content-box--spacious">
+              <h2 className="text-2xl font-bold mb-4">What We Handle</h2>
+              <ul className="custom-bullets text-base leading-relaxed space-y-3">
+                {service.whatWeHandle.map((item, idx) => (
+                  <li key={idx} className="pl-6">{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="content-box content-box--spacious">
+              <h2 className="text-2xl font-bold mb-4">Why It Matters</h2>
+              <p className="text-base leading-relaxed">{service.whyItMatters}</p>
+            </div>
+
+            <div className="content-box content-box--spacious">
+              <h2 className="text-2xl font-bold mb-4">Target Keywords &amp; Technical Scope</h2>
+              <p className="text-base mb-3">
+                Primary focus keyword: <strong className="gradient-text">{service.primaryKeyword}</strong>
+              </p>
+              <div className="tech-pills-list flex flex-wrap gap-2 mt-4">
+                {service.longTailKeywords.map((kw, i) => (
+                  <span key={i} className="tech-pill">{kw}</span>
+                ))}
               </div>
             </div>
           </div>
 
-          <div className="cta-card mt-24">
+          <div className="cta-card mt-20">
             <h2 className="text-3xl font-extrabold">Build Your Customized System Today</h2>
             <p className="text-muted text-base mt-2">Our team is ready to engineer production-grade solutions tailored to your brand.</p>
             <div className="mt-6">

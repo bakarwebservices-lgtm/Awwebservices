@@ -47,22 +47,22 @@ export default function ServicesPage() {
     <>
       <JsonLd data={breadcrumbSchema} />
 
-      <section className="page-hero">
+      <section className="page-hero hero-blue-banner">
         <div className="container">
-          <nav className="breadcrumbs" aria-label="Breadcrumb">
+          <nav className="breadcrumbs mb-4" aria-label="Breadcrumb">
             <Link href="/">Home</Link>
             <span>/</span>
             <span aria-current="page">Services</span>
           </nav>
 
-          <h1 className="page-hero__title">Services Built to Scale Your Business</h1>
-          <p className="page-hero__subtitle">
+          <h1 className="page-hero__title text-4xl sm:text-5xl font-extrabold">Services Built to Scale Your Business</h1>
+          <p className="page-hero__subtitle text-xl mt-3 max-w-3xl leading-relaxed">
             Clean, high-performance digital solutions tailored to your operational goals.
           </p>
         </div>
       </section>
 
-      <section className="services-list-section">
+      <section className="services-list-section py-20">
         <div className="container">
           <div className="services-grid">
             {services.map((service, index) => (
@@ -86,8 +86,8 @@ export default function ServicesPage() {
           </div>
 
           <div className="cta-card mt-24">
-            <h2>Need a custom solution for your business?</h2>
-            <p className="mt-2 text-muted">We build tailored digital infrastructure around how your business operates.</p>
+            <h2 className="text-3xl font-extrabold">Need a Custom Solution for Your Business?</h2>
+            <p className="mt-2 text-muted text-base">We build tailored digital infrastructure around how your business operates.</p>
             <div className="mt-6">
               <Link href="/contact" className="btn btn--primary btn--lg">
                 <span>Request a Consultation</span>

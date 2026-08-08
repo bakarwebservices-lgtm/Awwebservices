@@ -38,29 +38,29 @@ export default function PrivacyPolicyPage() {
     <>
       <JsonLd data={breadcrumbSchema} />
 
-      <section className="page-hero">
+      <section className="page-hero hero-blue-banner">
         <div className="container">
-          <nav className="breadcrumbs" aria-label="Breadcrumb">
+          <nav className="breadcrumbs mb-4" aria-label="Breadcrumb">
             <Link href="/">Home</Link>
             <span>/</span>
             <span aria-current="page">Privacy Policy</span>
           </nav>
 
-          <h1 className="page-hero__title">Privacy Policy</h1>
-          <p className="page-hero__subtitle">Last updated: August 4, 2026</p>
+          <h1 className="page-hero__title text-4xl sm:text-5xl font-extrabold">Privacy Policy</h1>
+          <p className="page-hero__subtitle text-lg mt-2">Last updated: August 4, 2026</p>
         </div>
       </section>
 
-      <section className="legal-content-section">
-        <div className="container max-w-4xl">
-          <div className="legal-document content-box">
-            <p className="lead-text">
+      <section className="legal-content-section py-20">
+        <div className="container max-w-4xl mx-auto">
+          <div className="legal-document content-box content-box--spacious">
+            <p className="lead-text mb-6">
               AW Web Services (&quot;AWWeb,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) operates the website awweb.online. This policy explains what information we collect, how we use it, and the choices you have.
             </p>
 
-            <h2>Information We Collect</h2>
-            <p>When you submit our contact or quote request form, we collect:</p>
-            <ul className="custom-bullets">
+            <h2 className="text-2xl font-bold mt-8 mb-4">Information We Collect</h2>
+            <p className="mb-4">When you submit our contact or quote request form, we collect:</p>
+            <ul className="custom-bullets mb-6">
               <li>Full name</li>
               <li>Email address</li>
               <li>Phone number (optional)</li>
@@ -68,71 +68,71 @@ export default function PrivacyPolicyPage() {
               <li>Budget range (optional)</li>
               <li>Project details you provide</li>
             </ul>
-            <p>We do not collect payment information on awweb.online. We do not process e-commerce transactions on this site.</p>
+            <p className="mb-6">We do not collect payment information on awweb.online. We do not process e-commerce transactions on this site.</p>
 
-            <h3>Automatically Collected Information</h3>
-            <p>Like most websites, we use analytics tools (Google Analytics) that automatically collect:</p>
-            <ul className="custom-bullets">
+            <h3 className="text-xl font-bold mt-6 mb-3">Automatically Collected Information</h3>
+            <p className="mb-4">Like most websites, we use analytics tools (Google Analytics) that automatically collect:</p>
+            <ul className="custom-bullets mb-6">
               <li>Pages visited and time spent on the site</li>
               <li>General location (city/country level, based on IP address)</li>
               <li>Device and browser type</li>
               <li>Referring website or search term that brought you here</li>
             </ul>
 
-            <h2>How We Use Your Information</h2>
-            <p>We use the information you provide to:</p>
-            <ul className="custom-bullets">
+            <h2 className="text-2xl font-bold mt-8 mb-4">How We Use Your Information</h2>
+            <p className="mb-4">We use the information you provide to:</p>
+            <ul className="custom-bullets mb-6">
               <li>Respond to your inquiry or quote request</li>
               <li>Understand which services and pages visitors are most interested in, to improve our site</li>
               <li>Communicate with you about a project you've inquired about</li>
             </ul>
-            <p>We do not sell, rent, or trade your personal information to third parties.</p>
+            <p className="mb-6">We do not sell, rent, or trade your personal information to third parties.</p>
 
-            <h2>Cookies</h2>
-            <p>
+            <h2 className="text-2xl font-bold mt-8 mb-4">Cookies</h2>
+            <p className="mb-6">
               Our site may use cookies through Google Analytics to understand site usage. You can disable cookies through your browser settings at any time; this may affect some site functionality.
             </p>
 
-            <h2>Third-Party Services</h2>
-            <p>We use the following third-party services, which have their own privacy policies:</p>
-            <ul className="custom-bullets">
+            <h2 className="text-2xl font-bold mt-8 mb-4">Third-Party Services</h2>
+            <p className="mb-4">We use the following third-party services, which have their own privacy policies:</p>
+            <ul className="custom-bullets mb-6">
               <li><strong>Google Analytics</strong> — for site traffic analysis</li>
               <li><strong>Meta (Facebook)</strong> — if you arrive via a Facebook/Instagram ad, Meta's pixel may record that interaction per Meta's own privacy policy</li>
             </ul>
 
-            <h2>Data Retention</h2>
-            <p>
+            <h2 className="text-2xl font-bold mt-8 mb-4">Data Retention</h2>
+            <p className="mb-6">
               We retain contact form submissions for as long as necessary to respond to your inquiry and maintain business records, or until you request deletion.
             </p>
 
-            <h2>Your Rights</h2>
-            <p>You may contact us at any time to:</p>
-            <ul className="custom-bullets">
+            <h2 className="text-2xl font-bold mt-8 mb-4">Your Rights</h2>
+            <p className="mb-4">You may contact us at any time to:</p>
+            <ul className="custom-bullets mb-6">
               <li>Request a copy of the information we hold about you</li>
               <li>Request correction of inaccurate information</li>
               <li>Request deletion of your information</li>
             </ul>
-            <p>To make a request, email us at <a href="mailto:bakarwebservices@gmail.com">bakarwebservices@gmail.com</a>.</p>
+            <p className="mb-6">To make a request, email us at <a href="mailto:bakarwebservices@gmail.com" className="gradient-text font-semibold">bakarwebservices@gmail.com</a>.</p>
 
-            <h2>Data Security</h2>
-            <p>
+            <h2 className="text-2xl font-bold mt-8 mb-4">Data Security</h2>
+            <p className="mb-6">
               We take reasonable measures to protect the information you submit to us. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.
             </p>
 
-            <h2>Children's Privacy</h2>
-            <p>
+            <h2 className="text-2xl font-bold mt-8 mb-4">Children's Privacy</h2>
+            <p className="mb-6">
               Our services are intended for businesses and individuals aged 18 and older. We do not knowingly collect information from children under 18.
             </p>
 
-            <h2>Changes to This Policy</h2>
-            <p>
+            <h2 className="text-2xl font-bold mt-8 mb-4">Changes to This Policy</h2>
+            <p className="mb-6">
               We may update this privacy policy from time to time. The &quot;Last updated&quot; date at the top will reflect the most recent changes.
             </p>
 
-            <h2>Contact Us</h2>
-            <p>If you have questions about this privacy policy, contact us at:</p>
-            <p>
-              <strong>Email:</strong> <a href="mailto:bakarwebservices@gmail.com">bakarwebservices@gmail.com</a><br />
+            <h2 className="text-2xl font-bold mt-8 mb-4">Contact Us</h2>
+            <p className="mb-2">If you have questions about this privacy policy, contact us at:</p>
+            <p className="mt-2 leading-relaxed">
+              <strong>Email:</strong> <a href="mailto:bakarwebservices@gmail.com" className="gradient-text font-semibold">bakarwebservices@gmail.com</a><br />
               <strong>Website:</strong> awweb.online
             </p>
           </div>

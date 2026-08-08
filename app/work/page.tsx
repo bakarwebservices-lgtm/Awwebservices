@@ -39,22 +39,22 @@ export default function WorkIndexPage() {
     <>
       <JsonLd data={breadcrumbSchema} />
 
-      <section className="page-hero">
+      <section className="page-hero hero-blue-banner">
         <div className="container">
-          <nav className="breadcrumbs" aria-label="Breadcrumb">
+          <nav className="breadcrumbs mb-4" aria-label="Breadcrumb">
             <Link href="/">Home</Link>
             <span>/</span>
             <span aria-current="page">Work</span>
           </nav>
 
-          <h1 className="page-hero__title">Our Work &amp; Featured Case Studies</h1>
-          <p className="page-hero__subtitle">
+          <h1 className="page-hero__title text-4xl sm:text-5xl font-extrabold">Our Work &amp; Featured Case Studies</h1>
+          <p className="page-hero__subtitle text-xl mt-3 max-w-3xl leading-relaxed">
             Explore live systems and concept builds engineered for performance, automation, and full infrastructure ownership.
           </p>
         </div>
       </section>
 
-      <section className="portfolio-section">
+      <section className="portfolio-section py-20">
         <div className="container">
           <div className="portfolio-grid">
             {projects.map((project) => (
@@ -81,8 +81,8 @@ export default function WorkIndexPage() {
           </div>
 
           <div className="cta-card mt-24">
-            <h2>Have a project in mind?</h2>
-            <p className="mt-2 text-muted">Let's build a custom solution tailored to your business.</p>
+            <h2 className="text-3xl font-extrabold">Have a Project in Mind?</h2>
+            <p className="mt-2 text-muted text-base">Let's build a custom solution tailored to your business.</p>
             <div className="mt-6">
               <Link href="/contact" className="btn btn--primary btn--lg">
                 <span>Start a Project</span>

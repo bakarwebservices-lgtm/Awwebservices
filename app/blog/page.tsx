@@ -38,30 +38,30 @@ export default function BlogIndexPage() {
     <>
       <JsonLd data={breadcrumbSchema} />
 
-      <section className="page-hero">
+      <section className="page-hero hero-blue-banner">
         <div className="container">
-          <nav className="breadcrumbs" aria-label="Breadcrumb">
+          <nav className="breadcrumbs mb-4" aria-label="Breadcrumb">
             <Link href="/">Home</Link>
             <span>/</span>
             <span aria-current="page">Blog</span>
           </nav>
 
-          <h1 className="page-hero__title">Engineering Insights &amp; Tech Articles</h1>
-          <p className="page-hero__subtitle">
+          <h1 className="page-hero__title text-4xl sm:text-5xl font-extrabold">Engineering Insights &amp; Tech Articles</h1>
+          <p className="page-hero__subtitle text-xl mt-3 max-w-3xl leading-relaxed">
             Articles on custom e-commerce architecture, PostEx courier API integration, Meta lead qualification funnels, and real-time business automation.
           </p>
         </div>
       </section>
 
-      <section className="blog-section">
-        <div className="container">
-          <div className="content-box text-center py-16">
-            <h2>Articles &amp; Case Analysis Coming Soon</h2>
-            <p className="max-w-xl mx-auto mt-4 text-muted">
+      <section className="blog-section py-20">
+        <div className="container max-w-4xl mx-auto">
+          <div className="content-box content-box--spacious text-center py-16">
+            <h2 className="text-3xl font-extrabold mb-4">Articles &amp; Case Analysis Coming Soon</h2>
+            <p className="max-w-xl mx-auto text-muted text-base leading-relaxed mb-8">
               We are preparing detailed technical deep-dives on building owned e-commerce infrastructure, automating cash-on-delivery profit tracking, and designing high-converting local service websites.
             </p>
-            <div className="mt-8">
-              <Link href="/contact" className="btn btn--primary">
+            <div>
+              <Link href="/contact" className="btn btn--primary btn--lg">
                 <span>Subscribe or Request a Topic</span>
               </Link>
             </div>

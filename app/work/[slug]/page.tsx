@@ -108,15 +108,15 @@ export default function DynamicProjectPage({ params }: ProjectPageProps) {
         </div>
       </section>
 
-      {/* PROJECT DETAIL SECTION */}
-      <section className="project-detail-section py-16">
-        <div className="container">
-          <div className="project-hero-image mb-16">
-            <img src={project.heroImage} alt={`${project.title} Case Study Showcase`} className="rounded-2xl shadow-2xl w-full max-h-[560px] object-cover border border-border" />
+      {/* PROJECT DETAIL SECTION WITH SPACED OUT SECTIONS */}
+      <section className="project-detail-section py-20">
+        <div className="container max-w-5xl mx-auto">
+          <div className="project-hero-image mb-12">
+            <img src={project.heroImage} alt={`${project.title} Case Study Showcase`} className="rounded-2xl shadow-2xl w-full max-h-[540px] object-cover border border-border" />
           </div>
 
           {/* META GRID WITH SPACIOUS PADDING */}
-          <div className="project-meta-grid mb-16">
+          <div className="project-meta-grid mb-12">
             {project.client && (
               <div className="meta-box">
                 <span className="meta-label">Client</span>
@@ -145,7 +145,7 @@ export default function DynamicProjectPage({ params }: ProjectPageProps) {
 
           {/* PROJECT BODY CONTENT WITH SPACIOUS GAP */}
           <div className="project-body-grid">
-            <div className="project-main-content flex flex-col gap-12">
+            <div className="project-main-content flex flex-col gap-8">
               <div className="content-box content-box--spacious">
                 <h2 className="text-2xl font-bold mb-4">The Challenge &amp; Context</h2>
                 <p className="text-base leading-relaxed text-muted">{project.body.problem}</p>
@@ -153,7 +153,7 @@ export default function DynamicProjectPage({ params }: ProjectPageProps) {
 
               <div className="content-box content-box--spacious">
                 <h2 className="text-2xl font-bold mb-6">Solution &amp; Technical Execution</h2>
-                <div className="solution-steps flex flex-col gap-8">
+                <div className="solution-steps flex flex-col gap-6">
                   {project.body.solution.map((sol, index) => (
                     <div key={index} className="solution-step-item p-6 rounded-xl bg-surface-3 border border-border">
                       <h3 className="text-lg font-bold text-accent-1 mb-2">{sol.heading}</h3>
@@ -203,7 +203,7 @@ export default function DynamicProjectPage({ params }: ProjectPageProps) {
             </div>
           </div>
 
-          <div className="cta-card mt-24">
+          <div className="cta-card mt-20">
             <h2 className="text-3xl font-extrabold">Want a Similar System Built for Your Business?</h2>
             <p className="text-muted text-base mt-2">Let's discuss your project goals, timelines, and technical requirements.</p>
             <div className="mt-6">

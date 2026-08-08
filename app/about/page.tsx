@@ -38,49 +38,49 @@ export default function AboutPage() {
     <>
       <JsonLd data={breadcrumbSchema} />
 
-      <section className="page-hero">
+      <section className="page-hero hero-blue-banner">
         <div className="container">
-          <nav className="breadcrumbs" aria-label="Breadcrumb">
+          <nav className="breadcrumbs mb-4" aria-label="Breadcrumb">
             <Link href="/">Home</Link>
             <span>/</span>
             <span aria-current="page">About Us</span>
           </nav>
 
-          <h1 className="page-hero__title">Engineering digital systems built to be owned, not rented</h1>
-          <p className="page-hero__subtitle">
-            AW Web Services is a specialized web development, digital marketing, and business automation agency crafting production-grade software for growing brands.
+          <h1 className="page-hero__title text-4xl sm:text-5xl font-extrabold">Engineering Systems Built to Be Owned, Not Rented</h1>
+          <p className="page-hero__subtitle text-xl mt-3 max-w-3xl leading-relaxed">
+            AW Web Services is a specialized agency crafting production-grade software, e-commerce platforms, and real-time business automation.
           </p>
         </div>
       </section>
 
-      <section className="about-content">
-        <div className="container">
-          <div className="about-grid">
-            <div className="about-block">
-              <h2>Our Philosophy</h2>
-              <p>
+      <section className="about-content py-20">
+        <div className="container max-w-5xl mx-auto">
+          <div className="about-grid grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="about-block content-box content-box--spacious">
+              <h2 className="text-2xl font-bold mb-4">Our Philosophy</h2>
+              <p className="text-base leading-relaxed text-muted mb-4">
                 Most modern businesses get locked into subscription platforms, generic templates, and manual spreadsheet workarounds that slow down operations as order volume grows.
               </p>
-              <p>
+              <p className="text-base leading-relaxed text-muted">
                 We take a different approach: we engineer custom storefronts, API bridges, and internal admin tools that you fully own. From PostgreSQL databases to Next.js codebases, every line of code belongs to your business.
               </p>
             </div>
 
-            <div className="about-block">
-              <h2>What We Specialize In</h2>
-              <ul className="custom-bullets">
-                <li><strong>Owned E-Commerce Platforms:</strong> Zero-subscription storefronts with native checkout flows (PayPal, Stripe, COD).</li>
-                <li><strong>PostEx &amp; Courier Automation:</strong> Real-time courier API synchronization and automated profit/loss calculation.</li>
-                <li><strong>Custom Web Engineering:</strong> Fast, mobile-first Next.js websites built with SEO-first architecture.</li>
-                <li><strong>Performance Marketing:</strong> Meta ad campaign management, WhatsApp qualification funnels, and tracking pipelines.</li>
-                <li><strong>Virtual Operations Support:</strong> Ongoing remote admin, inbox triage, and operations assistance.</li>
+            <div className="about-block content-box content-box--spacious">
+              <h2 className="text-2xl font-bold mb-4">What We Specialize In</h2>
+              <ul className="custom-bullets text-base leading-relaxed space-y-3">
+                <li><strong>Owned E-Commerce Platforms:</strong> Zero-subscription storefronts with native checkout flows.</li>
+                <li><strong>PostEx &amp; Courier Automation:</strong> Real-time courier API synchronization and automated P&amp;L.</li>
+                <li><strong>Custom Web Engineering:</strong> Fast Next.js websites built with SEO-first architecture.</li>
+                <li><strong>Performance Marketing:</strong> Meta ad campaigns, WhatsApp lead qualification funnels.</li>
+                <li><strong>Virtual Operations Support:</strong> Ongoing remote admin, inbox triage, and operations support.</li>
               </ul>
             </div>
           </div>
 
-          <div className="tech-stack-section mt-12">
-            <h2>Our Core Tech Stack</h2>
-            <div className="tech-pills-list">
+          <div className="tech-stack-section content-box content-box--spacious mt-12">
+            <h2 className="text-2xl font-bold mb-4">Our Core Tech Stack</h2>
+            <div className="tech-pills-list flex flex-wrap gap-3 mt-4">
               <span className="tech-pill">Next.js (App Router)</span>
               <span className="tech-pill">TypeScript</span>
               <span className="tech-pill">Node.js</span>
@@ -92,12 +92,14 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="cta-card mt-16">
-            <h2>Work with an agency that builds for long-term growth</h2>
-            <p>Get in touch to discuss your platform requirements or book a technical consultation.</p>
-            <Link href="/contact" className="btn btn--primary btn--lg">
-              <span>Start a Project</span>
-            </Link>
+          <div className="cta-card mt-20">
+            <h2 className="text-3xl font-extrabold">Work with an Agency That Builds for Long-Term Growth</h2>
+            <p className="text-muted text-base mt-2">Get in touch to discuss your platform requirements or book a technical consultation.</p>
+            <div className="mt-6">
+              <Link href="/contact" className="btn btn--primary btn--lg">
+                <span>Start a Project</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
