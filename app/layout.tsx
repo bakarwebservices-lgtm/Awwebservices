@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import React from 'react';
+import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ThemeScript from '@/components/ThemeScript';
@@ -52,6 +53,19 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-ZGX1HSL9P2"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-ZGX1HSL9P2');
+          `}
+        </Script>
         <ThemeScript />
         <div className="noise" aria-hidden="true"></div>
         <div className="mesh-bg" aria-hidden="true">
