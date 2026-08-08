@@ -84,9 +84,10 @@ export default function DynamicProjectPage({ params }: ProjectPageProps) {
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={creativeWorkSchema} />
 
-      <section className="page-hero">
+      {/* HERO BANNER WITH BLUE GLOW HIGHLIGHT */}
+      <section className="page-hero hero-blue-banner">
         <div className="container">
-          <nav className="breadcrumbs" aria-label="Breadcrumb">
+          <nav className="breadcrumbs mb-4" aria-label="Breadcrumb">
             <Link href="/">Home</Link>
             <span>/</span>
             <Link href="/work">Work</Link>
@@ -94,23 +95,28 @@ export default function DynamicProjectPage({ params }: ProjectPageProps) {
             <span aria-current="page">{project.title}</span>
           </nav>
 
-          <div className="flex items-center gap-3 mb-2">
-            <span className="eyebrow">{project.category}</span>
+          <div className="flex items-center gap-3 mb-3">
+            <span className="hero-highlight-tag">
+              <span className="hero-highlight-dot"></span>
+              <span>{project.category}</span>
+            </span>
             {project.tag && <span className="portfolio-card__badge">{project.tag}</span>}
           </div>
 
-          <h1 className="page-hero__title">{project.title}</h1>
-          <p className="page-hero__subtitle">{project.metaDescription}</p>
+          <h1 className="page-hero__title text-4xl sm:text-5xl font-extrabold">{project.title}</h1>
+          <p className="page-hero__subtitle text-xl mt-3 max-w-3xl leading-relaxed">{project.metaDescription}</p>
         </div>
       </section>
 
-      <section className="project-detail-section">
+      {/* PROJECT DETAIL SECTION */}
+      <section className="project-detail-section py-16">
         <div className="container">
-          <div className="project-hero-image mb-12">
-            <img src={project.heroImage} alt={`${project.title} Case Study Main Hero Image`} className="rounded-lg shadow-lg w-full max-h-[500px] object-cover" />
+          <div className="project-hero-image mb-16">
+            <img src={project.heroImage} alt={`${project.title} Case Study Showcase`} className="rounded-2xl shadow-2xl w-full max-h-[560px] object-cover border border-border" />
           </div>
 
-          <div className="project-meta-grid mb-12">
+          {/* META GRID WITH SPACIOUS PADDING */}
+          <div className="project-meta-grid mb-16">
             {project.client && (
               <div className="meta-box">
                 <span className="meta-label">Client</span>
@@ -129,7 +135,7 @@ export default function DynamicProjectPage({ params }: ProjectPageProps) {
             )}
             <div className="meta-box">
               <span className="meta-label">Technologies</span>
-              <div className="tech-pills-list mt-1">
+              <div className="tech-pills-list mt-2 flex flex-wrap gap-2">
                 {project.builtWith.map((tech) => (
                   <span key={tech} className="tech-pill">{tech}</span>
                 ))}
@@ -137,42 +143,43 @@ export default function DynamicProjectPage({ params }: ProjectPageProps) {
             </div>
           </div>
 
+          {/* PROJECT BODY CONTENT WITH SPACIOUS GAP */}
           <div className="project-body-grid">
-            <div className="project-main-content">
-              <div className="content-box">
-                <h2>The Problem</h2>
-                <p>{project.body.problem}</p>
+            <div className="project-main-content flex flex-col gap-12">
+              <div className="content-box content-box--spacious">
+                <h2 className="text-2xl font-bold mb-4">The Challenge &amp; Context</h2>
+                <p className="text-base leading-relaxed text-muted">{project.body.problem}</p>
               </div>
 
-              <div className="content-box mt-8">
-                <h2>Our Solution &amp; Engineering</h2>
-                <div className="solution-steps mt-4">
+              <div className="content-box content-box--spacious">
+                <h2 className="text-2xl font-bold mb-6">Solution &amp; Technical Execution</h2>
+                <div className="solution-steps flex flex-col gap-8">
                   {project.body.solution.map((sol, index) => (
-                    <div key={index} className="solution-step-item mb-6">
-                      <h3>{sol.heading}</h3>
-                      <p>{sol.text}</p>
+                    <div key={index} className="solution-step-item p-6 rounded-xl bg-surface-3 border border-border">
+                      <h3 className="text-lg font-bold text-accent-1 mb-2">{sol.heading}</h3>
+                      <p className="text-base leading-relaxed text-muted">{sol.text}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
               {project.body.result && (
-                <div className="content-box mt-8">
-                  <h2>Result &amp; Impact</h2>
-                  <p>{project.body.result}</p>
+                <div className="content-box content-box--spacious">
+                  <h2 className="text-2xl font-bold mb-4">Results &amp; Impact</h2>
+                  <p className="text-base leading-relaxed mb-6">{project.body.result}</p>
 
                   {(project.body.before || project.body.after) && (
-                    <div className="before-after-grid mt-6">
+                    <div className="before-after-grid grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
                       {project.body.before && (
-                        <div className="metric-card metric-card--before">
+                        <div className="metric-card metric-card--before p-6">
                           <span className="metric-label">Before</span>
-                          <span className="metric-value">{project.body.before}</span>
+                          <span className="metric-value text-xl">{project.body.before}</span>
                         </div>
                       )}
                       {project.body.after && (
-                        <div className="metric-card metric-card--after">
+                        <div className="metric-card metric-card--after p-6">
                           <span className="metric-label">After</span>
-                          <span className="metric-value">{project.body.after}</span>
+                          <span className="metric-value text-xl">{project.body.after}</span>
                         </div>
                       )}
                     </div>
@@ -182,12 +189,12 @@ export default function DynamicProjectPage({ params }: ProjectPageProps) {
 
               {/* SCREENSHOT GALLERY */}
               {project.screenshots && project.screenshots.length > 0 && (
-                <div className="content-box mt-12">
-                  <h2>Project Screenshots &amp; Interfaces</h2>
-                  <div className="screenshots-gallery-grid mt-6">
+                <div className="content-box content-box--spacious">
+                  <h2 className="text-2xl font-bold mb-6">Interface Gallery &amp; Screenshots</h2>
+                  <div className="screenshots-gallery-grid grid grid-cols-1 md:grid-cols-2 gap-8">
                     {project.screenshots.map((src, i) => (
-                      <div key={i} className="screenshot-item mb-6">
-                        <img src={src} alt={`${project.title} Interface Screenshot ${i + 1}`} className="rounded-lg shadow border" />
+                      <div key={i} className="screenshot-item">
+                        <img src={src} alt={`${project.title} Interface Screenshot ${i + 1}`} className="rounded-xl shadow-lg border border-border w-full object-cover" />
                       </div>
                     ))}
                   </div>
@@ -196,12 +203,14 @@ export default function DynamicProjectPage({ params }: ProjectPageProps) {
             </div>
           </div>
 
-          <div className="cta-card mt-16">
-            <h2>Want a similar system built for your business?</h2>
-            <p>We build production-grade web systems tailored to your specific requirements.</p>
-            <Link href="/contact" className="btn btn--primary btn--lg">
-              <span>Start Your Project</span>
-            </Link>
+          <div className="cta-card mt-24">
+            <h2 className="text-3xl font-extrabold">Want a Similar System Built for Your Business?</h2>
+            <p className="text-muted text-base mt-2">Let's discuss your project goals, timelines, and technical requirements.</p>
+            <div className="mt-6">
+              <Link href="/contact" className="btn btn--primary btn--lg">
+                <span>Start Your Project</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

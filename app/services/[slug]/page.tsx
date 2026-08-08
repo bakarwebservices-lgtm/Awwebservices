@@ -86,9 +86,10 @@ export default function DynamicServicePage({ params }: ServicePageProps) {
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={serviceSchema} />
 
-      <section className="page-hero">
+      {/* HERO BANNER WITH BLUE GLOW HIGHLIGHT */}
+      <section className="page-hero hero-blue-banner">
         <div className="container">
-          <nav className="breadcrumbs" aria-label="Breadcrumb">
+          <nav className="breadcrumbs mb-4" aria-label="Breadcrumb">
             <Link href="/">Home</Link>
             <span>/</span>
             <Link href="/services">Services</Link>
@@ -96,38 +97,46 @@ export default function DynamicServicePage({ params }: ServicePageProps) {
             <span aria-current="page">{service.title}</span>
           </nav>
 
-          <h1 className="page-hero__title">{service.title}</h1>
-          <p className="page-hero__subtitle">{service.heading}</p>
+          <div className="hero-highlight-tag mb-3">
+            <span className="hero-highlight-dot"></span>
+            <span>Core Service Offering</span>
+          </div>
+
+          <h1 className="page-hero__title text-4xl sm:text-5xl font-extrabold">{service.title}</h1>
+          <p className="page-hero__subtitle text-xl mt-3">{service.heading}</p>
         </div>
       </section>
 
-      <section className="service-detail-section">
+      {/* SERVICE DETAIL SECTION WITH SPACIOUS BOXES */}
+      <section className="service-detail-section py-16">
         <div className="container">
           <div className="service-detail-grid">
-            <div className="service-main">
-              <div className="content-box">
-                <h2>Overview</h2>
-                <p className="lead-text">{service.intro}</p>
+            <div className="service-main flex flex-col gap-12">
+              <div className="content-box content-box--spacious">
+                <h2 className="text-2xl font-bold mb-4">Overview</h2>
+                <p className="lead-text text-lg leading-relaxed">{service.intro}</p>
               </div>
 
-              <div className="content-box mt-8">
-                <h2>What We Handle</h2>
-                <ul className="custom-bullets">
+              <div className="content-box content-box--spacious">
+                <h2 className="text-2xl font-bold mb-4">What We Handle</h2>
+                <ul className="custom-bullets text-base leading-relaxed space-y-3">
                   {service.whatWeHandle.map((item, idx) => (
-                    <li key={idx}>{item}</li>
+                    <li key={idx} className="pl-6">{item}</li>
                   ))}
                 </ul>
               </div>
 
-              <div className="content-box mt-8">
-                <h2>Why It Matters</h2>
-                <p>{service.whyItMatters}</p>
+              <div className="content-box content-box--spacious">
+                <h2 className="text-2xl font-bold mb-4">Why It Matters</h2>
+                <p className="text-base leading-relaxed">{service.whyItMatters}</p>
               </div>
 
-              <div className="content-box mt-8">
-                <h2>Target Keywords &amp; Technical Scope</h2>
-                <p>Primary focus keyword: <strong>{service.primaryKeyword}</strong></p>
-                <div className="tech-pills-list mt-3">
+              <div className="content-box content-box--spacious">
+                <h2 className="text-2xl font-bold mb-4">Target Keywords &amp; Technical Scope</h2>
+                <p className="text-base mb-3">
+                  Primary focus keyword: <strong className="gradient-text">{service.primaryKeyword}</strong>
+                </p>
+                <div className="tech-pills-list flex flex-wrap gap-2 mt-4">
                   {service.longTailKeywords.map((kw, i) => (
                     <span key={i} className="tech-pill">{kw}</span>
                   ))}
@@ -136,14 +145,24 @@ export default function DynamicServicePage({ params }: ServicePageProps) {
             </div>
 
             <div className="service-sidebar">
-              <div className="sidebar-card">
-                <h3>Ready to discuss {service.title}?</h3>
-                <p>Let's map out your requirements and build a solution tailored for your business.</p>
-                <Link href="/contact" className="btn btn--primary btn--lg w-full mt-4">
+              <div className="sidebar-card sticky top-28 p-8">
+                <h3 className="text-xl font-bold mb-3">Ready to discuss {service.title}?</h3>
+                <p className="text-sm text-muted mb-6">Let's map out your requirements and build a solution tailored for your business.</p>
+                <Link href="/contact" className="btn btn--primary btn--lg w-full">
                   <span>{service.cta || 'Get Started Now'}</span>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </Link>
               </div>
+            </div>
+          </div>
+
+          <div className="cta-card mt-24">
+            <h2 className="text-3xl font-extrabold">Build Your Customized System Today</h2>
+            <p className="text-muted text-base mt-2">Our team is ready to engineer production-grade solutions tailored to your brand.</p>
+            <div className="mt-6">
+              <Link href="/contact" className="btn btn--primary btn--lg">
+                <span>Start Your Project</span>
+              </Link>
             </div>
           </div>
         </div>

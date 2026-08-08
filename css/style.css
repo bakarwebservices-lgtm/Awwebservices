@@ -1685,3 +1685,79 @@ main { min-height: 100vh; }
     font-weight: 800;
 }
 
+/* Header Navbar Prominence on Scroll */
+.header.is-scrolled {
+    background: rgba(4, 7, 13, 0.94) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] .header.is-scrolled {
+    background: rgba(244, 246, 252, 0.95) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Hero Blue Glow Highlight Banner */
+.hero-blue-banner {
+    position: relative;
+    background: radial-gradient(ellipse at top left, rgba(49, 99, 207, 0.22) 0%, rgba(34, 211, 238, 0.08) 50%, transparent 80%), var(--surface-1);
+    border-bottom: 1px solid var(--border);
+    padding: clamp(5rem, 9vw, 7.5rem) 0 clamp(3.5rem, 6vw, 4.5rem);
+}
+
+.hero-highlight-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.9rem;
+    background: rgba(49, 99, 207, 0.15);
+    border: 1px solid rgba(49, 99, 207, 0.35);
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent-2);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.hero-highlight-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent-2);
+    box-shadow: 0 0 8px var(--accent-2);
+}
+
+/* Content Box Spacious Layout & Gap */
+.content-box--spacious {
+    padding: 3rem 2.5rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-box--spacious:hover {
+    border-color: rgba(49, 99, 207, 0.35);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+}
+
+.service-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 3.5rem;
+}
+
+@media (max-width: 992px) {
+    .service-detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+

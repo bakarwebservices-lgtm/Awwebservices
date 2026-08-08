@@ -8,11 +8,25 @@ export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const currentTheme = (localStorage.getItem('theme') as 'light' | 'dark') || 'dark';
     setTheme(currentTheme);
     document.documentElement.setAttribute('data-theme', currentTheme);
+
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleTheme = () => {
@@ -32,7 +46,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="header" id="header">
+      <header className={`header ${isScrolled ? 'is-scrolled' : ''}`} id="header">
         <div className="header__inner container">
           <Link href="/" className="header__logo" onClick={closeMenu}>
             <img src="/images/logo.webp" alt="AW Web Services Logo" width={36} height={36} />
