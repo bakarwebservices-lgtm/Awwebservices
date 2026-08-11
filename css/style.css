@@ -411,7 +411,7 @@ main { min-height: 100vh; }
 .hero__stats {
     position: relative; z-index: 2;
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
-    padding-top: 3.5rem; margin-top: 1rem;
+    padding-top: 1.75rem; margin-top: 0.5rem;
 }
 .stat-card {
     background: var(--surface); border: 1px solid var(--border);
@@ -1626,7 +1626,7 @@ main { min-height: 100vh; }
 .hero {
     min-height: auto;
     padding-top: calc(var(--header-h) + 2rem);
-    padding-bottom: 2.5rem;
+    padding-bottom: 1.25rem;
 }
 .hero__scroll {
     display: none;
