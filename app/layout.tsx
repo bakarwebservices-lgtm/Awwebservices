@@ -4,7 +4,9 @@ import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ThemeScript from '@/components/ThemeScript';
+import ChatWidget from '@/components/ChatWidget';
 import '@/css/style.css';
+import '@/css/chat-widget.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://awweb.online'),
@@ -77,6 +79,7 @@ export default function RootLayout({
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <ChatWidget />
       </body>
     </html>
   );
