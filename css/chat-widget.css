@@ -424,6 +424,38 @@
   color: var(--text, #04070d);
 }
 
+.chat-message__text {
+  margin: 0;
+}
+
+.chat-message__text a,
+.chat-message__link {
+  color: var(--primary, #3163cf);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 500;
+  transition: opacity 0.15s ease;
+  word-break: break-all;
+}
+
+.chat-message__text a:hover,
+.chat-message__link:hover {
+  opacity: 0.8;
+}
+
+[data-theme="dark"] .chat-message--bot .chat-message__link,
+[data-theme="dark"] .chat-message--bot .chat-message__text a {
+  color: #60a5fa;
+}
+
+.chat-message--user .chat-message__link,
+.chat-message--user .chat-message__text a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+
 .chat-message__time {
   font-size: 0.675rem;
   color: var(--muted, #5b6c8f);

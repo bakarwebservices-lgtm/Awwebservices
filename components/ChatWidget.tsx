@@ -18,6 +18,55 @@ interface Message {
   isError?: boolean;
 }
 
+/**
+ * Parses basic markdown links in the format [text](url) and returns React elements
+ * with clickable <a> tags opening in a new tab.
+ */
+function renderFormattedMessage(text: string): React.ReactNode {
+  if (!text) return null;
+
+  const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = markdownLinkRegex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+
+    const label = match[1];
+    const rawUrl = match[2].trim();
+    const isSafe = /^(https?:\/\/|\/|mailto:|tel:|#)/i.test(rawUrl);
+    const safeUrl = isSafe ? rawUrl : '#';
+
+    parts.push(
+      <a
+        key={`link-${match.index}`}
+        href={safeUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="chat-message__link"
+      >
+        {label}
+      </a>
+    );
+
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex === 0) {
+    return text;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+
+  return parts;
+}
+
+
 interface ChatWidgetProps {
   webhookUrl?: string;
   initialMessage?: string;
@@ -347,7 +396,7 @@ export default function ChatWidget({
                 )}
                 <div className="chat-message__content">
                   <div className="chat-message__bubble">
-                    <p className="chat-message__text">{msg.text}</p>
+                    <p className="chat-message__text">{renderFormattedMessage(msg.text)}</p>
                   </div>
                   <span className="chat-message__time">{msg.timestamp}</span>
                 </div>
