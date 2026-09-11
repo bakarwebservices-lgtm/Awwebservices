@@ -4,6 +4,7 @@ import React from 'react';
 import JsonLd from '@/components/JsonLd';
 import WorkScrollCarousel from '@/components/WorkScrollCarousel';
 import ReviewsCarousel from '@/components/ReviewsCarousel';
+import MajorReviewsSpotlight from '@/components/MajorReviewsSpotlight';
 import { projects } from '@/data/projects';
 
 export const metadata: Metadata = {
@@ -114,6 +115,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* MAJOR CLIENT SPOTLIGHT / REVIEWS (RIGHT AFTER HERO) */}
+      <MajorReviewsSpotlight />
+
       {/* MARQUEE TRACK */}
       <div className="marquee" aria-hidden="true">
         <div className="marquee__track">
@@ -147,7 +151,7 @@ export default function HomePage() {
             <article className="bento__item bento__item--lg">
               <div className="bento__img">
                 <img
-                  src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&h=600&fit=crop"
+                  src="/images/services/website-design.jpg"
                   alt="Custom Website Design & Development"
                 />
               </div>
@@ -165,7 +169,7 @@ export default function HomePage() {
             <article className="bento__item">
               <div className="bento__img">
                 <img
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+                  src="/images/services/digital-marketing.jpg"
                   alt="Digital Marketing & Meta Ads"
                 />
               </div>
@@ -183,7 +187,7 @@ export default function HomePage() {
             <article className="bento__item">
               <div className="bento__img">
                 <img
-                  src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop"
+                  src="/images/services/e-commerce.jpg"
                   alt="Custom E-Commerce Platform"
                 />
               </div>
@@ -201,7 +205,7 @@ export default function HomePage() {
             <article className="bento__item">
               <div className="bento__img">
                 <img
-                  src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&h=400&fit=crop"
+                  src="/images/services/business-automation.jpg"
                   alt="Business Workflow Automation"
                 />
               </div>
@@ -219,7 +223,7 @@ export default function HomePage() {
             <article className="bento__item bento__item--wide">
               <div className="bento__img">
                 <img
-                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=900&h=400&fit=crop"
+                  src="/images/services/virtual-assistance.jpg"
                   alt="Virtual Assistance & Operations Support"
                 />
               </div>

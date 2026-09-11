@@ -13,37 +13,37 @@ const reviewsData: ReviewItem[] = [
   {
     stars: '★★★★★',
     quote: '"AW Web Services transformed our online presence completely. Our inquiries increased significantly within months!"',
-    author: 'Abdul Muiz',
+    author: 'A. M.',
     role: 'CEO, Vortex Rings',
   },
   {
     stars: '★★★★★',
     quote: '"Professional, responsive, and incredibly talented. The e-commerce platform they set up has been flawless."',
-    author: 'Sameed Tehami',
+    author: 'S. T.',
     role: 'Founder, Attireburg',
   },
   {
     stars: '★★★★★',
     quote: '"Our social media engagement tripled. We\'re seeing consistent growth in our customer base. Highly recommend!"',
-    author: 'Maria',
+    author: 'M. R.',
     role: 'Marketing Director, ZN Enterprises Co.',
   },
   {
     stars: '★★★★★',
     quote: '"Responsive, creative, and deliver on time. Our new website has received so many compliments from clients."',
-    author: 'Sobaan Saeed',
+    author: 'S. S.',
     role: 'Owner, CSSKro',
   },
   {
     stars: '★★★★★',
     quote: '"They automated our business processes, saving countless hours each week. The ROI has been incredible."',
-    author: 'David Kim',
+    author: 'D. K.',
     role: 'Operations Manager, Swift Logistics',
   },
   {
     stars: '★★★★★',
     quote: '"Their virtual assistance service has been invaluable. They\'ve become an essential part of our daily team operations."',
-    author: 'Lisa Thompson',
+    author: 'L. T.',
     role: 'Director, Apex Consulting',
   },
 ];

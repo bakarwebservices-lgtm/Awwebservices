@@ -26,11 +26,11 @@ export const metadata: Metadata = {
 };
 
 const serviceImages: Record<string, string> = {
-  'website-design': 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&h=600&fit=crop',
-  'digital-marketing': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
-  'e-commerce': 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
-  'business-automation': 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&h=400&fit=crop',
-  'virtual-assistance': 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=900&h=400&fit=crop',
+  'website-design': '/images/services/website-design.jpg',
+  'digital-marketing': '/images/services/digital-marketing.jpg',
+  'e-commerce': '/images/services/e-commerce.jpg',
+  'business-automation': '/images/services/business-automation.jpg',
+  'virtual-assistance': '/images/services/virtual-assistance.jpg',
 };
 
 export default function ServicesPage() {
