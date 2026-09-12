@@ -1967,7 +1967,7 @@ main { min-height: 100vh; }
         overflow: hidden !important;
         isolation: isolate !important;
         min-height: auto !important;
-        padding-top: calc(var(--header-h) + 1.5rem) !important;
+        padding-top: calc(var(--header-h) + 1.25rem) !important;
         padding-bottom: 2rem !important;
     }
     .hero > .container {
@@ -1982,10 +1982,22 @@ main { min-height: 100vh; }
         position: relative !important;
         z-index: 2 !important;
         max-width: 100% !important;
-        padding: 0 !important;
+        padding: 1.5rem 1.15rem !important;
+        margin: 0 auto !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
+        background: rgba(244, 246, 252, 0.78) !important;
+        backdrop-filter: blur(16px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+        border: 1px solid rgba(255, 255, 255, 0.65) !important;
+        border-radius: 20px !important;
+        box-shadow: 0 10px 30px rgba(4, 7, 13, 0.08), 0 1px 0 rgba(255, 255, 255, 0.8) inset !important;
+    }
+    [data-theme="dark"] .hero__content {
+        background: rgba(10, 10, 18, 0.75) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(255, 255, 255, 0.08) inset !important;
     }
     .hero__eyebrow {
         font-size: 0.72rem !important;
@@ -1993,8 +2005,8 @@ main { min-height: 100vh; }
         letter-spacing: 0.15em !important;
     }
     .hero__title {
-        font-size: clamp(2rem, 7.8vw, 2.5rem) !important;
-        line-height: 1.15 !important;
+        font-size: clamp(1.9rem, 7.5vw, 2.35rem) !important;
+        line-height: 1.18 !important;
         margin-bottom: 0.85rem !important;
     }
     .hero__title .line {
@@ -2004,7 +2016,7 @@ main { min-height: 100vh; }
         font-size: 0.925rem !important;
         line-height: 1.55 !important;
         margin-bottom: 1.35rem !important;
-        max-width: 95% !important;
+        max-width: 100% !important;
     }
     .hero__actions {
         display: flex !important;
@@ -2051,16 +2063,16 @@ main { min-height: 100vh; }
         height: 100% !important;
         object-fit: cover !important;
         border-radius: 0 !important;
-        opacity: 0.22 !important;
+        opacity: 0.85 !important;
     }
     .hero__video-overlay {
         position: absolute !important;
         inset: 0 !important;
-        background: radial-gradient(circle at 50% 35%, rgba(244, 246, 252, 0.76) 0%, rgba(244, 246, 252, 0.95) 85%) !important;
+        background: linear-gradient(180deg, rgba(244, 246, 252, 0.2) 0%, rgba(244, 246, 252, 0.05) 50%, rgba(244, 246, 252, 0.35) 100%) !important;
         z-index: 1 !important;
     }
     [data-theme="dark"] .hero__video-overlay {
-        background: radial-gradient(circle at 50% 35%, rgba(3, 3, 8, 0.82) 0%, rgba(3, 3, 8, 0.96) 85%) !important;
+        background: linear-gradient(180deg, rgba(3, 3, 8, 0.3) 0%, rgba(3, 3, 8, 0.1) 50%, rgba(3, 3, 8, 0.45) 100%) !important;
     }
     .hero__video-badge {
         display: none !important;
@@ -2070,12 +2082,22 @@ main { min-height: 100vh; }
         z-index: 2 !important;
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 0.6rem !important;
-        padding-top: 1.25rem !important;
-        margin-top: 1.25rem !important;
+        padding-top: 0.85rem !important;
+        margin-top: 0.85rem !important;
     }
     .stat-card {
         padding: 0.85rem 0.5rem !important;
-        border-radius: 12px !important;
+        border-radius: 14px !important;
+        background: rgba(244, 246, 252, 0.78) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.65) !important;
+        box-shadow: 0 6px 18px rgba(4, 7, 13, 0.05) !important;
+    }
+    [data-theme="dark"] .stat-card {
+        background: rgba(10, 10, 18, 0.75) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35) !important;
     }
     .stat-card__num {
         font-size: 1.05rem !important;
