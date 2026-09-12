@@ -29,7 +29,7 @@ export interface ProjectItem {
 export const projects: ProjectItem[] = [
   {
     slug: "vortex-rings",
-    title: "Vortex Rings — Real-Time COD Profit Engine",
+    title: "Vortex Rings - Real-Time COD Profit Engine",
     metaDescription: "Custom order-to-profit system for a Pakistani COD wearable tech brand with automated PostEx sync and real-time P&L tracking.",
     category: "Order & Profit Engine · PostEx API",
     client: "Vortex Rings (Wearable Tech)",
@@ -74,7 +74,7 @@ export const projects: ProjectItem[] = [
   },
   {
     slug: "attireburg",
-    title: "Attireburg — Fully Owned E-Commerce Platform",
+    title: "Attireburg - Fully Owned E-Commerce Platform",
     metaDescription: "Custom e-commerce platform for a German apparel brand built with zero platform fees and full infrastructure ownership.",
     category: "E-Commerce · Custom Infrastructure",
     client: "Attireburg (German Apparel)",
@@ -90,7 +90,7 @@ export const projects: ProjectItem[] = [
     builtWith: ["Zero Platform Fees", "100% Owned Storefront", "Native PayPal Checkout", "German & EU Compliance"],
     location: "Germany & EU",
     body: {
-      problem: "Attireburg needed an online store but wanted to actually own their infrastructure rather than rent it through a platform like Shopify — platform fees, limited customization, and no real ownership of data or codebase were the core concerns.",
+      problem: "Attireburg needed an online store but wanted to actually own their infrastructure rather than rent it through a platform like Shopify: platform fees, limited customization, and no real ownership of data or codebase were the core concerns.",
       solution: [
         {
           heading: "Fully Custom Storefront",
@@ -98,7 +98,7 @@ export const projects: ProjectItem[] = [
         },
         {
           heading: "Direct Infrastructure Ownership",
-          text: "Every piece of infrastructure — database, code repository, hosting — is handed directly to the client. No dependency on a third-party platform, no recurring platform fees."
+          text: "Every piece of infrastructure (database, code repository, hosting) is handed directly to the client. No dependency on a third-party platform, no recurring platform fees."
         },
         {
           heading: "Native Payment Processing",
@@ -117,7 +117,7 @@ export const projects: ProjectItem[] = [
   },
   {
     slug: "css-kro",
-    title: "CSS Kro — AI-Powered Exam Prep Platform",
+    title: "CSS Kro - AI-Powered Exam Prep Platform",
     metaDescription: "Centralized CSS exam prep platform for Pakistani aspirants with a 24-year past papers archive and instant AI essay scoring.",
     category: "EdTech · AI Evaluation",
     client: "CSS Kro (EdTech)",
@@ -135,7 +135,7 @@ export const projects: ProjectItem[] = [
     builtWith: ["Instant AI Essay Marking", "24-Yr Past Paper Archive", "Automated Daily Current Affairs", "Exam-Grade Scoring"],
     location: "Pakistan",
     body: {
-      problem: "CSS exam aspirants in Pakistan had to piece together prep material from scattered sources — newspapers, old past papers, essay feedback — with no single place to study from or get consistent feedback on their writing.",
+      problem: "CSS exam aspirants in Pakistan had to piece together prep material from scattered sources (newspapers, old past papers, essay feedback) with no single place to study from or get consistent feedback on their writing.",
       solution: [
         {
           heading: "Curated Daily Newspaper Summaries",
@@ -158,7 +158,7 @@ export const projects: ProjectItem[] = [
   },
   {
     slug: "zn-enterprises",
-    title: "ZN Enterprises — AI-Powered BOQ Generator",
+    title: "ZN Enterprises - AI-Powered BOQ Generator",
     metaDescription: "AI-assisted bill of quantities generator for an interior design firm, cutting estimation time with automated room-by-room material breakdowns.",
     category: "Interior Design · AI Automation",
     client: "ZN Enterprises (Interior Design)",
@@ -196,7 +196,7 @@ export const projects: ProjectItem[] = [
   },
   {
     slug: "ventura-auto",
-    title: "Ventura Auto — Local Service Business Concept Site",
+    title: "Ventura Auto - Local Service Business Concept Site",
     metaDescription: "A concept website design for a local auto repair shop, featuring AI-generated animation sequences, service booking flow, and mobile-optimized design.",
     category: "Local Business · Service Booking",
     client: null,
@@ -236,7 +236,7 @@ export const projects: ProjectItem[] = [
   },
   {
     slug: "swanah",
-    title: "SWANAH — Owned Luxury Fashion Storefront Concept",
+    title: "SWANAH - Owned Luxury Fashion Storefront Concept",
     metaDescription: "A concept luxury fashion e-commerce storefront demonstrating a fully owned checkout flow with zero platform subscription fees.",
     category: "E-Commerce · Fashion",
     client: null,
@@ -275,7 +275,7 @@ export const projects: ProjectItem[] = [
   },
   {
     slug: "gull-flowers",
-    title: "Gull Flowers — Luxury Local Florist Concept Site",
+    title: "Gull Flowers - Luxury Local Florist Concept Site",
     metaDescription: "A concept e-commerce website for a luxury florist, featuring curated collections, occasion-based ordering, and a bespoke consultation flow.",
     category: "Local Business · E-Commerce",
     client: null,

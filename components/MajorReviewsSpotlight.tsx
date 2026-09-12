@@ -22,7 +22,7 @@ const reviews: Review[] = [
     highlight:
       'Working with Abubakar and his team under AW Web Services completely transformed how aspirants prepare for CSS examinations.',
     quote:
-      'When we conceptualized CSS Kro, we needed to centralize 24 years of competitive exam archives and introduce instant, examiner-grade AI essay evaluation. Abubakar immediately understood the FPSC grading criteria, studied examiner rubrics, and engineered a custom evaluation pipeline that delivers actionable critiques in seconds rather than weeks of manual marking. What sets Abubakar apart is his genuine ownership—he treated CSS Kro like his own company, proactively optimizing workflows long after launch. We achieved our goals because of his dedication, and we will definitely continue working with him and his team on all future developments.',
+      'When we conceptualized CSS Kro, we needed to centralize 24 years of competitive exam archives and introduce instant, examiner-grade AI essay evaluation. Abubakar immediately understood the FPSC grading criteria, studied examiner rubrics, and engineered a custom evaluation pipeline that delivers actionable critiques in seconds rather than weeks of manual marking. What sets Abubakar apart is his genuine ownership: he treated CSS Kro like his own company, proactively optimizing workflows long after launch. We achieved our goals because of his dedication, and we will definitely continue working with him and his team on all future developments.',
   },
   {
     id: 'zn-enterprises',

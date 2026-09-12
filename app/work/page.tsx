@@ -5,13 +5,13 @@ import JsonLd from '@/components/JsonLd';
 import { projects } from '@/data/projects';
 
 export const metadata: Metadata = {
-  title: 'Portfolio & Case Studies — Custom Web Projects | AW Web Services',
+  title: 'Portfolio & Case Studies | Custom Web Projects | AW Web Services',
   description: 'View our portfolio of custom e-commerce platforms, real-time P&L profit engines, AI edtech platforms, and local business website designs.',
   alternates: {
     canonical: 'https://awweb.online/work',
   },
   openGraph: {
-    title: 'Portfolio & Case Studies — Custom Web Projects | AW Web Services',
+    title: 'Portfolio & Case Studies | Custom Web Projects | AW Web Services',
     description: 'View our portfolio of custom e-commerce platforms, real-time P&L profit engines, AI edtech platforms, and local business website designs.',
     url: 'https://awweb.online/work',
     type: 'website',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Portfolio & Case Studies — AW Web Services',
+    title: 'Portfolio & Case Studies | AW Web Services',
     description: 'Explore custom client projects and concept builds by AW Web Services.',
     images: ['/images/hero.webp'],
   },

@@ -4,13 +4,13 @@ import React from 'react';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service — AW Web Services',
+  title: 'Terms of Service | AW Web Services',
   description: 'Terms of Service for AW Web Services (awweb.online). Read our terms governing site usage, intellectual property, and service disclaimers.',
   alternates: {
     canonical: 'https://awweb.online/terms-of-service',
   },
   openGraph: {
-    title: 'Terms of Service — AW Web Services',
+    title: 'Terms of Service | AW Web Services',
     description: 'Terms of Service for AW Web Services (awweb.online). Read our terms governing site usage, intellectual property, and service disclaimers.',
     url: 'https://awweb.online/terms-of-service',
     type: 'website',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Terms of Service — AW Web Services',
+    title: 'Terms of Service | AW Web Services',
     description: 'Terms of Service for AW Web Services (awweb.online).',
     images: ['/images/hero.webp'],
   },
@@ -79,7 +79,7 @@ export default function TermsOfServicePage() {
 
             <h2 className="text-2xl font-bold mt-8 mb-4">Intellectual Property</h2>
             <p className="mb-4">
-              All content on this Site — including text, images, logos, and case study descriptions — is the property of AW Web Services unless otherwise noted, and may not be reproduced, distributed, or used without our written permission.
+              All content on this Site (including text, images, logos, and case study descriptions) is the property of AW Web Services unless otherwise noted, and may not be reproduced, distributed, or used without our written permission.
             </p>
             <p className="mb-6">
               Client names, logos, and project details featured in our portfolio are shown with permission or represent our own work on those projects; if you are a featured client and wish to have your project details removed or modified, contact us.

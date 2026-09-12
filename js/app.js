@@ -1,4 +1,4 @@
-/* AW Web Services — Premium Interactions */
+/* AW Web Services - Premium Interactions */
 (function () {
     'use strict';
 

@@ -4,13 +4,13 @@ import React from 'react';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Contact Us — Request a Consultation | AW Web Services',
+  title: 'Contact Us | Request a Consultation | AW Web Services',
   description: 'Get in touch with AW Web Services to discuss your custom web development, e-commerce platform, business automation, or Meta ads management project.',
   alternates: {
     canonical: 'https://awweb.online/contact',
   },
   openGraph: {
-    title: 'Contact Us — Request a Consultation | AW Web Services',
+    title: 'Contact Us | Request a Consultation | AW Web Services',
     description: 'Get in touch with AW Web Services to discuss your custom web development, e-commerce platform, business automation, or Meta ads management project.',
     url: 'https://awweb.online/contact',
     type: 'website',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contact Us — AW Web Services',
+    title: 'Contact Us | AW Web Services',
     description: 'Start your web development, e-commerce, or automation project with AW Web Services.',
     images: ['/images/hero.webp'],
   },
@@ -71,7 +71,7 @@ export default function ContactPage() {
                 </div>
                 <div className="contact-card__item mt-4">
                   <h3>Operating Hours</h3>
-                  <p>Monday — Saturday: 9:00 AM – 7:00 PM (PKT)</p>
+                  <p>Monday - Saturday: 9:00 AM - 7:00 PM (PKT)</p>
                 </div>
               </div>
             </div>

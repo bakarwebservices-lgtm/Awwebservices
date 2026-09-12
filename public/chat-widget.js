@@ -1,5 +1,5 @@
 /**
- * AW Web Services — Standalone Floating Chat Widget Embed Script
+ * AW Web Services - Standalone Floating Chat Widget Embed Script
  * Can be embedded into any HTML page by adding:
  * <script src="/chat-widget.js" data-webhook="YOUR_WEBHOOK_URL"></script>
  */

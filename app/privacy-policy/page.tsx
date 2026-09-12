@@ -4,13 +4,13 @@ import React from 'react';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — AW Web Services',
+  title: 'Privacy Policy | AW Web Services',
   description: 'Privacy Policy for AW Web Services (awweb.online). Learn how we handle your contact information, analytics data, and protect your privacy.',
   alternates: {
     canonical: 'https://awweb.online/privacy-policy',
   },
   openGraph: {
-    title: 'Privacy Policy — AW Web Services',
+    title: 'Privacy Policy | AW Web Services',
     description: 'Privacy Policy for AW Web Services (awweb.online). Learn how we handle your contact information, analytics data, and protect your privacy.',
     url: 'https://awweb.online/privacy-policy',
     type: 'website',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Privacy Policy — AW Web Services',
+    title: 'Privacy Policy | AW Web Services',
     description: 'Privacy Policy for AW Web Services (awweb.online).',
     images: ['/images/hero.webp'],
   },
@@ -96,8 +96,8 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-2xl font-bold mt-8 mb-4">Third-Party Services</h2>
             <p className="mb-4">We use the following third-party services, which have their own privacy policies:</p>
             <ul className="custom-bullets mb-6">
-              <li><strong>Google Analytics</strong> — for site traffic analysis</li>
-              <li><strong>Meta (Facebook)</strong> — if you arrive via a Facebook/Instagram ad, Meta's pixel may record that interaction per Meta's own privacy policy</li>
+              <li><strong>Google Analytics</strong>: for site traffic analysis</li>
+              <li><strong>Meta (Facebook)</strong>: if you arrive via a Facebook/Instagram ad, Meta's pixel may record that interaction per Meta's own privacy policy</li>
             </ul>
 
             <h2 className="text-2xl font-bold mt-8 mb-4">Data Retention</h2>

@@ -4,13 +4,13 @@ import React from 'react';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'About Us — AW Web Services | Custom Web Development Agency',
+  title: 'About Us | AW Web Services | Custom Web Development Agency',
   description: 'Learn about AW Web Services. We build owned e-commerce platforms, custom web applications, Meta lead funnels, and real-time business workflow automation.',
   alternates: {
     canonical: 'https://awweb.online/about',
   },
   openGraph: {
-    title: 'About Us — AW Web Services | Custom Web Development Agency',
+    title: 'About Us | AW Web Services | Custom Web Development Agency',
     description: 'Learn about AW Web Services. We build owned e-commerce platforms, custom web applications, Meta lead funnels, and real-time business workflow automation.',
     url: 'https://awweb.online/about',
     type: 'website',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Us — AW Web Services',
+    title: 'About Us | AW Web Services',
     description: 'Custom web development, owned e-commerce, and automated profit engines built for scale.',
     images: ['/images/hero.webp'],
   },

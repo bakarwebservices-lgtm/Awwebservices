@@ -11,7 +11,7 @@ import '@/css/chat-widget.css';
 export const metadata: Metadata = {
   metadataBase: new URL('https://awweb.online'),
   title: {
-    default: 'AW Web Services — Digital Agency for Ambitious Brands',
+    default: 'AW Web Services | Digital Agency for Ambitious Brands',
     template: '%s | AW Web Services',
   },
   description: 'Custom web development, digital marketing, e-commerce, and business automation. We craft digital experiences that captivate, convert, and scale.',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://awweb.online',
     siteName: 'AW Web Services',
-    title: 'AW Web Services — Digital Agency for Ambitious Brands',
+    title: 'AW Web Services | Digital Agency for Ambitious Brands',
     description: 'Custom web development, digital marketing, e-commerce, and business automation. We craft digital experiences that captivate, convert, and scale.',
     images: [
       {
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AW Web Services — Digital Agency for Ambitious Brands',
+    title: 'AW Web Services | Digital Agency for Ambitious Brands',
     description: 'Custom web development, digital marketing, e-commerce, and business automation.',
     images: ['/images/hero.webp'],
   },

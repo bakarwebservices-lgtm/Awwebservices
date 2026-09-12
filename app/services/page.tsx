@@ -5,13 +5,13 @@ import JsonLd from '@/components/JsonLd';
 import { services } from '@/data/services';
 
 export const metadata: Metadata = {
-  title: 'Services Overview — Web Design, E-Commerce & Automation | AW Web Services',
+  title: 'Services Overview | Web Design, E-Commerce & Automation | AW Web Services',
   description: 'Explore custom web development, owned e-commerce systems, Meta ads management, business workflow automation, and virtual assistance services.',
   alternates: {
     canonical: 'https://awweb.online/services',
   },
   openGraph: {
-    title: 'Services Overview — Web Design, E-Commerce & Automation | AW Web Services',
+    title: 'Services Overview | Web Design, E-Commerce & Automation | AW Web Services',
     description: 'Explore custom web development, owned e-commerce systems, Meta ads management, business workflow automation, and virtual assistance services.',
     url: 'https://awweb.online/services',
     type: 'website',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Services Overview — AW Web Services',
+    title: 'Services Overview | AW Web Services',
     description: 'Custom e-commerce platforms, business workflow automation, web design, and digital marketing.',
     images: ['/images/hero.webp'],
   },

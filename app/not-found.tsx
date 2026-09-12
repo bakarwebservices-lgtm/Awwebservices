@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 
 export const metadata: Metadata = {
-  title: '404 — Page Not Found | AW Web Services',
+  title: '404: Page Not Found | AW Web Services',
   description: 'The page you are looking for does not exist or has been moved.',
 };
 

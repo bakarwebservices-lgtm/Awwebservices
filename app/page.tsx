@@ -8,13 +8,13 @@ import MajorReviewsSpotlight from '@/components/MajorReviewsSpotlight';
 import { projects } from '@/data/projects';
 
 export const metadata: Metadata = {
-  title: 'AW Web Services — Custom Web Development, Marketing & Business Automation',
+  title: 'AW Web Services | Custom Web Development, Marketing & Business Automation',
   description: 'AW Web Services crafts custom websites, e-commerce platforms, Meta ad campaigns, and business workflow automation systems engineered for growth and scale.',
   alternates: {
     canonical: 'https://awweb.online',
   },
   openGraph: {
-    title: 'AW Web Services — Custom Web Development, Marketing & Business Automation',
+    title: 'AW Web Services | Custom Web Development, Marketing & Business Automation',
     description: 'AW Web Services crafts custom websites, e-commerce platforms, Meta ad campaigns, and business workflow automation systems engineered for growth and scale.',
     url: 'https://awweb.online',
     type: 'website',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AW Web Services — Custom Web Development, Marketing & Business Automation',
+    title: 'AW Web Services | Custom Web Development, Marketing & Business Automation',
     description: 'AW Web Services crafts custom websites, e-commerce platforms, Meta ad campaigns, and business workflow automation systems engineered for growth and scale.',
     images: ['/images/hero.webp'],
   },
@@ -56,7 +56,7 @@ export default function HomePage() {
                 <span className="line"><span className="word">that</span> <span className="word">move</span> <span className="word">brands.</span></span>
               </h1>
               <p className="hero__desc">
-                Web design, marketing, automation &amp; e-commerce — engineered for growth. Built for ambitious businesses seeking production-grade systems.
+                Web design, marketing, automation &amp; e-commerce, engineered for growth. Built for ambitious businesses seeking production-grade systems.
               </p>
               <div className="hero__actions">
                 <Link href="/contact" className="btn btn--primary btn--lg">
@@ -136,7 +136,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* SERVICES SECTION — BENTO GRID */}
+      {/* SERVICES SECTION - BENTO GRID */}
       <section className="section" id="services-preview">
         <div className="container">
           <div className="section-head">
