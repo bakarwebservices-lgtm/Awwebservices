@@ -591,50 +591,6 @@ main { min-height: 100vh; }
     padding: clamp(1rem, 3vw, 2.5rem);
 }
 
-.sticky-cards__progress-pill {
-    position: absolute;
-    top: clamp(1.25rem, 3vh, 2.5rem);
-    left: 50%;
-    transform: translateX(-50%);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.5rem 1.15rem;
-    border-radius: 100px;
-    background: rgba(4, 7, 13, 0.65);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    color: #ffffff;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    z-index: 20;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-}
-
-[data-theme="light"] .sticky-cards__progress-pill {
-    background: rgba(255, 255, 255, 0.85);
-    border: 1px solid rgba(4, 7, 13, 0.12);
-    color: var(--text);
-    box-shadow: 0 8px 24px rgba(4, 7, 13, 0.08);
-}
-
-.sticky-cards__pulse-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--accent-2);
-    box-shadow: 0 0 10px var(--accent-2);
-    animation: livePulse 2s infinite ease-in-out;
-}
-
-.sticky-cards__scroll-hint {
-    opacity: 0.65;
-    font-weight: 400;
-    font-size: 0.76rem;
-}
-
 .sticky-cards-stage {
     position: relative;
     width: 100%;
@@ -825,11 +781,6 @@ main { min-height: 100vh; }
     .sticky-cards-viewport {
         padding: 0.75rem !important;
         height: 92vh !important;
-    }
-    .sticky-cards__progress-pill {
-        top: 1rem !important;
-        font-size: 0.75rem !important;
-        padding: 0.4rem 0.9rem !important;
     }
     .sticky-cards-stage {
         height: min(530px, 75vh) !important;

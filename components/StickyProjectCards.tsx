@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import Link from 'next/link';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
@@ -14,10 +14,9 @@ interface StickyProjectCardsProps {
 export default function StickyProjectCards({ projects }: StickyProjectCardsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [activeCardIndex, setActiveCardIndex] = useState(0);
 
-  // Use top 5 featured projects for a focused, punchy deck experience
-  const displayProjects = projects.slice(0, 5);
+  // Focus on top 4 premier case studies for a decisive "1, 2, 3, 4" flow
+  const displayProjects = projects.slice(0, 4);
   const totalCards = displayProjects.length;
 
   useGSAP(
@@ -27,62 +26,78 @@ export default function StickyProjectCards({ projects }: StickyProjectCardsProps
       const cardElements = cardRefs.current.filter(Boolean) as HTMLDivElement[];
       if (cardElements.length < 2) return;
 
-      // Set initial positions
+      // Set initial positions: Card 0 is active, subsequent cards wait below
       gsap.set(cardElements[0], { y: '0%', scale: 1, rotation: 0, opacity: 1 });
       for (let i = 1; i < cardElements.length; i++) {
         gsap.set(cardElements[i], { y: '100%', scale: 1, rotation: 0, opacity: 1 });
       }
 
+      // Timing architecture: Generous HOLD so each card rests peacefully at full size,
+      // followed by a smooth TRANSITION to the next card.
+      const HOLD = 1.2;
+      const TRANS = 1.0;
+      const totalDuration = HOLD + (cardElements.length - 1) * (TRANS + HOLD);
+
+      // Compute precise magnetic snap points at the center of each card's resting hold
+      const snapPoints: number[] = [0];
+      for (let i = 1; i < cardElements.length - 1; i++) {
+        const centerTime = HOLD + (i - 1) * (TRANS + HOLD) + TRANS + HOLD * 0.5;
+        snapPoints.push(centerTime / totalDuration);
+      }
+      snapPoints.push(1);
+
       const scrollTimeline = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top',
-          end: `+=${window.innerHeight * (cardElements.length - 0.5)}`,
+          end: `+=${window.innerHeight * cardElements.length * 1.15}`,
           pin: true,
-          scrub: 0.6,
+          scrub: 0.8,
           pinSpacing: true,
           anticipatePin: 1,
-          onUpdate: (self) => {
-            const progress = self.progress;
-            const newIndex = Math.min(
-              cardElements.length - 1,
-              Math.floor(progress * cardElements.length)
-            );
-            setActiveCardIndex(newIndex);
+          snap: {
+            snapTo: snapPoints,
+            duration: { min: 0.35, max: 0.65 },
+            delay: 0.08,
+            ease: 'power2.out',
           },
         },
       });
 
+      let currentTime = HOLD;
+
       for (let i = 0; i < cardElements.length - 1; i++) {
         const currentCard = cardElements[i];
         const nextCard = cardElements[i + 1];
-        const position = i;
 
         if (!currentCard || !nextCard) continue;
 
-        // Current card shrinks, rotates slightly, and gets an elegant subtle depth dim
+        // Current card gently settles back into the stack without getting dark or blank
         scrollTimeline.to(
           currentCard,
           {
-            scale: 0.76,
-            rotation: 4,
-            filter: 'brightness(0.65)',
-            duration: 1,
-            ease: 'none',
+            scale: 0.92,
+            rotation: 2,
+            opacity: 0.9,
+            duration: TRANS,
+            ease: 'power1.inOut',
           },
-          position
+          currentTime
         );
 
-        // Next card slides in from the bottom
+        // Next card slides in smoothly from below to take center stage
         scrollTimeline.to(
           nextCard,
           {
             y: '0%',
-            duration: 1,
-            ease: 'none',
+            duration: TRANS,
+            ease: 'power1.inOut',
           },
-          position
+          currentTime
         );
+
+        // Advance time through the transition PLUS the subsequent card's full hold period
+        currentTime += TRANS + HOLD;
       }
 
       const resizeObserver = new ResizeObserver(() => {
@@ -104,17 +119,7 @@ export default function StickyProjectCards({ projects }: StickyProjectCardsProps
 
   return (
     <div className="sticky-cards-section" ref={containerRef}>
-      {/* Sticky Deck Viewport */}
       <div className="sticky-cards-viewport">
-        {/* Progress Tracker Pill */}
-        <div className="sticky-cards__progress-pill">
-          <span className="sticky-cards__pulse-dot"></span>
-          <span>
-            Project {activeCardIndex + 1} of {totalCards}
-          </span>
-          <span className="sticky-cards__scroll-hint">| Scroll to explore</span>
-        </div>
-
         {/* Card Stage Container */}
         <div className="sticky-cards-stage">
           {displayProjects.map((project, i) => (
@@ -126,13 +131,14 @@ export default function StickyProjectCards({ projects }: StickyProjectCardsProps
               }}
               style={{ zIndex: i + 1 }}
             >
-              {/* Background Mockup Image */}
+              {/* Background Mockup Image (eagerly preloaded so zero flash/blank occurs) */}
               <div className="sticky-project-card__media">
                 <img
                   src={project.heroImage}
                   alt={`${project.title} Showcase`}
                   className="sticky-project-card__img"
-                  loading={i === 0 ? 'eager' : 'lazy'}
+                  loading="eager"
+                  decoding="async"
                 />
                 <div className="sticky-project-card__overlay"></div>
               </div>
