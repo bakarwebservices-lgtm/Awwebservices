@@ -136,8 +136,11 @@ export default function ChatWidget({
     }
   }, [messages, isLoading, isOpen]);
 
-  // 3. Focus input when opening chat
+  // 3. Focus input when opening chat & coordinate with floating widgets
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('aw-chat-toggle', { detail: { isOpen } }));
+    }
     if (isOpen) {
       setHasUnread(false);
       setShowTooltip(false);

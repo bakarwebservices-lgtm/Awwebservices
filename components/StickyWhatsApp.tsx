@@ -1,17 +1,38 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { WHATSAPP_INQUIRY_LINK, WHATSAPP_INTL } from '@/lib/siteConfig';
 
 export default function StickyWhatsApp() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
+  useEffect(() => {
+    const handleChatToggle = (e: Event) => {
+      const customEvent = e as CustomEvent<{ isOpen: boolean }>;
+      if (customEvent.detail && typeof customEvent.detail.isOpen === 'boolean') {
+        setIsChatOpen(customEvent.detail.isOpen);
+      }
+    };
+
+    window.addEventListener('aw-chat-toggle', handleChatToggle);
+    return () => {
+      window.removeEventListener('aw-chat-toggle', handleChatToggle);
+    };
+  }, []);
+
   return (
-    <aside className="sticky-whatsapp-root" aria-label="Quick WhatsApp Contact">
+    <aside
+      className={`sticky-whatsapp-root ${isChatOpen ? 'is-chat-open' : ''}`}
+      aria-label="Quick WhatsApp Contact"
+      aria-hidden={isChatOpen}
+    >
       <a
         href={WHATSAPP_INQUIRY_LINK}
         target="_blank"
         rel="noopener noreferrer"
         className="sticky-whatsapp-btn"
         aria-label={`Chat with AW Web Services on WhatsApp at ${WHATSAPP_INTL}`}
+        tabIndex={isChatOpen ? -1 : 0}
       >
         {/* Pulsing Ripple Effect */}
         <span className="sticky-whatsapp-pulse" aria-hidden="true"></span>
@@ -20,8 +41,8 @@ export default function StickyWhatsApp() {
         <svg
           className="sticky-whatsapp-icon"
           viewBox="0 0 32 32"
-          width="32"
-          height="32"
+          width="30"
+          height="30"
           fill="currentColor"
           aria-hidden="true"
         >
