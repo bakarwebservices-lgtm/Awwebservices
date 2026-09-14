@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import React from 'react';
 import JsonLd from '@/components/JsonLd';
-import WorkScrollCarousel from '@/components/WorkScrollCarousel';
+import StickyProjectCards from '@/components/StickyProjectCards';
 import ReviewsCarousel from '@/components/ReviewsCarousel';
 import MajorReviewsSpotlight from '@/components/MajorReviewsSpotlight';
 import { projects } from '@/data/projects';
@@ -251,8 +251,8 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Interactive Drag & Scroll Carousel */}
-        <WorkScrollCarousel projects={projects} />
+        {/* GSAP ScrollTrigger Pinned Stacking Project Cards */}
+        <StickyProjectCards projects={projects} />
 
         <div className="container text-center mt-12">
           <Link href="/work" className="btn btn--ghost btn--lg">

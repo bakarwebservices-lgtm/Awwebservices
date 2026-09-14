@@ -572,6 +572,293 @@ main { min-height: 100vh; }
 .work-card__link { font-weight: 600; color: var(--accent-3); font-size: 0.85rem; }
 .work-card__link:hover { color: #ffffff; }
 
+/* ── GSAP ScrollTrigger Pinned Stacking Cards (Skiper17) ── */
+.sticky-cards-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.sticky-cards-viewport {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: clamp(1rem, 3vw, 2.5rem);
+}
+
+.sticky-cards__progress-pill {
+    position: absolute;
+    top: clamp(1.25rem, 3vh, 2.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 1.15rem;
+    border-radius: 100px;
+    background: rgba(4, 7, 13, 0.65);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    z-index: 20;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="light"] .sticky-cards__progress-pill {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(4, 7, 13, 0.12);
+    color: var(--text);
+    box-shadow: 0 8px 24px rgba(4, 7, 13, 0.08);
+}
+
+.sticky-cards__pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-2);
+    box-shadow: 0 0 10px var(--accent-2);
+    animation: livePulse 2s infinite ease-in-out;
+}
+
+.sticky-cards__scroll-hint {
+    opacity: 0.65;
+    font-weight: 400;
+    font-size: 0.76rem;
+}
+
+.sticky-cards-stage {
+    position: relative;
+    width: 100%;
+    max-width: 1020px;
+    height: min(600px, 72vh);
+    margin: 0 auto;
+    border-radius: var(--radius-lg);
+    perspective: 1200px;
+}
+
+.sticky-project-card {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35), 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    transform-origin: center center;
+    will-change: transform, filter;
+    transition: border-color 0.3s;
+}
+
+.sticky-project-card:hover {
+    border-color: var(--border-hover);
+}
+
+.sticky-project-card__media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.sticky-project-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.6s var(--ease);
+}
+
+.sticky-project-card:hover .sticky-project-card__img {
+    transform: scale(1.03);
+}
+
+.sticky-project-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(4, 7, 13, 0.5) 0%, rgba(4, 7, 13, 0.2) 35%, rgba(4, 7, 13, 0.88) 100%);
+    pointer-events: none;
+}
+
+.sticky-project-card__content {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: clamp(1.5rem, 3.5vw, 2.5rem);
+    pointer-events: auto;
+}
+
+.sticky-project-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.sticky-project-card__tags {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.sticky-project-card__cat-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.85rem;
+    border-radius: 100px;
+    background: rgba(49, 99, 207, 0.2);
+    border: 1px solid rgba(49, 99, 207, 0.45);
+    color: #93c5fd;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    backdrop-filter: blur(8px);
+}
+
+.sticky-project-card__status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 100px;
+    background: rgba(16, 185, 129, 0.18);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #6ee7b7;
+    font-size: 0.72rem;
+    font-weight: 600;
+    backdrop-filter: blur(8px);
+}
+
+.sticky-project-card__status-badge .live-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 6px #10b981;
+}
+
+.sticky-project-card__client {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+}
+
+.sticky-project-card__bottom {
+    max-width: 680px;
+    background: rgba(4, 7, 13, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius);
+    padding: clamp(1.15rem, 2.5vw, 1.75rem);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.sticky-project-card__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2.5vw, 1.85rem);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+}
+
+.sticky-project-card__desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.78);
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.sticky-project-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.sticky-project-card__pills {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.sticky-project-card__tech-pill {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sticky-project-card__btn {
+    flex-shrink: 0;
+}
+
+/* Mobile Adjustments for Sticky Cards */
+@media (max-width: 768px) {
+    .sticky-cards-viewport {
+        padding: 0.75rem !important;
+        height: 92vh !important;
+    }
+    .sticky-cards__progress-pill {
+        top: 1rem !important;
+        font-size: 0.75rem !important;
+        padding: 0.4rem 0.9rem !important;
+    }
+    .sticky-cards-stage {
+        height: min(530px, 75vh) !important;
+        border-radius: 16px !important;
+    }
+    .sticky-project-card {
+        border-radius: 16px !important;
+    }
+    .sticky-project-card__content {
+        padding: 1rem !important;
+    }
+    .sticky-project-card__title {
+        font-size: 1.15rem !important;
+    }
+    .sticky-project-card__desc {
+        display: none !important;
+    }
+    .sticky-project-card__bottom {
+        padding: 0.85rem !important;
+    }
+    .sticky-project-card__pills {
+        display: none !important;
+    }
+    .sticky-project-card__btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
+
 /* ── Testimonials ── */
 .testimonials {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
