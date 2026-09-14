@@ -8,15 +8,17 @@ import MajorReviewsSpotlight from '@/components/MajorReviewsSpotlight';
 import { projects } from '@/data/projects';
 
 export const metadata: Metadata = {
-  title: 'AW Web Services | Custom Web Development, Marketing & Business Automation',
+  title: {
+    absolute: 'AW Web Services | Custom Web Development, Marketing & Business Automation',
+  },
   description: 'AW Web Services crafts custom websites, e-commerce platforms, Meta ad campaigns, and business workflow automation systems engineered for growth and scale.',
   alternates: {
-    canonical: 'https://awweb.online',
+    canonical: 'https://www.awweb.online',
   },
   openGraph: {
     title: 'AW Web Services | Custom Web Development, Marketing & Business Automation',
     description: 'AW Web Services crafts custom websites, e-commerce platforms, Meta ad campaigns, and business workflow automation systems engineered for growth and scale.',
-    url: 'https://awweb.online',
+    url: 'https://www.awweb.online',
     type: 'website',
     images: [{ url: '/images/hero.webp', width: 1200, height: 630, alt: 'AW Web Services Homepage Hero' }],
   },
@@ -33,10 +35,11 @@ export default function HomePage() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'AW Web Services',
-    url: 'https://awweb.online',
-    logo: 'https://awweb.online/images/logo.webp',
+    url: 'https://www.awweb.online',
+    logo: 'https://www.awweb.online/images/logo.webp',
     description: 'Digital agency providing custom web development, e-commerce platforms, digital marketing, business automation, and virtual assistance.',
     email: 'bakarwebservices@gmail.com',
+    telephone: '+923061513191',
     sameAs: ['https://www.facebook.com/awwebservices'],
   };
 
@@ -73,7 +76,7 @@ export default function HomePage() {
 
             <div className="hero__video-wrapper">
               <div className="hero__video-block">
-                <video autoPlay loop muted playsInline className="hero__video" poster="/images/hero.webp">
+                <video autoPlay loop muted playsInline preload="metadata" className="hero__video" poster="/images/hero.webp">
                   <source src="/images/hero-section.mp4" type="video/mp4" />
                 </video>
                 <div className="hero__video-overlay"></div>
@@ -278,7 +281,7 @@ export default function HomePage() {
       {/* CTA BANNER WITH VIDEO BACKGROUND */}
       <section className="cta-banner">
         <div className="cta-banner__bg">
-          <video autoPlay loop muted playsInline className="cta-banner__video" poster="/images/hero.webp">
+          <video autoPlay loop muted playsInline preload="none" className="cta-banner__video" poster="/images/hero.webp">
             <source src="/images/hero-section-2.0.mp4" type="video/mp4" />
           </video>
           <div className="cta-banner__overlay"></div>

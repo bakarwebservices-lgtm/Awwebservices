@@ -4,21 +4,21 @@ import React from 'react';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'About Us | AW Web Services | Custom Web Development Agency',
+  title: 'About Us | Custom Web Development Agency',
   description: 'Learn about AW Web Services. We build owned e-commerce platforms, custom web applications, Meta lead funnels, and real-time business workflow automation.',
   alternates: {
-    canonical: 'https://awweb.online/about',
+    canonical: 'https://www.awweb.online/about',
   },
   openGraph: {
-    title: 'About Us | AW Web Services | Custom Web Development Agency',
+    title: 'About Us | Custom Web Development Agency | AW Web Services',
     description: 'Learn about AW Web Services. We build owned e-commerce platforms, custom web applications, Meta lead funnels, and real-time business workflow automation.',
-    url: 'https://awweb.online/about',
+    url: 'https://www.awweb.online/about',
     type: 'website',
     images: [{ url: '/images/hero.webp', width: 1200, height: 630, alt: 'About AW Web Services' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Us | AW Web Services',
+    title: 'About Us | Custom Web Development Agency | AW Web Services',
     description: 'Custom web development, owned e-commerce, and automated profit engines built for scale.',
     images: ['/images/hero.webp'],
   },
@@ -29,8 +29,8 @@ export default function AboutPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://awweb.online' },
-      { '@type': 'ListItem', position: 2, name: 'About Us', item: 'https://awweb.online/about' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.awweb.online' },
+      { '@type': 'ListItem', position: 2, name: 'About Us', item: 'https://www.awweb.online/about' },
     ],
   };
 

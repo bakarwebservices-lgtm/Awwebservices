@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: 'https://awweb.online/sitemap.xml',
+    sitemap: 'https://www.awweb.online/sitemap.xml',
   };
 }

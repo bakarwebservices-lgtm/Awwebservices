@@ -12,39 +12,27 @@ export interface ReviewItem {
 const reviewsData: ReviewItem[] = [
   {
     stars: '★★★★★',
-    quote: '"AW Web Services transformed our online presence completely. Our inquiries increased significantly within months!"',
-    author: 'A. M.',
-    role: 'CEO, Vortex Rings',
+    quote: '"AW Web Services transformed our COD operations completely. The PostEx courier sync and real-time profit tracking eliminated hours of spreadsheet reconciliation."',
+    author: 'Vortex Rings Team',
+    role: 'Wearable Tech Brand (Pakistan)',
   },
   {
     stars: '★★★★★',
-    quote: '"Professional, responsive, and incredibly talented. The e-commerce platform they set up has been flawless."',
-    author: 'S. T.',
-    role: 'Founder, Attireburg',
+    quote: '"Professional, responsive, and incredibly skilled. The custom apparel storefront they built has given us effortless scaling and complete data ownership."',
+    author: 'Attireburg Team',
+    role: 'Luxury Fashion Brand',
   },
   {
     stars: '★★★★★',
-    quote: '"Our social media engagement tripled. We\'re seeing consistent growth in our customer base. Highly recommend!"',
-    author: 'M. R.',
-    role: 'Marketing Director, ZN Enterprises Co.',
+    quote: '"Abubakar and his team engineered an intelligent BOQ engine that slashed our project estimation cycle from days to minutes. Outstanding technical execution."',
+    author: 'Saad Zaffar',
+    role: 'CEO & Founder, ZN Enterprises',
   },
   {
     stars: '★★★★★',
-    quote: '"Responsive, creative, and deliver on time. Our new website has received so many compliments from clients."',
-    author: 'S. S.',
-    role: 'Owner, CSSKro',
-  },
-  {
-    stars: '★★★★★',
-    quote: '"They automated our business processes, saving countless hours each week. The ROI has been incredible."',
-    author: 'D. K.',
-    role: 'Operations Manager, Swift Logistics',
-  },
-  {
-    stars: '★★★★★',
-    quote: '"Their virtual assistance service has been invaluable. They\'ve become an essential part of our daily team operations."',
-    author: 'L. T.',
-    role: 'Director, Apex Consulting',
+    quote: '"The AI essay evaluation pipeline they engineered evaluates FPSC exam rubrics in seconds rather than weeks. Abubakar treated our product like his own."',
+    author: 'Dr. Bilal',
+    role: 'Academic Director, CSS Kro',
   },
 ];
 

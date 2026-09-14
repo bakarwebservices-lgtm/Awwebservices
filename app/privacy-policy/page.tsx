@@ -4,15 +4,15 @@ import React from 'react';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | AW Web Services',
+  title: 'Privacy Policy',
   description: 'Privacy Policy for AW Web Services (awweb.online). Learn how we handle your contact information, analytics data, and protect your privacy.',
   alternates: {
-    canonical: 'https://awweb.online/privacy-policy',
+    canonical: 'https://www.awweb.online/privacy-policy',
   },
   openGraph: {
-    title: 'Privacy Policy | AW Web Services',
+    title: 'Privacy Policy',
     description: 'Privacy Policy for AW Web Services (awweb.online). Learn how we handle your contact information, analytics data, and protect your privacy.',
-    url: 'https://awweb.online/privacy-policy',
+    url: 'https://www.awweb.online/privacy-policy',
     type: 'website',
     images: [{ url: '/images/hero.webp', width: 1200, height: 630, alt: 'AW Web Services Privacy Policy' }],
   },
@@ -29,8 +29,8 @@ export default function PrivacyPolicyPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://awweb.online' },
-      { '@type': 'ListItem', position: 2, name: 'Privacy Policy', item: 'https://awweb.online/privacy-policy' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.awweb.online' },
+      { '@type': 'ListItem', position: 2, name: 'Privacy Policy', item: 'https://www.awweb.online/privacy-policy' },
     ],
   };
 
@@ -133,7 +133,7 @@ export default function PrivacyPolicyPage() {
             <p className="mb-2">If you have questions about this privacy policy, contact us at:</p>
             <p className="mt-2 leading-relaxed">
               <strong>Email:</strong> <a href="mailto:bakarwebservices@gmail.com" className="gradient-text font-semibold">bakarwebservices@gmail.com</a><br />
-              <strong>Website:</strong> awweb.online
+              <strong>Website:</strong> www.awweb.online
             </p>
           </div>
         </div>

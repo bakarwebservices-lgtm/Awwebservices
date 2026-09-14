@@ -38,11 +38,11 @@ export const projects: ProjectItem[] = [
     tag: null,
     heroImage: "/images/project-4.jpeg",
     screenshots: [
-      "/images/vortexwearables/Screenshot 2026-07-18 121042.png",
-      "/images/vortexwearables/Screenshot 2026-07-18 121149.png",
-      "/images/vortexwearables/Screenshot 2026-07-18 121219.png",
-      "/images/vortexwearables/Screenshot 2026-07-18 121243.png",
-      "/images/vortexwearables/Screenshot 2026-07-18 121303.png"
+      "/images/vortexwearables/vortex-rings-admin-portal.png",
+      "/images/vortexwearables/vortex-rings-order-pipeline.png",
+      "/images/vortexwearables/vortex-rings-profit-engine.png",
+      "/images/vortexwearables/vortex-rings-postex-sync.png",
+      "/images/vortexwearables/vortex-rings-financial-ledger.png"
     ],
     builtWith: ["PostEx Courier Auto-Sync", "Real-Time P&L Tracking", "0-Spreadsheet Operations", "COD Return Mitigation"],
     location: "Pakistan (COD E-Commerce)",
@@ -83,9 +83,9 @@ export const projects: ProjectItem[] = [
     tag: null,
     heroImage: "/images/project-3.jpeg",
     screenshots: [
-      "/images/attireburg/Screenshot 2026-08-08 014800.png",
-      "/images/attireburg/Screenshot 2026-08-08 015037.png",
-      "/images/attireburg/Screenshot 2026-08-08 015227.png"
+      "/images/attireburg/attireburg-storefront-home.png",
+      "/images/attireburg/attireburg-product-details.png",
+      "/images/attireburg/attireburg-checkout-experience.png"
     ],
     builtWith: ["Zero Platform Fees", "100% Owned Storefront", "Native PayPal Checkout", "German & EU Compliance"],
     location: "Germany & EU",
@@ -126,11 +126,11 @@ export const projects: ProjectItem[] = [
     tag: null,
     heroImage: "/images/project-2.jpeg",
     screenshots: [
-      "/images/css-kro/Screenshot 2026-08-08 015410.png",
-      "/images/css-kro/Screenshot 2026-08-08 015424.png",
-      "/images/css-kro/Screenshot 2026-08-08 015437.png",
-      "/images/css-kro/Screenshot 2026-08-08 015539.png",
-      "/images/css-kro/Screenshot 2026-08-08 015609.png"
+      "/images/css-kro/css-kro-dashboard.png",
+      "/images/css-kro/css-kro-past-papers.png",
+      "/images/css-kro/css-kro-essay-checker.png",
+      "/images/css-kro/css-kro-evaluation-report.png",
+      "/images/css-kro/css-kro-study-resources.png"
     ],
     builtWith: ["Instant AI Essay Marking", "24-Yr Past Paper Archive", "Automated Daily Current Affairs", "Exam-Grade Scoring"],
     location: "Pakistan",
@@ -167,8 +167,8 @@ export const projects: ProjectItem[] = [
     tag: null,
     heroImage: "/images/project-1.jpeg",
     screenshots: [
-      "/images/zn-enterprises/Screenshot 2026-08-08 015936.png",
-      "/images/zn-enterprises/Screenshot 2026-08-08 015955.png"
+      "/images/zn-enterprises/zn-enterprises-intake-wizard.png",
+      "/images/zn-enterprises/zn-enterprises-boq-matrix.png"
     ],
     builtWith: ["Instant AI BOQ Generation", "10x Faster Project Estimation", "Multi-Step Client Intake Wizard", "Dynamic Pricing Matrix"],
     location: "Pakistan",
@@ -205,10 +205,10 @@ export const projects: ProjectItem[] = [
     tag: "Concept Project",
     heroImage: "/images/project-7.jpeg",
     screenshots: [
-      "/images/ventura-autoshop/Screenshot 2026-08-08 011220.png",
-      "/images/ventura-autoshop/Screenshot 2026-08-08 011308.png",
-      "/images/ventura-autoshop/Screenshot 2026-08-08 011346.png",
-      "/images/ventura-autoshop/Screenshot 2026-08-08 011415.png"
+      "/images/ventura-autoshop/ventura-auto-hero.png",
+      "/images/ventura-autoshop/ventura-auto-services.png",
+      "/images/ventura-autoshop/ventura-auto-booking.png",
+      "/images/ventura-autoshop/ventura-auto-contact.png"
     ],
     builtWith: ["Online Appointment Booking", "AI Frame Animation Visuals", "Google Local SEO Optimized", "Mobile Booking Flow"],
     location: null,
@@ -245,9 +245,9 @@ export const projects: ProjectItem[] = [
     tag: "Concept Project",
     heroImage: "/images/project-6.jpeg",
     screenshots: [
-      "/images/swannah-clothing/Screenshot 2026-08-08 011042.png",
-      "/images/swannah-clothing/Screenshot 2026-08-08 011113.png",
-      "/images/swannah-clothing/Screenshot 2026-08-08 011136.png"
+      "/images/swannah-clothing/swannah-clothing-editorial.png",
+      "/images/swannah-clothing/swannah-clothing-collection.png",
+      "/images/swannah-clothing/swannah-clothing-checkout.png"
     ],
     builtWith: ["Zero Monthly Subscription", "Editorial Lookbook Layout", "Owned Checkout Flow", "Custom Fit & Size Guide"],
     location: null,
@@ -284,9 +284,9 @@ export const projects: ProjectItem[] = [
     tag: "Concept Project",
     heroImage: "/images/project-5.jpeg",
     screenshots: [
-      "/images/gull-flowers/Screenshot 2026-08-08 010905.png",
-      "/images/gull-flowers/Screenshot 2026-08-08 010920.png",
-      "/images/gull-flowers/Screenshot 2026-08-08 010955.png"
+      "/images/gull-flowers/gull-flowers-collections.png",
+      "/images/gull-flowers/gull-flowers-concierge.png",
+      "/images/gull-flowers/gull-flowers-ordering.png"
     ],
     builtWith: ["Occasion-Based E-Commerce", "Bespoke Concierge Ordering", "Curated Premium Collections", "Local Florist Booking"],
     location: null,

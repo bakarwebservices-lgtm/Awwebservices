@@ -29,7 +29,7 @@ const reviews: Review[] = [
     name: 'Saad Zaffar',
     title: 'CEO & Founder',
     company: 'ZN Enterprises',
-    avatar: '/images/reviews/zn enterprises.jpeg',
+    avatar: '/images/reviews/zn-enterprises.jpeg',
     highlight:
       'Abubakar and his team at AW Web Services engineered an intelligent BOQ engine that slashed our project estimation cycle from days to minutes.',
     quote:

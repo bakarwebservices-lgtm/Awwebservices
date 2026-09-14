@@ -3,7 +3,7 @@ import { services } from '@/data/services';
 import { projects } from '@/data/projects';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://awweb.online';
+  const baseUrl = 'https://www.awweb.online';
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {

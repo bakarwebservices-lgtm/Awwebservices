@@ -4,21 +4,21 @@ import React from 'react';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Request a Consultation | AW Web Services',
+  title: 'Contact Us | Request a Consultation',
   description: 'Get in touch with AW Web Services to discuss your custom web development, e-commerce platform, business automation, or Meta ads management project.',
   alternates: {
-    canonical: 'https://awweb.online/contact',
+    canonical: 'https://www.awweb.online/contact',
   },
   openGraph: {
     title: 'Contact Us | Request a Consultation | AW Web Services',
     description: 'Get in touch with AW Web Services to discuss your custom web development, e-commerce platform, business automation, or Meta ads management project.',
-    url: 'https://awweb.online/contact',
+    url: 'https://www.awweb.online/contact',
     type: 'website',
     images: [{ url: '/images/hero.webp', width: 1200, height: 630, alt: 'Contact AW Web Services' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contact Us | AW Web Services',
+    title: 'Contact Us | Request a Consultation | AW Web Services',
     description: 'Start your web development, e-commerce, or automation project with AW Web Services.',
     images: ['/images/hero.webp'],
   },
@@ -29,8 +29,8 @@ export default function ContactPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://awweb.online' },
-      { '@type': 'ListItem', position: 2, name: 'Contact Us', item: 'https://awweb.online/contact' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.awweb.online' },
+      { '@type': 'ListItem', position: 2, name: 'Contact Us', item: 'https://www.awweb.online/contact' },
     ],
   };
 
@@ -62,6 +62,17 @@ export default function ContactPage() {
 
               <div className="contact-card mt-6">
                 <div className="contact-card__item">
+                  <h3>WhatsApp (Fastest Response)</h3>
+                  <a
+                    href="https://wa.me/923061513191?text=Hi%20AW%20Web%20Services,%20I%20would%20like%20to%20discuss%20a%20project"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-card__whatsapp-link"
+                  >
+                    <span>+92 306 1513191 (0306 1513191)</span>
+                  </a>
+                </div>
+                <div className="contact-card__item mt-4">
                   <h3>Email Inquiry</h3>
                   <a href="mailto:bakarwebservices@gmail.com">bakarwebservices@gmail.com</a>
                 </div>
@@ -109,8 +120,8 @@ export default function ContactPage() {
                   <label htmlFor="budget">Estimated Budget Range</label>
                   <select id="budget" name="budget" className="form-select">
                     <option value="under-1k">Under $1,000</option>
-                    <option value="1k-3k">$1,000 – $3,000</option>
-                    <option value="3k-5k">$3,000 – $5,000</option>
+                    <option value="1k-3k">$1,000 - $3,000</option>
+                    <option value="3k-5k">$3,000 - $5,000</option>
                     <option value="5k-plus">$5,000+</option>
                   </select>
                 </div>

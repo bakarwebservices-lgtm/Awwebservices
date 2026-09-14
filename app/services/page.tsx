@@ -5,21 +5,21 @@ import JsonLd from '@/components/JsonLd';
 import { services } from '@/data/services';
 
 export const metadata: Metadata = {
-  title: 'Services Overview | Web Design, E-Commerce & Automation | AW Web Services',
+  title: 'Services Overview | Web Design, E-Commerce & Automation',
   description: 'Explore custom web development, owned e-commerce systems, Meta ads management, business workflow automation, and virtual assistance services.',
   alternates: {
-    canonical: 'https://awweb.online/services',
+    canonical: 'https://www.awweb.online/services',
   },
   openGraph: {
     title: 'Services Overview | Web Design, E-Commerce & Automation | AW Web Services',
     description: 'Explore custom web development, owned e-commerce systems, Meta ads management, business workflow automation, and virtual assistance services.',
-    url: 'https://awweb.online/services',
+    url: 'https://www.awweb.online/services',
     type: 'website',
     images: [{ url: '/images/hero.webp', width: 1200, height: 630, alt: 'AW Web Services Overview' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Services Overview | AW Web Services',
+    title: 'Services Overview | Web Design, E-Commerce & Automation | AW Web Services',
     description: 'Custom e-commerce platforms, business workflow automation, web design, and digital marketing.',
     images: ['/images/hero.webp'],
   },
@@ -38,8 +38,8 @@ export default function ServicesPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://awweb.online' },
-      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://awweb.online/services' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.awweb.online' },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.awweb.online/services' },
     ],
   };
 

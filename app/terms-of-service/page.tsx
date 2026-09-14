@@ -4,15 +4,15 @@ import React from 'react';
 import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | AW Web Services',
+  title: 'Terms of Service',
   description: 'Terms of Service for AW Web Services (awweb.online). Read our terms governing site usage, intellectual property, and service disclaimers.',
   alternates: {
-    canonical: 'https://awweb.online/terms-of-service',
+    canonical: 'https://www.awweb.online/terms-of-service',
   },
   openGraph: {
-    title: 'Terms of Service | AW Web Services',
+    title: 'Terms of Service',
     description: 'Terms of Service for AW Web Services (awweb.online). Read our terms governing site usage, intellectual property, and service disclaimers.',
-    url: 'https://awweb.online/terms-of-service',
+    url: 'https://www.awweb.online/terms-of-service',
     type: 'website',
     images: [{ url: '/images/hero.webp', width: 1200, height: 630, alt: 'AW Web Services Terms of Service' }],
   },
@@ -29,8 +29,8 @@ export default function TermsOfServicePage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://awweb.online' },
-      { '@type': 'ListItem', position: 2, name: 'Terms of Service', item: 'https://awweb.online/terms-of-service' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.awweb.online' },
+      { '@type': 'ListItem', position: 2, name: 'Terms of Service', item: 'https://www.awweb.online/terms-of-service' },
     ],
   };
 
@@ -114,7 +114,7 @@ export default function TermsOfServicePage() {
             <p className="mb-2">Questions about these Terms can be sent to:</p>
             <p className="mt-2 leading-relaxed">
               <strong>Email:</strong> <a href="mailto:bakarwebservices@gmail.com" className="gradient-text font-semibold">bakarwebservices@gmail.com</a><br />
-              <strong>Website:</strong> awweb.online
+              <strong>Website:</strong> www.awweb.online
             </p>
           </div>
         </div>

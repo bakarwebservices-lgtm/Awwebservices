@@ -25,10 +25,10 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     };
   }
 
-  const url = `https://awweb.online/services/${service.slug}`;
+  const url = `https://www.awweb.online/services/${service.slug}`;
 
   return {
-    title: `${service.title} | AW Web Services`,
+    title: service.title,
     description: service.metaDescription,
     alternates: {
       canonical: url,
@@ -60,9 +60,9 @@ export default function DynamicServicePage({ params }: ServicePageProps) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://awweb.online' },
-      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://awweb.online/services' },
-      { '@type': 'ListItem', position: 3, name: service.title, item: `https://awweb.online/services/${service.slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.awweb.online' },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.awweb.online/services' },
+      { '@type': 'ListItem', position: 3, name: service.title, item: `https://www.awweb.online/services/${service.slug}` },
     ],
   };
 
@@ -75,10 +75,10 @@ export default function DynamicServicePage({ params }: ServicePageProps) {
     provider: {
       '@type': 'Organization',
       name: 'AW Web Services',
-      url: 'https://awweb.online',
+      url: 'https://www.awweb.online',
     },
     areaServed: 'Worldwide',
-    termsOfService: 'https://awweb.online/terms-of-service',
+    termsOfService: 'https://www.awweb.online/terms-of-service',
   };
 
   return (

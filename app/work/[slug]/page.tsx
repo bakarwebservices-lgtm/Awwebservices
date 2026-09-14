@@ -25,10 +25,10 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     };
   }
 
-  const url = `https://awweb.online/work/${project.slug}`;
+  const url = `https://www.awweb.online/work/${project.slug}`;
 
   return {
-    title: `${project.title} | Case Study | AW Web Services`,
+    title: `${project.title} | Case Study`,
     description: project.metaDescription,
     alternates: {
       canonical: url,
@@ -60,9 +60,9 @@ export default function DynamicProjectPage({ params }: ProjectPageProps) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://awweb.online' },
-      { '@type': 'ListItem', position: 2, name: 'Work', item: 'https://awweb.online/work' },
-      { '@type': 'ListItem', position: 3, name: project.title, item: `https://awweb.online/work/${project.slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.awweb.online' },
+      { '@type': 'ListItem', position: 2, name: 'Work', item: 'https://www.awweb.online/work' },
+      { '@type': 'ListItem', position: 3, name: project.title, item: `https://www.awweb.online/work/${project.slug}` },
     ],
   };
 
@@ -74,9 +74,9 @@ export default function DynamicProjectPage({ params }: ProjectPageProps) {
     author: {
       '@type': 'Organization',
       name: 'AW Web Services',
-      url: 'https://awweb.online',
+      url: 'https://www.awweb.online',
     },
-    image: `https://awweb.online${project.heroImage}`,
+    image: `https://www.awweb.online${project.heroImage}`,
   };
 
   return (

@@ -5,11 +5,12 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ThemeScript from '@/components/ThemeScript';
 import ChatWidget from '@/components/ChatWidget';
+import StickyWhatsApp from '@/components/StickyWhatsApp';
 import '@/css/style.css';
 import '@/css/chat-widget.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://awweb.online'),
+  metadataBase: new URL('https://www.awweb.online'),
   title: {
     default: 'AW Web Services | Digital Agency for Ambitious Brands',
     template: '%s | AW Web Services',
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://awweb.online',
+    url: 'https://www.awweb.online',
     siteName: 'AW Web Services',
     title: 'AW Web Services | Digital Agency for Ambitious Brands',
     description: 'Custom web development, digital marketing, e-commerce, and business automation. We craft digital experiences that captivate, convert, and scale.',
@@ -80,6 +81,7 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <Footer />
         <ChatWidget />
+        <StickyWhatsApp />
       </body>
     </html>
   );
