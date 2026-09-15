@@ -561,7 +561,7 @@ main { min-height: 100vh; }
 
 .work-card__overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(4,7,13,0.88) 0%, rgba(4,7,13,0.25) 40%, transparent 75%);
+    background: linear-gradient(to top, rgba(4,7,13,0.92) 0%, rgba(4,7,13,0.35) 45%, transparent 80%);
     display: flex; flex-direction: column; justify-content: flex-end;
     padding: 1.25rem 1.5rem; transform: translateY(0); opacity: 1;
     transition: transform 0.5s var(--ease), opacity 0.5s;
@@ -571,6 +571,114 @@ main { min-height: 100vh; }
 .work-card__overlay h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.25rem; color: #ffffff; }
 .work-card__link { font-weight: 600; color: var(--accent-3); font-size: 0.85rem; }
 .work-card__link:hover { color: #ffffff; }
+
+/* Horizontal Slider Card Enhancements */
+.work-card__status-pill {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.65rem;
+    border-radius: 100px;
+    background: rgba(4, 7, 13, 0.75);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #6ee7b7;
+    font-size: 0.7rem;
+    font-weight: 600;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 4;
+}
+.work-card__status-pill .live-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 6px #10b981;
+}
+.work-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.35rem;
+}
+.work-card__client-pill {
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+}
+.work-card__action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.35rem;
+    color: var(--accent-3);
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: gap 0.25s ease;
+}
+.work-card:hover .work-card__action {
+    gap: 0.65rem;
+    color: #ffffff;
+}
+
+/* Mobile Horizontal Slider Container & Swipe Affordance */
+.work-scroll-container {
+    width: 100%;
+    position: relative;
+}
+.work-scroll__hint-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+}
+.work-scroll__hint-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.95rem;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.75rem;
+    color: var(--muted-2);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+.work-scroll__hint-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-2);
+    box-shadow: 0 0 8px var(--accent-2);
+    animation: livePulse 2s infinite ease-in-out;
+}
+.work-scroll__hint-arrow {
+    color: var(--accent-3);
+    font-weight: 700;
+}
+
+/* Responsive Visibility: Desktop Pinned Stacking Cards vs Mobile Horizontal Slider */
+.sticky-cards-desktop {
+    display: block;
+}
+.sticky-cards-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .sticky-cards-desktop {
+        display: none !important;
+    }
+    .sticky-cards-mobile {
+        display: block !important;
+        width: 100%;
+    }
+}
 
 /* ── GSAP ScrollTrigger Pinned Stacking Cards (Skiper17) ── */
 .sticky-cards-section {
@@ -776,39 +884,7 @@ main { min-height: 100vh; }
     flex-shrink: 0;
 }
 
-/* Mobile Adjustments for Sticky Cards */
-@media (max-width: 768px) {
-    .sticky-cards-viewport {
-        padding: 0.75rem !important;
-        height: 92vh !important;
-    }
-    .sticky-cards-stage {
-        height: min(530px, 75vh) !important;
-        border-radius: 16px !important;
-    }
-    .sticky-project-card {
-        border-radius: 16px !important;
-    }
-    .sticky-project-card__content {
-        padding: 1rem !important;
-    }
-    .sticky-project-card__title {
-        font-size: 1.15rem !important;
-    }
-    .sticky-project-card__desc {
-        display: none !important;
-    }
-    .sticky-project-card__bottom {
-        padding: 0.85rem !important;
-    }
-    .sticky-project-card__pills {
-        display: none !important;
-    }
-    .sticky-project-card__btn {
-        width: 100% !important;
-        justify-content: center !important;
-    }
-}
+
 
 /* ── Testimonials ── */
 .testimonials {
@@ -2460,25 +2536,29 @@ main { min-height: 100vh; }
         margin-right: -1.25rem !important;
         width: calc(100% + 2.5rem) !important;
         -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
     }
     .work-scroll__track,
     .reviews-scroll__track {
-        gap: 0.85rem !important;
-        padding-right: 1.25rem !important;
+        gap: 1rem !important;
+        padding-right: 1.5rem !important;
     }
     .work-card {
-        width: 275px !important;
+        width: 285px !important;
         max-width: 82vw !important;
-        border-radius: 14px !important;
+        border-radius: 16px !important;
+        scroll-snap-align: start;
+        scroll-snap-stop: normal;
     }
     .work-card__img {
         aspect-ratio: 16 / 11 !important;
     }
     .work-card__overlay {
-        padding: 0.85rem 1rem !important;
+        padding: 1rem 1.15rem !important;
     }
     .work-card__overlay h3 {
-        font-size: 1.05rem !important;
+        font-size: 1.08rem !important;
         line-height: 1.25 !important;
     }
     .work-card__tags {
