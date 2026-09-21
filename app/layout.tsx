@@ -38,6 +38,16 @@ export const metadata: Metadata = {
     description: 'Custom web development, digital marketing, e-commerce, and business automation.',
     images: ['/images/hero.webp'],
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-icon.png' },
+    ],
+    shortcut: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
