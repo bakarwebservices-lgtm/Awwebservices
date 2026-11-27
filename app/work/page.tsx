@@ -1,96 +1,59 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import React from 'react';
 import JsonLd from '@/components/JsonLd';
+import PageHead, { crumbSchema } from '@/components/PageHead';
+import WorkGrid, { type WorkTile } from '@/components/WorkGrid';
+import EndCta from '@/components/EndCta';
 import { projects } from '@/data/projects';
+import { liveWork, concepts } from '@/data/stores';
+
+const DESC =
+  'Live online stores we built for Pakistani and German brands, the systems behind them (profit engines, AI graders, estimating tools), and the free homepage mockups we make for new clients.';
 
 export const metadata: Metadata = {
-  title: 'Portfolio & Case Studies | Custom Web Projects',
-  description: 'View our portfolio of custom e-commerce platforms, real-time P&L profit engines, AI edtech platforms, and local business website designs.',
-  alternates: {
-    canonical: 'https://www.awweb.online/work',
-  },
-  openGraph: {
-    title: 'Portfolio & Case Studies | Custom Web Projects | AW Web Services',
-    description: 'View our portfolio of custom e-commerce platforms, real-time P&L profit engines, AI edtech platforms, and local business website designs.',
-    url: 'https://www.awweb.online/work',
-    type: 'website',
-    images: [{ url: '/images/hero.webp', width: 1200, height: 630, alt: 'AW Web Services Portfolio' }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Portfolio & Case Studies | Custom Web Projects | AW Web Services',
-    description: 'Explore custom client projects and concept builds by AW Web Services.',
-    images: ['/images/hero.webp'],
-  },
+  title: 'Work: live stores, systems and mockups',
+  description: DESC,
+  alternates: { canonical: 'https://www.awweb.online/work' },
+  openGraph: { title: 'Work | AW Web Services', description: DESC, url: 'https://www.awweb.online/work', type: 'website', images: [{ url: '/images/og.png', width: 1200, height: 630, alt: 'AW Web Services work' }] },
+  twitter: { card: 'summary_large_image', title: 'Work | AW Web Services', description: DESC, images: ['/images/og.png'] },
 };
 
+const SYSTEMS = ['vortex-rings', 'css-kro', 'zn-enterprises', 'attireburg'];
+const CONCEPT_CASES: Record<string, string> = { ventura: 'ventura-auto', swannah: 'swanah', gull: 'gull-flowers' };
+
 export default function WorkIndexPage() {
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.awweb.online' },
-      { '@type': 'ListItem', position: 2, name: 'Work', item: 'https://www.awweb.online/work' },
-    ],
-  };
+  const tiles: WorkTile[] = [
+    ...liveWork.map((w) => ({
+      key: 'live-' + w.id, group: 'stores' as const, name: w.name, sub: `${w.domain} · ${w.niche}`,
+      img: `/images/work/${w.id}-desktop.webp`, href: w.url, external: true, kind: 'Live',
+    })),
+    ...SYSTEMS.map((slug) => projects.find((p) => p.slug === slug)!).map((p) => ({
+      key: 'sys-' + p.slug, group: 'systems' as const, name: p.title.split(' - ')[0], sub: `${p.title.split(' - ')[1] ?? p.category} · ${p.location ?? ''}`.replace(/ · $/, ''),
+      img: p.screenshots[0] || p.heroImage, href: `/work/${p.slug}`, external: false, kind: 'Case study',
+    })),
+    ...concepts.map((c) => ({
+      key: 'con-' + c.id, group: 'concepts' as const, name: c.name, sub: `${c.niche} · concept homepage`,
+      img: `/images/work/${c.id}-desktop.webp`,
+      href: CONCEPT_CASES[c.id] ? `/work/${CONCEPT_CASES[c.id]}` : c.url, external: !CONCEPT_CASES[c.id], kind: 'Concept',
+    })),
+  ];
 
   return (
     <>
-      <JsonLd data={breadcrumbSchema} />
-
-      <section className="page-hero hero-blue-banner">
-        <div className="container">
-          <nav className="breadcrumbs mb-4" aria-label="Breadcrumb">
-            <Link href="/">Home</Link>
-            <span>/</span>
-            <span aria-current="page">Work</span>
-          </nav>
-
-          <h1 className="page-hero__title text-4xl sm:text-5xl font-extrabold">Our Work &amp; Featured Case Studies</h1>
-          <p className="page-hero__subtitle text-xl mt-3 max-w-3xl leading-relaxed">
-            Explore live systems and concept builds engineered for performance, automation, and full infrastructure ownership.
-          </p>
+      <JsonLd data={crumbSchema([{ name: 'Work', path: '/work' }])} />
+      <PageHead
+        crumbs={[{ name: 'Work' }]}
+        label={`${liveWork.length} live · ${SYSTEMS.length} systems · ${concepts.length} mockups`}
+        title={<>Work you can <span className="hl" data-paint>open right now.</span></>}
+        lead="Live stores are real brands taking orders today. Systems are the tools behind a business. Mockups are free homepages we design for a brand before it pays."
+      />
+      <section className="section--tight" style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <WorkGrid tiles={tiles} />
         </div>
       </section>
-
-      <section className="portfolio-section py-20">
-        <div className="container">
-          <div className="portfolio-grid">
-            {projects.map((project) => (
-              <div key={project.slug} className="portfolio-card">
-                <div className="portfolio-card__image">
-                  <img src={project.heroImage} alt={`${project.title} Screenshot`} />
-                  {project.tag && <span className="portfolio-card__badge">{project.tag}</span>}
-                </div>
-                <div className="portfolio-card__content">
-                  <span className="portfolio-card__category">{project.category}</span>
-                  <h2 className="portfolio-card__title text-xl font-bold">{project.title}</h2>
-                  <p className="portfolio-card__desc">{project.metaDescription}</p>
-                  <div className="portfolio-card__tags mt-3">
-                    {project.builtWith.map((tech) => (
-                      <span key={tech} className="tech-pill">{tech}</span>
-                    ))}
-                  </div>
-                  <Link href={`/work/${project.slug}`} className="btn btn--secondary btn--sm mt-4">
-                    View Case Study
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="cta-card mt-24">
-            <h2 className="text-3xl font-extrabold">Have a Project in Mind?</h2>
-            <p className="mt-2 text-muted text-base">Let's build a custom solution tailored to your business.</p>
-            <div className="mt-6">
-              <Link href="/contact" className="btn btn--primary btn--lg">
-                <span>Start a Project</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div style={{ height: 'clamp(80px, 10vw, 160px)' }} />
+      <EndCta />
     </>
   );
 }

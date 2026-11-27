@@ -34,7 +34,7 @@ export const projects: ProjectItem[] = [
     category: "Order & Profit Engine · PostEx API",
     client: "Vortex Rings (Wearable Tech)",
     status: "Live System",
-    liveUrl: null,
+    liveUrl: "https://www.vortexwearables.com",
     tag: null,
     heroImage: "/images/project-4.jpeg",
     screenshots: [
@@ -77,7 +77,7 @@ export const projects: ProjectItem[] = [
     category: "E-Commerce · Custom Infrastructure",
     client: "Attireburg (German Apparel)",
     status: "Live Platform",
-    liveUrl: null,
+    liveUrl: "https://www.attireburg.de",
     tag: null,
     heroImage: "/images/project-3.jpeg",
     screenshots: [
@@ -199,7 +199,7 @@ export const projects: ProjectItem[] = [
     category: "Local Business · Service Booking",
     client: null,
     status: "Concept Project",
-    liveUrl: null,
+    liveUrl: "https://ventura-auto.netlify.app",
     tag: "Concept Project",
     heroImage: "/images/project-7.jpeg",
     screenshots: [
@@ -239,7 +239,7 @@ export const projects: ProjectItem[] = [
     category: "E-Commerce · Fashion",
     client: null,
     status: "Concept Project",
-    liveUrl: null,
+    liveUrl: "https://swannah.netlify.app",
     tag: "Concept Project",
     heroImage: "/images/project-6.jpeg",
     screenshots: [
@@ -278,7 +278,7 @@ export const projects: ProjectItem[] = [
     category: "Local Business · E-Commerce",
     client: null,
     status: "Concept Project",
-    liveUrl: null,
+    liveUrl: "https://gul-flowers.netlify.app",
     tag: "Concept Project",
     heroImage: "/images/project-5.jpeg",
     screenshots: [

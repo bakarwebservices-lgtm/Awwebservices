@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import React from 'react';
 import JsonLd from '@/components/JsonLd';
+import PageHead from '@/components/PageHead';
+import EndCta from '@/components/EndCta';
 import { projects } from '@/data/projects';
 
 interface ProjectPageProps {
@@ -28,7 +30,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const url = `https://www.awweb.online/work/${project.slug}`;
 
   return {
-    title: `${project.title} | Case Study`,
+    title: `${project.title.split(' - ')[0]} case study`,
     description: project.metaDescription,
     alternates: {
       canonical: url,
@@ -79,154 +81,96 @@ export default function DynamicProjectPage({ params }: ProjectPageProps) {
     image: `https://www.awweb.online${project.heroImage}`,
   };
 
+  const idx = projects.findIndex((p) => p.slug === project.slug);
+  const next = projects[(idx + 1) % projects.length];
+  const [name, tagline] = project.title.split(' - ');
+  const isConcept = !!project.tag;
+  const facts: { k: string; v: string }[] = [
+    ...(project.client ? [{ k: 'Client', v: project.client }] : [{ k: 'Type', v: 'Concept build, no client' }]),
+    { k: 'Status', v: project.status },
+    ...(project.location ? [{ k: 'Market', v: project.location }] : []),
+    { k: 'Category', v: project.category },
+  ];
+
   return (
     <>
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={creativeWorkSchema} />
 
-      {/* HERO BANNER WITH BLUE GLOW HIGHLIGHT */}
-      <section className="page-hero hero-blue-banner">
-        <div className="container">
-          <nav className="breadcrumbs mb-4" aria-label="Breadcrumb">
-            <Link href="/">Home</Link>
-            <span>/</span>
-            <Link href="/work">Work</Link>
-            <span>/</span>
-            <span aria-current="page">{project.title}</span>
-          </nav>
-
-          <div className="flex items-center gap-3 mb-3">
-            <span className="hero-highlight-tag">
-              <span className="hero-highlight-dot"></span>
-              <span>{project.category}</span>
-            </span>
-            {project.tag && <span className="portfolio-card__badge">{project.tag}</span>}
+      <PageHead
+        crumbs={[{ name: 'Work', href: '/work' }, { name }]}
+        label={isConcept ? 'Concept · not a client project' : 'Case study'}
+        title={name}
+        lead={tagline ? `${tagline}. ${project.metaDescription}` : project.metaDescription}
+      >
+        {project.liveUrl && (
+          <div style={{ marginTop: 32 }}>
+            <a className="btn btn--line" href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+              {isConcept ? 'Open the concept' : 'Visit the live site'}
+            </a>
           </div>
+        )}
+      </PageHead>
 
-          <h1 className="page-hero__title text-4xl sm:text-5xl font-extrabold">{project.title}</h1>
-          <p className="page-hero__subtitle text-xl mt-3 max-w-3xl leading-relaxed">{project.metaDescription}</p>
+      <section className="cs-hero">
+        <div className="wrap">
+          <div className="frame" style={{ marginTop: 0 }}>
+            <div className="frame__bar"><i /><i /><i /><span>{project.liveUrl?.replace(/^https?:\/\/(www\.)?/, '') ?? name}</span></div>
+            <img src={project.screenshots[0] || project.heroImage} alt={`${name} screenshot`} />
+          </div>
+          <dl className="cs-facts">
+            {facts.map((f) => (
+              <div key={f.k}><dt>{f.k}</dt><dd>{f.v}</dd></div>
+            ))}
+          </dl>
         </div>
       </section>
 
-      {/* PROJECT DETAIL SECTION WITH SPACED HERO IMAGE & SEPARATED BOXES */}
-      <section className="project-detail-section py-20">
-        <div className="container max-w-5xl mx-auto flex flex-col gap-10">
-          
-          {/* HERO IMAGE WITH SPACIOUS TOP MARGIN (SEPARATED FROM HERO BANNER) */}
-          <div className="project-hero-image">
-            <img
-              src={project.heroImage}
-              alt={`${project.title} Case Study Showcase`}
-              className="rounded-2xl shadow-2xl w-full max-h-[540px] object-cover border border-border"
-            />
+      <section className="section--tight">
+        <div className="wrap">
+          <div className="cs-block">
+            <h2 className="label">The problem</h2>
+            <p>{project.body.problem}</p>
           </div>
-
-          {/* META GRID */}
-          <div className="project-meta-grid">
-            {project.client && (
-              <div className="meta-box">
-                <span className="meta-label">Client</span>
-                <span className="meta-value">{project.client}</span>
-              </div>
-            )}
-            <div className="meta-box">
-              <span className="meta-label">Status</span>
-              <span className="meta-value">{project.status}</span>
+          <div className="cs-block">
+            <h2 className="label">What we built</h2>
+            <ol className="cs-steps">
+              {project.body.solution.map((s) => (
+                <li key={s.heading}><h3>{s.heading}</h3><p>{s.text}</p></li>
+              ))}
+            </ol>
+          </div>
+          <div className="cs-block">
+            <h2 className="label">The result</h2>
+            <div>
+              <p>{project.body.result}</p>
+              {(project.body.before || project.body.after) && (
+                <div className="ba">
+                  {project.body.before && <div><span>Before</span><b>{project.body.before}</b></div>}
+                  {project.body.after && <div><span>After</span><b>{project.body.after}</b></div>}
+                </div>
+              )}
             </div>
-            {project.location && (
-              <div className="meta-box">
-                <span className="meta-label">Region</span>
-                <span className="meta-value">{project.location}</span>
-              </div>
-            )}
-            <div className="meta-box">
-              <span className="meta-label">Solutions Delivered</span>
-              <div className="tech-pills-list mt-2 flex flex-wrap gap-2">
-                {project.builtWith.map((tech) => (
-                  <span key={tech} className="tech-pill">{tech}</span>
+          </div>
+          {project.screenshots.length > 1 && (
+            <div className="cs-block">
+              <h2 className="label">Screens</h2>
+              <div className="shots">
+                {project.screenshots.slice(1).map((src, i) => (
+                  <div className="frame" key={src}>
+                    <img src={src} alt={`${name} screen ${i + 2}`} loading="lazy" />
+                  </div>
                 ))}
               </div>
             </div>
-          </div>
-
-          {/* PROJECT BODY CONTENT WITH SEPARATED CONTENT BOXES */}
-          <div className="project-body-grid">
-            <div className="project-main-content flex flex-col gap-10">
-              
-              <div className="content-box content-box--spacious">
-                <h2 className="text-2xl font-bold mb-4">The Challenge &amp; Context</h2>
-                <p className="text-base leading-relaxed text-muted">{project.body.problem}</p>
-              </div>
-
-              <div className="content-box content-box--spacious">
-                <h2 className="text-2xl font-bold mb-6">Solution &amp; Technical Execution</h2>
-                <div className="solution-steps flex flex-col gap-6">
-                  {project.body.solution.map((sol, index) => (
-                    <div key={index} className="solution-step-item p-6 rounded-xl bg-surface-3 border border-border">
-                      <h3 className="text-lg font-bold text-accent-1 mb-2">{sol.heading}</h3>
-                      <p className="text-base leading-relaxed text-muted">{sol.text}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {project.body.result && (
-                <div className="content-box content-box--spacious">
-                  <h2 className="text-2xl font-bold mb-4">Results &amp; Impact</h2>
-                  <p className="text-base leading-relaxed mb-6">{project.body.result}</p>
-
-                  {(project.body.before || project.body.after) && (
-                    <div className="before-after-grid grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
-                      {project.body.before && (
-                        <div className="metric-card metric-card--before p-6">
-                          <span className="metric-label">Before</span>
-                          <span className="metric-value text-xl">{project.body.before}</span>
-                        </div>
-                      )}
-                      {project.body.after && (
-                        <div className="metric-card metric-card--after p-6">
-                          <span className="metric-label">After</span>
-                          <span className="metric-value text-xl">{project.body.after}</span>
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* SCREENSHOT GALLERY */}
-              {project.screenshots && project.screenshots.length > 0 && (
-                <div className="content-box content-box--spacious">
-                  <h2 className="text-2xl font-bold mb-6">Interface Gallery &amp; Screenshots</h2>
-                  <div className="screenshots-gallery-grid grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {project.screenshots.map((src, i) => (
-                      <div key={i} className="screenshot-item">
-                        <img
-                          src={src}
-                          alt={`${project.title} Interface Screenshot ${i + 1}`}
-                          className="rounded-xl shadow-lg border border-border w-full object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-            </div>
-          </div>
-
-          <div className="cta-card mt-20">
-            <h2 className="text-3xl font-extrabold">Want a Similar System Built for Your Business?</h2>
-            <p className="text-muted text-base mt-2">Let's discuss your project goals, timelines, and technical requirements.</p>
-            <div className="mt-6">
-              <Link href="/contact" className="btn btn--primary btn--lg">
-                <span>Start Your Project</span>
-              </Link>
-            </div>
-          </div>
-
+          )}
+          <Link className="next-case" href={`/work/${next.slug}`}>
+            <span className="label">Next</span>
+            <span className="h1" style={{ display: 'block', marginTop: 18 }}>{next.title.split(' - ')[0]} →</span>
+          </Link>
         </div>
       </section>
+      <EndCta />
     </>
   );
 }
