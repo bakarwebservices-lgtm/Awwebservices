@@ -38,11 +38,9 @@ export const projects: ProjectItem[] = [
     tag: null,
     heroImage: "/images/project-4.jpeg",
     screenshots: [
-      "/images/vortexwearables/vortex-rings-admin-portal.png",
-      "/images/vortexwearables/vortex-rings-order-pipeline.png",
-      "/images/vortexwearables/vortex-rings-profit-engine.png",
-      "/images/vortexwearables/vortex-rings-postex-sync.png",
-      "/images/vortexwearables/vortex-rings-financial-ledger.png"
+      "/images/vortexwearables/vortex-rings-profit-engine.webp",
+      "/images/vortexwearables/vortex-rings-postex-sync.webp",
+      "/images/vortexwearables/vortex-rings-admin-portal.webp"
     ],
     builtWith: ["PostEx Courier Auto-Sync", "Real-Time P&L Tracking", "0-Spreadsheet Operations", "COD Return Mitigation"],
     location: "Pakistan (COD E-Commerce)",
@@ -83,9 +81,9 @@ export const projects: ProjectItem[] = [
     tag: null,
     heroImage: "/images/project-3.jpeg",
     screenshots: [
-      "/images/attireburg/attireburg-storefront-home.png",
-      "/images/attireburg/attireburg-product-details.png",
-      "/images/attireburg/attireburg-checkout-experience.png"
+      "/images/attireburg/attireburg-storefront-home.webp",
+      "/images/attireburg/attireburg-product-details.webp",
+      "/images/attireburg/attireburg-checkout-experience.webp"
     ],
     builtWith: ["Zero Platform Fees", "100% Owned Storefront", "Native PayPal Checkout", "German & EU Compliance"],
     location: "Germany & EU",
@@ -126,11 +124,11 @@ export const projects: ProjectItem[] = [
     tag: null,
     heroImage: "/images/project-2.jpeg",
     screenshots: [
-      "/images/css-kro/css-kro-dashboard.png",
-      "/images/css-kro/css-kro-past-papers.png",
-      "/images/css-kro/css-kro-essay-checker.png",
-      "/images/css-kro/css-kro-evaluation-report.png",
-      "/images/css-kro/css-kro-study-resources.png"
+      "/images/css-kro/css-kro-dashboard.webp",
+      "/images/css-kro/css-kro-past-papers.webp",
+      "/images/css-kro/css-kro-essay-checker.webp",
+      "/images/css-kro/css-kro-evaluation-report.webp",
+      "/images/css-kro/css-kro-study-resources.webp"
     ],
     builtWith: ["Instant AI Essay Marking", "24-Yr Past Paper Archive", "Automated Daily Current Affairs", "Exam-Grade Scoring"],
     location: "Pakistan",
@@ -167,8 +165,8 @@ export const projects: ProjectItem[] = [
     tag: null,
     heroImage: "/images/project-1.jpeg",
     screenshots: [
-      "/images/zn-enterprises/zn-enterprises-intake-wizard.png",
-      "/images/zn-enterprises/zn-enterprises-boq-matrix.png"
+      "/images/zn-enterprises/zn-enterprises-intake-wizard.webp",
+      "/images/zn-enterprises/zn-enterprises-boq-matrix.webp"
     ],
     builtWith: ["Instant AI BOQ Generation", "10x Faster Project Estimation", "Multi-Step Client Intake Wizard", "Dynamic Pricing Matrix"],
     location: "Pakistan",
@@ -205,10 +203,10 @@ export const projects: ProjectItem[] = [
     tag: "Concept Project",
     heroImage: "/images/project-7.jpeg",
     screenshots: [
-      "/images/ventura-autoshop/ventura-auto-hero.png",
-      "/images/ventura-autoshop/ventura-auto-services.png",
-      "/images/ventura-autoshop/ventura-auto-booking.png",
-      "/images/ventura-autoshop/ventura-auto-contact.png"
+      "/images/ventura-autoshop/ventura-auto-hero.webp",
+      "/images/ventura-autoshop/ventura-auto-services.webp",
+      "/images/ventura-autoshop/ventura-auto-booking.webp",
+      "/images/ventura-autoshop/ventura-auto-contact.webp"
     ],
     builtWith: ["Online Appointment Booking", "AI Frame Animation Visuals", "Google Local SEO Optimized", "Mobile Booking Flow"],
     location: null,
@@ -245,9 +243,9 @@ export const projects: ProjectItem[] = [
     tag: "Concept Project",
     heroImage: "/images/project-6.jpeg",
     screenshots: [
-      "/images/swannah-clothing/swannah-clothing-editorial.png",
-      "/images/swannah-clothing/swannah-clothing-collection.png",
-      "/images/swannah-clothing/swannah-clothing-checkout.png"
+      "/images/swannah-clothing/swannah-clothing-editorial.webp",
+      "/images/swannah-clothing/swannah-clothing-collection.webp",
+      "/images/swannah-clothing/swannah-clothing-checkout.webp"
     ],
     builtWith: ["Zero Monthly Subscription", "Editorial Lookbook Layout", "Owned Checkout Flow", "Custom Fit & Size Guide"],
     location: null,
@@ -284,9 +282,9 @@ export const projects: ProjectItem[] = [
     tag: "Concept Project",
     heroImage: "/images/project-5.jpeg",
     screenshots: [
-      "/images/gull-flowers/gull-flowers-collections.png",
-      "/images/gull-flowers/gull-flowers-concierge.png",
-      "/images/gull-flowers/gull-flowers-ordering.png"
+      "/images/gull-flowers/gull-flowers-collections.webp",
+      "/images/gull-flowers/gull-flowers-concierge.webp",
+      "/images/gull-flowers/gull-flowers-ordering.webp"
     ],
     builtWith: ["Occasion-Based E-Commerce", "Bespoke Concierge Ordering", "Curated Premium Collections", "Local Florist Booking"],
     location: null,

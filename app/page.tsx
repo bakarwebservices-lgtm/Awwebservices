@@ -2,33 +2,39 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import React from 'react';
 import JsonLd from '@/components/JsonLd';
-import StickyProjectCards from '@/components/StickyProjectCards';
-import ReviewsCarousel from '@/components/ReviewsCarousel';
-import MajorReviewsSpotlight from '@/components/MajorReviewsSpotlight';
+import Reel from '@/components/home/Reel';
+import Clock from '@/components/home/Clock';
+import RentMeter from '@/components/home/RentMeter';
+import StoreRail from '@/components/home/StoreRail';
+import CaseList from '@/components/home/CaseList';
+import DragRail from '@/components/home/DragRail';
+import Words from '@/components/Words';
+import EndCta from '@/components/EndCta';
 import { projects } from '@/data/projects';
+import { services } from '@/data/services';
+import { concepts, storeFeatures } from '@/data/stores';
+import { testimonials } from '@/data/testimonials';
+import { WHATSAPP_LINK } from '@/lib/siteConfig';
+
+const TITLE = 'AW Web Services | Online stores you own, built in Lahore';
+const DESC =
+  'We build Pakistani brands their own online store with WhatsApp order confirmation, courier booking and real profit tracking built in. One-time price, no monthly Shopify rent.';
 
 export const metadata: Metadata = {
-  title: {
-    absolute: 'AW Web Services | Custom Web Development, Marketing & Business Automation',
-  },
-  description: 'AW Web Services crafts custom websites, e-commerce platforms, Meta ad campaigns, and business workflow automation systems engineered for growth and scale.',
-  alternates: {
-    canonical: 'https://www.awweb.online',
-  },
-  openGraph: {
-    title: 'AW Web Services | Custom Web Development, Marketing & Business Automation',
-    description: 'AW Web Services crafts custom websites, e-commerce platforms, Meta ad campaigns, and business workflow automation systems engineered for growth and scale.',
-    url: 'https://www.awweb.online',
-    type: 'website',
-    images: [{ url: '/images/hero.webp', width: 1200, height: 630, alt: 'AW Web Services Homepage Hero' }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'AW Web Services | Custom Web Development, Marketing & Business Automation',
-    description: 'AW Web Services crafts custom websites, e-commerce platforms, Meta ad campaigns, and business workflow automation systems engineered for growth and scale.',
-    images: ['/images/hero.webp'],
-  },
+  title: { absolute: TITLE },
+  description: DESC,
+  alternates: { canonical: 'https://www.awweb.online' },
+  openGraph: { title: TITLE, description: DESC, url: 'https://www.awweb.online', type: 'website', images: [{ url: '/images/og.png', width: 1200, height: 630, alt: 'AW Web Services' }] },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESC, images: ['/images/og.png'] },
 };
+
+const MOCKUP_LINK = `${WHATSAPP_LINK}?text=${encodeURIComponent('Hi AW, I would like a free homepage mockup for my brand.')}`;
+
+const Arrow = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M5 12h14M13 6l6 6-6 6" />
+  </svg>
+);
 
 export default function HomePage() {
   const organizationSchema = {
@@ -36,270 +42,208 @@ export default function HomePage() {
     '@type': 'Organization',
     name: 'AW Web Services',
     url: 'https://www.awweb.online',
-    logo: 'https://www.awweb.online/images/logo.webp',
-    description: 'Digital agency providing custom web development, e-commerce platforms, digital marketing, business automation, and virtual assistance.',
+    logo: 'https://www.awweb.online/images/logo-mark.png',
+    description: 'Lahore agency that builds brands their own e-commerce stores, plus automation, Meta ads and admin support.',
     email: 'bakarwebservices@gmail.com',
     telephone: '+923061513191',
-    sameAs: ['https://www.facebook.com/awwebservices'],
+    address: { '@type': 'PostalAddress', addressLocality: 'Lahore', addressCountry: 'PK' },
+    sameAs: ['https://www.facebook.com/awwebservices', 'https://www.instagram.com/awwebservices'],
   };
+
+  const caseSlugs = ['vortex-rings', 'css-kro', 'zn-enterprises', 'attireburg'];
+  const cases = caseSlugs.map((s) => projects.find((p) => p.slug === s)!).filter(Boolean);
 
   return (
     <>
       <JsonLd data={organizationSchema} />
 
-      {/* HERO SECTION */}
+      {/* HERO */}
       <section className="hero">
-        <div className="container">
-          <div className="hero__grid">
-            <div className="hero__content">
-              <p className="eyebrow hero__eyebrow">Custom Web &amp; Automation Agency</p>
-              <h1 className="hero__title">
-                <span className="line"><span className="word">We</span> <span className="word">build</span></span>{' '}
-                <span className="line"><span className="word">digital</span> <span className="word gradient-text">experiences</span></span>{' '}
-                <span className="line"><span className="word">that</span> <span className="word">move</span> <span className="word">brands.</span></span>
-              </h1>
-              <p className="hero__desc">
-                Web design, marketing, automation &amp; e-commerce, engineered for growth. Built for ambitious businesses seeking production-grade systems.
-              </p>
-              <div className="hero__actions">
-                <Link href="/contact" className="btn btn--primary btn--lg">
-                  <span>Free Consultation</span>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </Link>
-                <Link href="/work" className="btn btn--ghost btn--lg">
-                  <span>View Our Work</span>
-                </Link>
-              </div>
-            </div>
-
-            <div className="hero__video-wrapper">
-              <div className="hero__video-block">
-                <video autoPlay loop muted playsInline preload="metadata" className="hero__video" poster="/images/hero.webp">
-                  <source src="/images/hero-section.mp4" type="video/mp4" />
-                </video>
-                <div className="hero__video-overlay"></div>
-                <div className="hero__video-badge">
-                  <span className="hero__video-dot"></span>
-                  <span>Digital Excellence</span>
-                </div>
-              </div>
+        <div className="wrap">
+          <div className="hero__top">
+            <span className="label">AI systems for online stores</span>
+            <span className="label label--plain muted">Lahore · <Clock /> PKT</span>
+          </div>
+          <h1 className="hero__title">
+            <span className="row"><span>Stop renting</span></span>
+            <span className="row indent"><span>your <span className="hl">store.</span></span></span>
+          </h1>
+          <div className="hero__bottom">
+            <p className="lead">
+              We build Pakistani brands their own online store, with WhatsApp order confirmation, courier booking and real profit built in.
+              You pay once. It&rsquo;s yours.
+            </p>
+            <p className="hero__note">
+              <span>Free homepage mockup <b>before you pay anything.</b></span>
+            </p>
+            <div className="hero__actions">
+              <a className="btn btn--emerald" href={MOCKUP_LINK} target="_blank" rel="noopener noreferrer">
+                Get my free mockup <Arrow />
+              </a>
+              <Link className="btn btn--line" href="/work">See the work</Link>
             </div>
           </div>
+        </div>
+        <Reel />
+      </section>
 
-          {/* Stats Bar */}
-          <div className="hero__stats">
-            <div className="stat-card">
-              <span className="stat-card__num" style={{ fontSize: '1.35rem', lineHeight: 1.2, marginBottom: '0.35rem' }}>
-                Custom Systems
-              </span>
-              <span className="stat-card__label">Tailored Web Platforms</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-card__num" style={{ fontSize: '1.35rem', lineHeight: 1.2, marginBottom: '0.35rem' }}>
-                Full Ownership
-              </span>
-              <span className="stat-card__label">Zero Vendor Lock-In</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-card__num" style={{ fontSize: '1.35rem', lineHeight: 1.2, marginBottom: '0.35rem' }}>
-                Direct APIs
-              </span>
-              <span className="stat-card__label">PostEx &amp; PayPal Integration</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-card__num" style={{ fontSize: '1.35rem', lineHeight: 1.2, marginBottom: '0.35rem' }}>
-                End-to-End
-              </span>
-              <span className="stat-card__label">Production Reliability</span>
-            </div>
-          </div>
+      {/* THE IDEA */}
+      <section className="section">
+        <div className="wrap statement-grid">
+          <span className="label">The idea</span>
+          <Words text="Shopify is a rented shop. You pay every month and it is *never* yours. We build the shop, hand you the keys, and leave the rent out." />
         </div>
       </section>
 
-      {/* MAJOR CLIENT SPOTLIGHT / REVIEWS (RIGHT AFTER HERO) */}
-      <MajorReviewsSpotlight />
-
-      {/* MARQUEE TRACK */}
-      <div className="marquee" aria-hidden="true">
-        <div className="marquee__track">
-          <span>Web Design</span><span className="marquee__dot">◆</span>
-          <span>Digital Marketing</span><span className="marquee__dot">◆</span>
-          <span>E-Commerce</span><span className="marquee__dot">◆</span>
-          <span>Automation</span><span className="marquee__dot">◆</span>
-          <span>Virtual Assistance</span><span className="marquee__dot">◆</span>
-          <span>Brand Strategy</span><span className="marquee__dot">◆</span>
-          <span>Web Design</span><span className="marquee__dot">◆</span>
-          <span>Digital Marketing</span><span className="marquee__dot">◆</span>
-          <span>E-Commerce</span><span className="marquee__dot">◆</span>
-          <span>Automation</span><span className="marquee__dot">◆</span>
-          <span>Virtual Assistance</span><span className="marquee__dot">◆</span>
-          <span>Brand Strategy</span><span className="marquee__dot">◆</span>
+      {/* RENT METER */}
+      <section className="section section--ink" aria-labelledby="rent-title">
+        <div className="wrap rent">
+          <div>
+            <span className="label" style={{ color: 'var(--emerald-light)' }}>Do the maths</span>
+            <h2 className="h2" id="rent-title" style={{ marginTop: 22 }}>
+              Rent adds up. <span className="hl hl--light" data-paint>Owning</span> doesn&rsquo;t.
+            </h2>
+            <p className="lead" style={{ marginTop: 28 }}>
+              A Shopify plan plus the apps a COD store needs costs about Rs 1.3 lakh a year, for as long as you sell. Slide to see where that goes.
+            </p>
+          </div>
+          <RentMeter />
         </div>
+      </section>
+
+      {/* LIVE STORES */}
+      <div id="stores">
+        <StoreRail />
       </div>
 
-      {/* SERVICES SECTION - BENTO GRID */}
-      <section className="section" id="services-preview">
-        <div className="container">
-          <div className="section-head">
-            <p className="eyebrow">What We Do</p>
-            <h2 className="section-head__title">
-              Services built to <span className="gradient-text">scale</span> your business
+      {/* FEATURES */}
+      <section className="section section--paper2" aria-labelledby="feat-title">
+        <div className="wrap feat">
+          <div className="feat__aside">
+            <span className="label">In every store</span>
+            <h2 className="h2" id="feat-title" style={{ marginTop: 22 }}>
+              Built in, <span className="hl" data-paint>not bolted on.</span>
+            </h2>
+            <p className="lead">What Pakistani COD brands actually need, already there on day one. No app store to shop in for the basics.</p>
+          </div>
+          <ul className="feat__list">
+            {storeFeatures.map((f) => (
+              <li key={f.title}>
+                <h3>{f.title}</h3>
+                <p>{f.text}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* CASE STUDIES */}
+      <section className="section section--ink" aria-labelledby="cases-title">
+        <div className="wrap">
+          <div className="stores-head">
+            <div>
+              <span className="label" style={{ color: 'var(--emerald-light)' }}>Behind the storefront</span>
+              <h2 className="h2" id="cases-title" style={{ marginTop: 22, maxWidth: '14ch' }}>
+                Systems that run the business.
+              </h2>
+            </div>
+            <p className="lead" style={{ maxWidth: '32ch' }}>
+              Profit engines, AI graders and estimating tools, built around how one team actually works.
+            </p>
+          </div>
+          <CaseList items={cases} />
+        </div>
+      </section>
+
+      {/* CONCEPTS / FREE MOCKUP */}
+      <section className="section" aria-labelledby="concepts-title">
+        <div className="wrap concepts-head">
+          <div>
+            <span className="label">The free mockup</span>
+            <h2 className="h2" id="concepts-title" style={{ marginTop: 22 }}>
+              Before you pay, we design <span className="hl" data-paint>your homepage.</span>
             </h2>
           </div>
+          <div>
+            <p className="lead">
+              Send your logo and three or four photos. We build a homepage for your brand, free, so you see it before you decide.
+              Some we made for other niches:
+            </p>
+            <div style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap', marginTop: 28 }}>
+              <a className="btn" href={MOCKUP_LINK} target="_blank" rel="noopener noreferrer">Ask for mine <Arrow /></a>
+              <span className="drag-hint"><i aria-hidden="true">↔</i> Drag to browse</span>
+            </div>
+          </div>
+        </div>
+        <DragRail label="Concept homepages">
+          {concepts.map((c) => (
+            <a key={c.id} className="concept" href={c.url} target="_blank" rel="noopener noreferrer" draggable={false}>
+              <div className="frame">
+                <div className="frame__bar"><i /><i /><i /><span>Concept · {c.niche}</span></div>
+                <img src={`/images/work/${c.id}-desktop.webp`} alt={`${c.name} concept homepage`} width={1200} height={750} loading="lazy" draggable={false} />
+              </div>
+              <div className="concept__cap">
+                <b>{c.name}</b>
+                <span>{c.niche}</span>
+              </div>
+            </a>
+          ))}
+        </DragRail>
+      </section>
 
-          <div className="bento">
-            {/* 01: Website Design */}
-            <article className="bento__item bento__item--lg">
-              <div className="bento__img">
-                <img
-                  src="/images/services/website-design.jpg"
-                  alt="Custom Website Design & Development"
-                />
-              </div>
-              <div className="bento__body">
-                <span className="bento__num">01</span>
-                <h3>Website Design</h3>
-                <p>Custom, responsive websites that captivate audiences and convert visitors into loyal customers.</p>
-                <Link href="/services/website-design" className="bento__link">
-                  Explore →
-                </Link>
-              </div>
-            </article>
-
-            {/* 02: Digital Marketing */}
-            <article className="bento__item">
-              <div className="bento__img">
-                <img
-                  src="/images/services/digital-marketing.jpg"
-                  alt="Digital Marketing & Meta Ads"
-                />
-              </div>
-              <div className="bento__body">
-                <span className="bento__num">02</span>
-                <h3>Digital Marketing</h3>
-                <p>Strategic campaigns that amplify reach and engage your target audience.</p>
-                <Link href="/services/digital-marketing" className="bento__link">
-                  Explore →
-                </Link>
-              </div>
-            </article>
-
-            {/* 03: E-Commerce */}
-            <article className="bento__item">
-              <div className="bento__img">
-                <img
-                  src="/images/services/e-commerce.jpg"
-                  alt="Custom E-Commerce Platform"
-                />
-              </div>
-              <div className="bento__body">
-                <span className="bento__num">03</span>
-                <h3>E-Commerce</h3>
-                <p>Complete storefronts with payment integration, courier sync, and zero platform rent.</p>
-                <Link href="/services/e-commerce" className="bento__link">
-                  Explore →
-                </Link>
-              </div>
-            </article>
-
-            {/* 04: Business Automation */}
-            <article className="bento__item">
-              <div className="bento__img">
-                <img
-                  src="/images/services/business-automation.jpg"
-                  alt="Business Workflow Automation"
-                />
-              </div>
-              <div className="bento__body">
-                <span className="bento__num">04</span>
-                <h3>Automation</h3>
-                <p>Smart workflows that save time, automate P&amp;L tracking, and eliminate manual errors.</p>
-                <Link href="/services/business-automation" className="bento__link">
-                  Explore →
-                </Link>
-              </div>
-            </article>
-
-            {/* 05: Virtual Assistance */}
-            <article className="bento__item bento__item--wide">
-              <div className="bento__img">
-                <img
-                  src="/images/services/virtual-assistance.jpg"
-                  alt="Virtual Assistance & Operations Support"
-                />
-              </div>
-              <div className="bento__body">
-                <span className="bento__num">05</span>
-                <h3>Virtual Assistance</h3>
-                <p>Professional remote admin support and inbox management so you can focus on growing your business.</p>
-                <Link href="/services/virtual-assistance" className="bento__link">
-                  All Services →
-                </Link>
-              </div>
-            </article>
+      {/* TESTIMONIALS */}
+      <section className="section section--paper2" aria-labelledby="quotes-title">
+        <div className="wrap">
+          <span className="label" id="quotes-title">In their words</span>
+          <div className="quotes" style={{ marginTop: 48 }}>
+            {testimonials.map((t) => (
+              <figure className="quote" key={t.id} data-rise>
+                <figcaption className="quote__who">
+                  <img src={t.avatar} alt="" width={56} height={56} loading="lazy" />
+                  <div>
+                    <b>{t.name}</b>
+                    <span>{t.title}, {t.company}</span>
+                  </div>
+                </figcaption>
+                <blockquote>
+                  <p className="quote__big">{t.highlight}</p>
+                  <details>
+                    <summary>Read the full note</summary>
+                    <p className="quote__body">{t.quote}</p>
+                  </details>
+                </blockquote>
+              </figure>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* FEATURED WORK HORIZONTAL SCROLL CAROUSEL */}
-      <section className="section section--dark">
-        <div className="container">
-          <div className="section-head">
-            <p className="eyebrow">Featured Work</p>
-            <h2 className="section-head__title">
-              Projects that <span className="gradient-text">deliver results</span>
-            </h2>
+      {/* SERVICES */}
+      <section className="section" aria-labelledby="svc-title">
+        <div className="wrap">
+          <div className="stores-head">
+            <div>
+              <span className="label">What we do</span>
+              <h2 className="h2" id="svc-title" style={{ marginTop: 22 }}>Stores first. Then everything around them.</h2>
+            </div>
           </div>
-        </div>
-
-        {/* GSAP ScrollTrigger Pinned Stacking Project Cards */}
-        <StickyProjectCards projects={projects} />
-
-        <div className="container text-center mt-12">
-          <Link href="/work" className="btn btn--ghost btn--lg">
-            View Full Portfolio
-          </Link>
-        </div>
-      </section>
-
-      {/* TESTIMONIALS / REVIEWS SECTION (SINGLE-ROW SCROLLABLE) */}
-      <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <p className="eyebrow">Testimonials</p>
-            <h2 className="section-head__title">
-              Trusted by <span className="gradient-text">ambitious businesses</span>
-            </h2>
-          </div>
-
-          <ReviewsCarousel />
+          <nav className="svc" aria-label="Services">
+            <ul>
+              {services.map((s) => (
+                <li key={s.slug}>
+                  <Link href={`/services/${s.slug}`}>
+                    <span className="svc__name">{s.short}</span>
+                    <span className="svc__desc">{s.oneLine}</span>
+                    <span className="svc__go">Details <Arrow /></span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </section>
 
-      {/* CTA BANNER WITH VIDEO BACKGROUND */}
-      <section className="cta-banner">
-        <div className="cta-banner__bg">
-          <video autoPlay loop muted playsInline preload="none" className="cta-banner__video" poster="/images/hero.webp">
-            <source src="/images/hero-section-2.0.mp4" type="video/mp4" />
-          </video>
-          <div className="cta-banner__overlay"></div>
-        </div>
-        <div className="container cta-banner__inner">
-          <h2>
-            Ready to elevate your<br />
-            <span className="gradient-text">digital presence?</span>
-          </h2>
-          <p>Partner with us to engineer high-performing, production-grade digital systems.</p>
-          <Link href="/contact" className="btn btn--primary btn--lg">
-            <span>Get Started Today</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </Link>
-        </div>
-      </section>
+      <EndCta />
     </>
   );
 }

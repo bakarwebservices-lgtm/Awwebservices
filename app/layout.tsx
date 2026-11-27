@@ -1,97 +1,82 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import React from 'react';
 import Script from 'next/script';
+import { Bricolage_Grotesque, Inter } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ThemeScript from '@/components/ThemeScript';
 import ChatWidget from '@/components/ChatWidget';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
-import '@/css/style.css';
+import Motion from '@/components/Motion';
 import '@/css/chat-widget.css';
+import '@/css/site.css';
+
+const display = Bricolage_Grotesque({
+  subsets: ['latin'],
+  weight: ['600', '700', '800'],
+  variable: '--ff-display',
+  display: 'swap',
+});
+const body = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--ff-body', display: 'swap' });
+
+export const viewport: Viewport = {
+  themeColor: '#F6F2EA',
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.awweb.online'),
   title: {
-    default: 'AW Web Services | Digital Agency for Ambitious Brands',
+    default: 'AW Web Services | Online stores you own, built in Lahore',
     template: '%s | AW Web Services',
   },
-  description: 'Custom web development, digital marketing, e-commerce, and business automation. We craft digital experiences that captivate, convert, and scale.',
+  description:
+    'AW Web Services builds Pakistani brands their own online store: WhatsApp order confirmation, courier booking and real profit tracking built in. One-time price, no monthly Shopify rent.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.awweb.online',
     siteName: 'AW Web Services',
-    title: 'AW Web Services | Digital Agency for Ambitious Brands',
-    description: 'Custom web development, digital marketing, e-commerce, and business automation. We craft digital experiences that captivate, convert, and scale.',
-    images: [
-      {
-        url: '/images/hero.webp',
-        width: 1200,
-        height: 630,
-        alt: 'AW Web Services',
-      },
-    ],
+    title: 'AW Web Services | Online stores you own, built in Lahore',
+    description: 'Your own online store, not a rented one. WhatsApp COD confirmation, courier booking and real profit, built in.',
+    images: [{ url: '/images/og.png', width: 1200, height: 630, alt: 'AW Web Services: stop renting your store.' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AW Web Services | Digital Agency for Ambitious Brands',
-    description: 'Custom web development, digital marketing, e-commerce, and business automation.',
-    images: ['/images/hero.webp'],
+    title: 'AW Web Services | Online stores you own',
+    description: 'Your own online store, not a rented one.',
+    images: ['/images/og.png'],
   },
   icons: {
-    icon: [
-      { url: '/favicon.ico' },
-      { url: '/icon.png', type: 'image/png' },
-    ],
-    apple: [
-      { url: '/apple-icon.png' },
-    ],
+    icon: [{ url: '/favicon.ico' }, { url: '/icon.png', type: 'image/png' }],
+    apple: [{ url: '/apple-icon.png' }],
     shortcut: '/favicon.ico',
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-          rel="stylesheet"
-        />
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
       <body>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-ZGX1HSL9P2"
-          strategy="afterInteractive"
-        />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-ZGX1HSL9P2" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'G-ZGX1HSL9P2');
           `}
         </Script>
-        <ThemeScript />
-        <div className="noise" aria-hidden="true"></div>
-        <div className="mesh-bg" aria-hidden="true">
-          <div className="mesh-orb mesh-orb--1"></div>
-          <div className="mesh-orb mesh-orb--2"></div>
-          <div className="mesh-orb mesh-orb--3"></div>
-        </div>
-
+        <a className="skip" href="#main">Skip to content</a>
         <Header />
         <main id="main">{children}</main>
         <Footer />
         <ChatWidget />
         <StickyWhatsApp />
+        <Motion />
       </body>
     </html>
   );

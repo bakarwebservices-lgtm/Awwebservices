@@ -1,116 +1,102 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { WHATSAPP_INQUIRY_LINK, WHATSAPP_INTL, CONTACT_EMAIL } from '@/lib/siteConfig';
+
+const links = [
+  { href: '/work', label: 'Work' },
+  { href: '/services', label: 'Services' },
+  { href: '/about', label: 'About' },
+  { href: '/blog', label: 'Journal' },
+  { href: '/contact', label: 'Contact' },
+];
+
+export function Mark({ sub = true }: { sub?: boolean }) {
+  return (
+    <span className="mark">
+      <span className="mark__box" aria-hidden="true">AW</span>
+      <span className="mark__name">
+        AW Web Services
+        {sub && <small>Stores you own · Lahore</small>}
+      </span>
+    </span>
+  );
+}
 
 export default function Header() {
   const pathname = usePathname();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastY = useRef(0);
 
   useEffect(() => {
-    const currentTheme = (localStorage.getItem('theme') as 'light' | 'dark') || 'dark';
-    setTheme(currentTheme);
-    document.documentElement.setAttribute('data-theme', currentTheme);
-
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 12);
+      setHidden(y > 400 && y > lastY.current + 4);
+      if (y < lastY.current - 4) setHidden(false);
+      lastY.current = y;
     };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
-
-    return () => window.removeEventListener('scroll', handleScroll);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const toggleTheme = () => {
-    const nextTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(nextTheme);
-    localStorage.setItem('theme', nextTheme);
-    document.documentElement.setAttribute('data-theme', nextTheme);
-  };
+  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    document.body.classList.toggle('menu-open', open);
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
 
-  const closeMenu = () => setMobileMenuOpen(false);
-
-  const isActive = (path: string) => {
-    if (path === '/' && pathname === '/') return true;
-    if (path !== '/' && pathname.startsWith(path)) return true;
-    return false;
-  };
+  const active = (href: string) => pathname === href || pathname.startsWith(href + '/');
 
   return (
     <>
-      <header className={`header ${isScrolled ? 'is-scrolled' : ''}`} id="header">
-        <div className="header__inner container">
-          <Link href="/" className="header__logo" onClick={closeMenu}>
-            <img src="/images/logo.webp" alt="AW Web Services Logo" width={36} height={36} />
-            <span>AW<span className="header__logo-accent">.</span></span>
+      <header className={`nav ${scrolled ? 'is-scrolled' : ''} ${hidden && !open ? 'is-hidden' : ''}`}>
+        <div className="wrap nav__in">
+          <Link href="/" aria-label="AW Web Services, home">
+            <Mark />
           </Link>
-
-          <nav className="header__nav" id="mainNav">
-            <Link href="/" className={isActive('/') && pathname === '/' ? 'is-active' : ''}>Home</Link>
-            <Link href="/services" className={isActive('/services') ? 'is-active' : ''}>Services</Link>
-            <Link href="/work" className={isActive('/work') ? 'is-active' : ''}>Work</Link>
-            <Link href="/about" className={isActive('/about') ? 'is-active' : ''}>About</Link>
-            <Link href="/contact" className={isActive('/contact') ? 'is-active' : ''}>Contact</Link>
-            <Link href="/blog" className={isActive('/blog') ? 'is-active' : ''}>Blog</Link>
+          <nav className="nav__links" aria-label="Main">
+            {links.map((l) => (
+              <Link key={l.href} href={l.href} aria-current={active(l.href) ? 'page' : undefined}>
+                {l.label}
+              </Link>
+            ))}
           </nav>
-
-          <div className="header__actions">
-            <button
-              className="theme-toggle-btn"
-              aria-label="Toggle dark and light theme"
-              title="Toggle theme"
-              onClick={toggleTheme}
-            >
-              <svg className="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="4"></circle>
-                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
-              </svg>
-              <svg className="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-              </svg>
-            </button>
-
-            <Link href="/contact" className="btn btn--primary btn--sm header__cta">
-              <span>Start a Project</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </Link>
-
-            <button
-              className={`header__burger ${mobileMenuOpen ? 'is-active' : ''}`}
-              id="burger"
-              aria-label="Menu"
-              aria-expanded={mobileMenuOpen}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              <span></span><span></span>
+          <div className="nav__right">
+            <a className="btn btn--sm nav__cta" href={WHATSAPP_INQUIRY_LINK} target="_blank" rel="noopener noreferrer">
+              WhatsApp us
+            </a>
+            <button className="burger" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="menu" onClick={() => setOpen(!open)}>
+              <span />
+              <span />
             </button>
           </div>
         </div>
       </header>
 
-      {mobileMenuOpen && (
-        <div className="mobile-menu is-open" id="mobileMenu">
-          <nav className="mobile-menu__nav">
-            <Link href="/" onClick={closeMenu}>Home</Link>
-            <Link href="/services" onClick={closeMenu}>Services</Link>
-            <Link href="/work" onClick={closeMenu}>Work</Link>
-            <Link href="/about" onClick={closeMenu}>About</Link>
-            <Link href="/contact" onClick={closeMenu}>Contact</Link>
-            <Link href="/blog" onClick={closeMenu}>Blog</Link>
-          </nav>
-          <Link href="/contact" className="btn btn--primary" onClick={closeMenu}>Start a Project</Link>
+      <div className={`menu ${open ? 'is-open' : ''}`} id="menu" aria-hidden={!open}>
+        <nav aria-label="Mobile">
+          <Link href="/" tabIndex={open ? 0 : -1}>Home</Link>
+          {links.map((l, i) => (
+            <Link key={l.href} href={l.href} tabIndex={open ? 0 : -1}>
+              {l.label} <small>0{i + 1}</small>
+            </Link>
+          ))}
+        </nav>
+        <div className="menu__foot">
+          <a className="btn btn--emerald" href={WHATSAPP_INQUIRY_LINK} target="_blank" rel="noopener noreferrer" tabIndex={open ? 0 : -1}>
+            WhatsApp {WHATSAPP_INTL}
+          </a>
+          <a href={`mailto:${CONTACT_EMAIL}`} tabIndex={open ? 0 : -1}>{CONTACT_EMAIL}</a>
         </div>
-      )}
+      </div>
     </>
   );
 }

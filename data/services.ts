@@ -1,6 +1,10 @@
 export interface ServiceItem {
   slug: string;
   title: string;
+  /** Short name for menus and lists. */
+  short: string;
+  /** One line for the services list. */
+  oneLine: string;
   metaDescription: string;
   primaryKeyword: string;
   longTailKeywords: string[];
@@ -15,6 +19,8 @@ export interface ServiceItem {
 export const services: ServiceItem[] = [
   {
     slug: "e-commerce",
+    short: "Online stores",
+    oneLine: "Your own store with WhatsApp COD confirmation, courier booking and profit built in.",
     title: "Custom E-Commerce Development",
     metaDescription: "Custom e-commerce platforms built for Pakistani COD brands and international stores. Own your infrastructure instead of renting it through Shopify.",
     primaryKeyword: "custom e-commerce development",
@@ -40,6 +46,8 @@ export const services: ServiceItem[] = [
   },
   {
     slug: "business-automation",
+    short: "Automation",
+    oneLine: "Order, courier and profit systems that update themselves, so the spreadsheet can retire.",
     title: "Business Automation & Workflow Systems",
     metaDescription: "Custom workflow automation replacing manual spreadsheets and disconnected tools with real-time systems for order tracking, reporting, and operations.",
     primaryKeyword: "business workflow automation",
@@ -63,6 +71,8 @@ export const services: ServiceItem[] = [
   },
   {
     slug: "website-design",
+    short: "Websites",
+    oneLine: "Fast, custom sites for businesses that only have a Facebook page today.",
     title: "Custom Website Design & Development",
     metaDescription: "Custom-built, fast-loading websites for local businesses and growing brands. If you have a Facebook page but no website, this is where you start.",
     primaryKeyword: "custom website design",
@@ -85,6 +95,8 @@ export const services: ServiceItem[] = [
   },
   {
     slug: "digital-marketing",
+    short: "Meta ads",
+    oneLine: "Click-to-WhatsApp campaigns, with the funnel after the click built properly.",
     title: "Digital Marketing & Meta Ads Management",
     metaDescription: "Meta ads management and lead funnels for local and D2C businesses, including WhatsApp qualification flows and AI-generated ad creative.",
     primaryKeyword: "Meta ads management",
@@ -108,6 +120,8 @@ export const services: ServiceItem[] = [
   },
   {
     slug: "virtual-assistance",
+    short: "Virtual assistance",
+    oneLine: "Inbox, scheduling and admin support, handled steadily every week.",
     title: "Virtual Assistance & Admin Support",
     metaDescription: "Remote admin and operations support for growing businesses, covering email management, scheduling, data entry, and day-to-day coordination.",
     primaryKeyword: "virtual assistant services",

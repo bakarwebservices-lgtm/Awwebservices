@@ -34,8 +34,6 @@ export default function StickyWhatsApp() {
         aria-label={`Chat with AW Web Services on WhatsApp at ${WHATSAPP_INTL}`}
         tabIndex={isChatOpen ? -1 : 0}
       >
-        {/* Pulsing Ripple Effect */}
-        <span className="sticky-whatsapp-pulse" aria-hidden="true"></span>
 
         {/* WhatsApp Icon */}
         <svg
