@@ -159,6 +159,27 @@ export default function DynamicServicePage({ params }: ServicePageProps) {
               <RentMeter />
             </div>
           </section>
+          <section className="section" aria-labelledby="admin-title">
+            <div className="wrap">
+              <div className="stores-head">
+                <div>
+                  <span className="label">Inside the admin</span>
+                  <h2 className="h2" id="admin-title" style={{ marginTop: 22, maxWidth: '14ch' }}>See your real profit. <span className="hl" data-paint>Ask it anything.</span></h2>
+                </div>
+                <p className="lead" style={{ maxWidth: '34ch' }}>Every store comes with an admin built for how COD brands work. Shown here with demo data from our template store.</p>
+              </div>
+              <div className="admin-shots">
+                <figure>
+                  <div className="frame"><div className="frame__bar"><i /><i /><i /><span>Admin · Reports</span></div><img src="/images/admin/analytics-main.webp" alt="Store admin reports showing net sales, real profit after returns, and customer cohorts" loading="lazy" /></div>
+                  <figcaption><b>Profit after returns, not just sales.</b> Returns, product cost and delivery are taken out before the number you see.</figcaption>
+                </figure>
+                <figure>
+                  <div className="frame"><div className="frame__bar"><i /><i /><i /><span>Admin · AI assistant</span></div><img src="/images/admin/ai-main.webp" alt="Store admin page for connecting Claude or ChatGPT to the store" loading="lazy" /></div>
+                  <figcaption><b>Connect Claude or ChatGPT.</b> Ask for last week&rsquo;s profit, low stock or late couriers in plain words.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </section>
           <StoreRail />
         </>
       )}

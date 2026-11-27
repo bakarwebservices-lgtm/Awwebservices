@@ -782,3 +782,8 @@ html { overflow-x: clip; }
   .svc-row:nth-child(even) .svc-row__img { order: 2; }
 }
 .svc__go svg, .link svg, .store__url svg { width: 16px; height: 16px; flex: none; }
+.admin-shots { display: grid; gap: clamp(28px, 3vw, 40px); }
+@media (min-width: 1024px) { .admin-shots { grid-template-columns: 1.25fr 1fr; align-items: start; } .admin-shots figure:last-child { margin-top: 96px; } }
+.admin-shots .frame img { object-fit: cover; object-position: top left; aspect-ratio: 16 / 10; }
+.admin-shots figcaption { margin-top: 16px; color: var(--ink-2); font-size: 15px; max-width: 46ch; }
+.admin-shots figcaption b { color: var(--ink); font-weight: 600; }
