@@ -45,13 +45,13 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
       description: service.metaDescription,
       url: url,
       type: 'website',
-      images: [{ url: '/images/hero.webp', width: 1200, height: 630, alt: service.title }],
+      images: [{ url: '/images/og.png', width: 1200, height: 630, alt: service.title }],
     },
     twitter: {
       card: 'summary_large_image',
       title: `${service.title} | AW Web Services`,
       description: service.metaDescription,
-      images: ['/images/hero.webp'],
+      images: ['/images/og.png'],
     },
   };
 }

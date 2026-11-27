@@ -781,3 +781,4 @@ html { overflow-x: clip; }
   .svc-row { grid-template-columns: 1fr 1fr; gap: 72px; }
   .svc-row:nth-child(even) .svc-row__img { order: 2; }
 }
+.svc__go svg, .link svg, .store__url svg { width: 16px; height: 16px; flex: none; }

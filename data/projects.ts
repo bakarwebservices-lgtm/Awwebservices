@@ -81,6 +81,7 @@ export const projects: ProjectItem[] = [
     tag: null,
     heroImage: "/images/project-3.jpeg",
     screenshots: [
+      "/images/work/attireburg-desktop.webp",
       "/images/attireburg/attireburg-storefront-home.webp",
       "/images/attireburg/attireburg-product-details.webp",
       "/images/attireburg/attireburg-checkout-experience.webp"
@@ -124,8 +125,8 @@ export const projects: ProjectItem[] = [
     tag: null,
     heroImage: "/images/project-2.jpeg",
     screenshots: [
-      "/images/css-kro/css-kro-dashboard.webp",
       "/images/css-kro/css-kro-past-papers.webp",
+      "/images/css-kro/css-kro-dashboard.webp",
       "/images/css-kro/css-kro-essay-checker.webp",
       "/images/css-kro/css-kro-evaluation-report.webp",
       "/images/css-kro/css-kro-study-resources.webp"

@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     description: 'Learn about AW Web Services. We build owned e-commerce platforms, custom web applications, Meta lead funnels, and real-time business workflow automation.',
     url: 'https://www.awweb.online/about',
     type: 'website',
-    images: [{ url: '/images/hero.webp', width: 1200, height: 630, alt: 'About AW Web Services' }],
+    images: [{ url: '/images/og.png', width: 1200, height: 630, alt: 'About AW Web Services' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'About Us | Custom Web Development Agency | AW Web Services',
     description: 'Custom web development, owned e-commerce, and automated profit engines built for scale.',
-    images: ['/images/hero.webp'],
+    images: ['/images/og.png'],
   },
 };
 

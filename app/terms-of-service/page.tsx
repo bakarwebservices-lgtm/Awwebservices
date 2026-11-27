@@ -15,13 +15,13 @@ export const metadata: Metadata = {
     description: 'Terms of Service for AW Web Services (awweb.online). Read our terms governing site usage, intellectual property, and service disclaimers.',
     url: 'https://www.awweb.online/terms-of-service',
     type: 'website',
-    images: [{ url: '/images/hero.webp', width: 1200, height: 630, alt: 'AW Web Services Terms of Service' }],
+    images: [{ url: '/images/og.png', width: 1200, height: 630, alt: 'AW Web Services Terms of Service' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Terms of Service | AW Web Services',
     description: 'Terms of Service for AW Web Services (awweb.online).',
-    images: ['/images/hero.webp'],
+    images: ['/images/og.png'],
   },
 };
 

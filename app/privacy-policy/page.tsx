@@ -15,13 +15,13 @@ export const metadata: Metadata = {
     description: 'Privacy Policy for AW Web Services (awweb.online). Learn how we handle your contact information, analytics data, and protect your privacy.',
     url: 'https://www.awweb.online/privacy-policy',
     type: 'website',
-    images: [{ url: '/images/hero.webp', width: 1200, height: 630, alt: 'AW Web Services Privacy Policy' }],
+    images: [{ url: '/images/og.png', width: 1200, height: 630, alt: 'AW Web Services Privacy Policy' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Privacy Policy | AW Web Services',
     description: 'Privacy Policy for AW Web Services (awweb.online).',
-    images: ['/images/hero.webp'],
+    images: ['/images/og.png'],
   },
 };
 

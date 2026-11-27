@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     description: 'Technical insights, e-commerce infrastructure guides, and business automation strategies from the engineering team at AW Web Services.',
     url: 'https://www.awweb.online/blog',
     type: 'website',
-    images: [{ url: '/images/hero.webp', width: 1200, height: 630, alt: 'AW Web Services Blog' }],
+    images: [{ url: '/images/og.png', width: 1200, height: 630, alt: 'AW Web Services Blog' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Blog & Insights | AW Web Services',
     description: 'Technical insights, e-commerce infrastructure guides, and business automation strategies.',
-    images: ['/images/hero.webp'],
+    images: ['/images/og.png'],
   },
 };
 

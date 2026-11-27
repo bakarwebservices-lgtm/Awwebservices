@@ -17,13 +17,13 @@ export const metadata: Metadata = {
     description: 'Get in touch with AW Web Services to discuss your custom web development, e-commerce platform, business automation, or Meta ads management project.',
     url: 'https://www.awweb.online/contact',
     type: 'website',
-    images: [{ url: '/images/hero.webp', width: 1200, height: 630, alt: 'Contact AW Web Services' }],
+    images: [{ url: '/images/og.png', width: 1200, height: 630, alt: 'Contact AW Web Services' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Contact Us | Request a Consultation | AW Web Services',
     description: 'Start your web development, e-commerce, or automation project with AW Web Services.',
-    images: ['/images/hero.webp'],
+    images: ['/images/og.png'],
   },
 };
 

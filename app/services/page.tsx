@@ -17,13 +17,13 @@ export const metadata: Metadata = {
     description: 'Explore custom web development, owned e-commerce systems, Meta ads management, business workflow automation, and virtual assistance services.',
     url: 'https://www.awweb.online/services',
     type: 'website',
-    images: [{ url: '/images/hero.webp', width: 1200, height: 630, alt: 'AW Web Services Overview' }],
+    images: [{ url: '/images/og.png', width: 1200, height: 630, alt: 'AW Web Services Overview' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Services Overview | Web Design, E-Commerce & Automation | AW Web Services',
     description: 'Custom e-commerce platforms, business workflow automation, web design, and digital marketing.',
-    images: ['/images/hero.webp'],
+    images: ['/images/og.png'],
   },
 };
 
