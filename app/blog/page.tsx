@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import React from 'react';
 import JsonLd from '@/components/JsonLd';
+import PageHead, { crumbSchema } from '@/components/PageHead';
+import EndCta from '@/components/EndCta';
 
 export const metadata: Metadata = {
   title: 'Blog & Insights | Web Development & Automation Articles',
@@ -25,49 +27,21 @@ export const metadata: Metadata = {
 };
 
 export default function BlogIndexPage() {
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.awweb.online' },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.awweb.online/blog' },
-    ],
-  };
-
   return (
     <>
-      <JsonLd data={breadcrumbSchema} />
-
-      <section className="page-hero hero-blue-banner">
-        <div className="container">
-          <nav className="breadcrumbs mb-4" aria-label="Breadcrumb">
-            <Link href="/">Home</Link>
-            <span>/</span>
-            <span aria-current="page">Blog</span>
-          </nav>
-
-          <h1 className="page-hero__title text-4xl sm:text-5xl font-extrabold">Engineering Insights &amp; Tech Articles</h1>
-          <p className="page-hero__subtitle text-xl mt-3 max-w-3xl leading-relaxed">
-            Articles on custom e-commerce architecture, PostEx courier API integration, Meta lead qualification funnels, and real-time business automation.
-          </p>
+      <JsonLd data={crumbSchema([{ name: 'Blog', path: '/blog' }])} />
+      <PageHead
+        crumbs={[{ name: 'Journal' }]}
+        label="Journal"
+        title={<>Notes from <span className="hl" data-paint>the build.</span></>}
+        lead="Write-ups on owned e-commerce, courier and profit automation, WhatsApp lead funnels and fast local-business sites. The first articles are being written now."
+      >
+        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 36 }}>
+          <a className="btn" href="https://www.instagram.com/awwebservices" target="_blank" rel="noopener noreferrer">Follow on Instagram meanwhile</a>
+          <Link className="btn btn--line" href="/contact">Request a topic</Link>
         </div>
-      </section>
-
-      <section className="blog-section py-20">
-        <div className="container max-w-4xl mx-auto">
-          <div className="content-box content-box--spacious text-center py-20 px-8">
-            <h2 className="text-3xl font-extrabold mb-6">Articles &amp; Case Analysis Coming Soon</h2>
-            <p className="max-w-xl mx-auto text-muted text-lg leading-relaxed mb-6">
-              We are preparing detailed technical deep-dives on building owned e-commerce infrastructure, automating cash-on-delivery profit tracking, and designing high-converting local service websites.
-            </p>
-            <div className="mt-12 pt-4 pb-2">
-              <Link href="/contact" className="btn btn--primary btn--lg px-8 py-4">
-                <span>Subscribe or Request a Topic</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      </PageHead>
+      <EndCta />
     </>
   );
 }

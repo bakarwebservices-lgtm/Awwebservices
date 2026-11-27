@@ -3,6 +3,12 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import React from 'react';
 import JsonLd from '@/components/JsonLd';
+import PageHead from '@/components/PageHead';
+import EndCta from '@/components/EndCta';
+import RentMeter from '@/components/home/RentMeter';
+import StoreRail from '@/components/home/StoreRail';
+import { storeFeatures } from '@/data/stores';
+import { projects } from '@/data/projects';
 import { services } from '@/data/services';
 
 interface ServicePageProps {
@@ -30,6 +36,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   return {
     title: service.title,
     description: service.metaDescription,
+    keywords: [service.primaryKeyword, ...service.longTailKeywords],
     alternates: {
       canonical: url,
     },
@@ -81,94 +88,117 @@ export default function DynamicServicePage({ params }: ServicePageProps) {
     termsOfService: 'https://www.awweb.online/terms-of-service',
   };
 
+  const others = services.filter((s) => s.slug !== service.slug);
+  const isStore = service.slug === 'e-commerce';
+  const related = projects.filter((p) => !p.tag && (
+    (service.slug === 'business-automation' && ['vortex-rings', 'zn-enterprises', 'css-kro'].includes(p.slug)) ||
+    (service.slug === 'website-design' && ['css-kro', 'zn-enterprises'].includes(p.slug)) ||
+    (service.slug === 'e-commerce' && ['attireburg', 'vortex-rings'].includes(p.slug))
+  ));
+
   return (
     <>
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={serviceSchema} />
 
-      {/* HERO BANNER WITH BLUE GLOW HIGHLIGHT */}
-      <section className="page-hero hero-blue-banner">
-        <div className="container">
-          <nav className="breadcrumbs mb-4" aria-label="Breadcrumb">
-            <Link href="/">Home</Link>
-            <span>/</span>
-            <Link href="/services">Services</Link>
-            <span>/</span>
-            <span aria-current="page">{service.title}</span>
-          </nav>
+      <PageHead
+        crumbs={[{ name: 'Services', href: '/services' }, { name: service.short }]}
+        label={service.title}
+        title={service.heading}
+        long
+        lead={service.intro}
+      >
+        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 36 }}>
+          <a className="btn btn--emerald" href={`https://wa.me/923061513191?text=${encodeURIComponent(`Hi AW Web Services, I'm interested in ${service.title}.`)}`} target="_blank" rel="noopener noreferrer">Talk on WhatsApp</a>
+          <Link className="btn btn--line" href="/work">See related work</Link>
+        </div>
+      </PageHead>
 
-          <div className="hero-highlight-tag mb-3">
-            <span className="hero-highlight-dot"></span>
-            <span>Core Service Offering</span>
-          </div>
-
-          <h1 className="page-hero__title text-4xl sm:text-5xl font-extrabold">{service.title}</h1>
-          <p className="page-hero__subtitle text-xl mt-3 max-w-3xl leading-relaxed">{service.heading}</p>
+      <section className="section--tight" style={{ paddingTop: 0 }}>
+        <div className="wrap svc-detail">
+          <aside>
+            <span className="label">What we handle</span>
+            <h2 className="h3" style={{ marginTop: 20, maxWidth: '16ch' }}>Everything from the first call to the handover.</h2>
+          </aside>
+          <ul className="ticks">
+            {service.whatWeHandle.map((item) => <li key={item}>{item}</li>)}
+          </ul>
         </div>
       </section>
 
-      {/* SERVICE DETAIL SECTION - DISTINCTLY SEPARATED CARD BOXES */}
-      <section className="service-detail-section py-20">
-        <div className="container max-w-4xl mx-auto">
-          <div className="service-main flex flex-col gap-10">
-            
-            <div className="content-box content-box--spacious">
-              <h2 className="text-2xl font-bold mb-4">Overview</h2>
-              <p className="lead-text text-lg leading-relaxed">{service.intro}</p>
-            </div>
+      <section className="section--tight">
+        <div className="wrap">
+          <div className="callout">
+            <span className="label" style={{ color: 'var(--emerald-light)' }}>Why it matters</span>
+            <p style={{ marginTop: 20 }}>{service.whyItMatters}</p>
+          </div>
+        </div>
+      </section>
 
-            <div className="content-box content-box--spacious">
-              <h2 className="text-2xl font-bold mb-4">What We Handle</h2>
-              <ul className="custom-bullets text-base leading-relaxed space-y-3">
-                {service.whatWeHandle.map((item, idx) => (
-                  <li key={idx} className="pl-6">{item}</li>
-                ))}
+      {isStore && (
+        <>
+          <section className="section section--paper2" aria-labelledby="feat-title">
+            <div className="wrap feat">
+              <div className="feat__aside">
+                <span className="label">In every store</span>
+                <h2 className="h2" id="feat-title" style={{ marginTop: 22 }}>Built in, <span className="hl" data-paint>not bolted on.</span></h2>
+                <p className="lead">What Pakistani COD brands actually need, already there on day one. No app store to shop in for the basics.</p>
+              </div>
+              <ul className="feat__list">
+                {storeFeatures.map((f) => <li key={f.title}><h3>{f.title}</h3><p>{f.text}</p></li>)}
               </ul>
             </div>
-
-            <div className="content-box content-box--spacious">
-              <h2 className="text-2xl font-bold mb-4">Why It Matters</h2>
-              <p className="text-base leading-relaxed">{service.whyItMatters}</p>
-            </div>
-
-            {/* REWRITTEN 4TH BOX: OPERATIONAL STRATEGY & EXECUTION WITH INTEGRATED NARRATIVE KEYWORDS */}
-            <div className="content-box content-box--spacious">
-              <h2 className="text-2xl font-bold mb-4">Operational Strategy &amp; Execution</h2>
-              <p className="text-base leading-relaxed mb-4">
-                Our approach to <strong className="gradient-text font-semibold">{service.primaryKeyword}</strong> focuses on constructing resilient, self-sustaining workflows tailored to your specific market demands. Rather than deploying temporary fixes, we build scalable architectures designed for long-term operational efficiency.
-              </p>
-              <p className="text-base leading-relaxed mb-4">
-                Our execution framework directly addresses key business requirements, including:
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-                {service.longTailKeywords.map((kw, i) => (
-                  <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-surface-3 border border-border">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-accent-2 mt-1 flex-shrink-0">
-                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                    </svg>
-                    <div>
-                      <span className="text-sm font-semibold text-text capitalize">{kw}</span>
-                      <p className="text-xs text-muted mt-1">Integrated into system architecture &amp; core execution workflows.</p>
-                    </div>
-                  </div>
-                ))}
+          </section>
+          <section className="section section--ink" aria-labelledby="rent-title">
+            <div className="wrap rent">
+              <div>
+                <span className="label" style={{ color: 'var(--emerald-light)' }}>Do the maths</span>
+                <h2 className="h2" id="rent-title" style={{ marginTop: 22 }}>Rent adds up. <span className="hl hl--light" data-paint>Owning</span> doesn&rsquo;t.</h2>
+                <p className="lead" style={{ marginTop: 28 }}>A Shopify plan plus the apps a COD store needs costs about Rs 1.3 lakh a year, for as long as you sell. Slide to see where that goes.</p>
               </div>
+              <RentMeter />
             </div>
+          </section>
+          <StoreRail />
+        </>
+      )}
 
-          </div>
-
-          <div className="cta-card mt-20">
-            <h2 className="text-3xl font-extrabold">Build Your Customized System Today</h2>
-            <p className="text-muted text-base mt-2">Our team is ready to engineer production-grade solutions tailored to your brand.</p>
-            <div className="mt-6">
-              <Link href="/contact" className="btn btn--primary btn--lg">
-                <span>Start Your Project</span>
-              </Link>
+      {related.length > 0 && (
+        <section className="section--tight">
+          <div className="wrap">
+            <span className="label">Related case studies</span>
+            <div className="grid-work" style={{ marginTop: 32 }}>
+              {related.map((p) => (
+                <Link key={p.slug} className="tile" href={`/work/${p.slug}`}>
+                  <div className="frame"><img src={p.screenshots[0] || p.heroImage} alt={p.title} loading="lazy" /></div>
+                  <div className="tile__cap"><div><h3 className="tile__name">{p.title.split(' - ')[0]}</h3><p className="tile__sub">{p.title.split(' - ')[1]}</p></div><span className="tile__kind">Case study</span></div>
+                </Link>
+              ))}
             </div>
           </div>
+        </section>
+      )}
+
+      <section className="section--tight">
+        <div className="wrap">
+          <span className="label">Also from us</span>
+          <nav className="svc" aria-label="Other services" style={{ marginTop: 28 }}>
+            <ul>
+              {others.map((s) => (
+                <li key={s.slug}>
+                  <Link href={`/services/${s.slug}`}>
+                    <span className="svc__name">{s.short}</span>
+                    <span className="svc__desc">{s.oneLine}</span>
+                    <span className="svc__go">Details →</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </section>
+      <div style={{ height: 'clamp(60px, 8vw, 120px)' }} />
+      <EndCta />
     </>
   );
 }

@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="foot__grid">
           <div className="foot__brand">
             <Link href="/" aria-label="AW Web Services, home"><Mark /></Link>
-            <p>We build Pakistani brands their own online store, then the systems that run it. One-time price. Yours to keep.</p>
+            <p>Websites, online stores, Meta ads and automation for growing businesses. Custom-built, and fully yours.</p>
           </div>
           <div>
             <h4>Talk</h4>
@@ -32,9 +32,9 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4>Live stores</h4>
+            <h4>Live work</h4>
             <ul>
-              {liveWork.filter((w) => w.kind === 'store').slice(0, 6).map((w) => (
+              {liveWork.slice(0, 6).map((w) => (
                 <li key={w.id}><a href={w.url} target="_blank" rel="noopener noreferrer">{w.name}</a></li>
               ))}
             </ul>

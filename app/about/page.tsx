@@ -2,9 +2,14 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import React from 'react';
 import JsonLd from '@/components/JsonLd';
+import PageHead, { crumbSchema } from '@/components/PageHead';
+import EndCta from '@/components/EndCta';
+import { liveWork, concepts } from '@/data/stores';
+import { services } from '@/data/services';
+import { testimonials } from '@/data/testimonials';
 
 export const metadata: Metadata = {
-  title: 'About Us | Custom Web Development Agency',
+  title: 'About: a Lahore studio for web, e-commerce and automation',
   description: 'Learn about AW Web Services. We build owned e-commerce platforms, custom web applications, Meta lead funnels, and real-time business workflow automation.',
   alternates: {
     canonical: 'https://www.awweb.online/about',
@@ -25,84 +30,84 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.awweb.online' },
-      { '@type': 'ListItem', position: 2, name: 'About Us', item: 'https://www.awweb.online/about' },
-    ],
-  };
-
+  const facts = [
+    { n: String(liveWork.length), l: 'live sites and stores' },
+    { n: String(concepts.length), l: 'concept builds' },
+    { n: String(services.length), l: 'services under one roof' },
+    { n: '2', l: 'markets: Pakistan and the EU' },
+  ];
   return (
     <>
-      <JsonLd data={breadcrumbSchema} />
-
-      <section className="page-hero hero-blue-banner">
-        <div className="container">
-          <nav className="breadcrumbs mb-4" aria-label="Breadcrumb">
-            <Link href="/">Home</Link>
-            <span>/</span>
-            <span aria-current="page">About Us</span>
-          </nav>
-
-          <h1 className="page-hero__title text-4xl sm:text-5xl font-extrabold">Engineering Systems Built to Be Owned, Not Rented</h1>
-          <p className="page-hero__subtitle text-xl mt-3 max-w-3xl leading-relaxed">
-            AW Web Services is a specialized agency crafting production-grade software, e-commerce platforms, and real-time business automation.
-          </p>
+      <JsonLd data={crumbSchema([{ name: 'About Us', path: '/about' }])} />
+      <PageHead
+        crumbs={[{ name: 'About' }]}
+        label="AW Web Services · Lahore"
+        title={<>Built to be <span className="hl" data-paint>owned,</span> not rented.</>}
+        lead="We are a small Lahore team that builds custom websites, online stores, ad funnels and the automation behind them, for businesses that are done patching things together."
+      />
+      <section className="section--tight" style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <dl className="facts">
+            {facts.map((f) => <div key={f.l}><dt className="sr-only">{f.l}</dt><dd style={{ margin: 0 }}><b>{f.n}</b><span>{f.l}</span></dd></div>)}
+          </dl>
         </div>
       </section>
-
-      <section className="about-content py-20">
-        <div className="container max-w-5xl mx-auto">
-          <div className="about-grid grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="about-block content-box content-box--spacious">
-              <h2 className="text-2xl font-bold mb-4">Our Philosophy</h2>
-              <p className="text-base leading-relaxed text-muted mb-4">
-                Most modern businesses get locked into subscription platforms, generic templates, and manual spreadsheet workarounds that slow down operations as order volume grows.
-              </p>
-              <p className="text-base leading-relaxed text-muted">
-                We take a different approach: we engineer custom storefronts, API bridges, and internal admin tools that you fully own. From PostgreSQL databases to Next.js codebases, every line of code belongs to your business.
-              </p>
-            </div>
-
-            <div className="about-block content-box content-box--spacious">
-              <h2 className="text-2xl font-bold mb-4">What We Specialize In</h2>
-              <ul className="custom-bullets text-base leading-relaxed space-y-3">
-                <li><strong>Owned E-Commerce Platforms:</strong> Zero-subscription storefronts with native checkout flows.</li>
-                <li><strong>PostEx &amp; Courier Automation:</strong> Real-time courier API synchronization and automated P&amp;L.</li>
-                <li><strong>Custom Web Engineering:</strong> Fast Next.js websites built with SEO-first architecture.</li>
-                <li><strong>Performance Marketing:</strong> Meta ad campaigns, WhatsApp lead qualification funnels.</li>
-                <li><strong>Virtual Operations Support:</strong> Ongoing remote admin, inbox triage, and operations support.</li>
-              </ul>
-            </div>
+      <section className="section">
+        <div className="wrap about-grid">
+          <div>
+            <span className="label">Our philosophy</span>
+            <h2 className="h2" style={{ marginTop: 22 }}>Your code, your data, your hosting.</h2>
           </div>
-
-          <div className="tech-stack-section content-box content-box--spacious mt-12">
-            <h2 className="text-2xl font-bold mb-4">Our Core Tech Stack</h2>
-            <div className="tech-pills-list flex flex-wrap gap-3 mt-4">
-              <span className="tech-pill">Next.js (App Router)</span>
-              <span className="tech-pill">TypeScript</span>
-              <span className="tech-pill">Node.js</span>
-              <span className="tech-pill">PostgreSQL / Supabase</span>
-              <span className="tech-pill">OpenAI API</span>
-              <span className="tech-pill">PostEx API</span>
-              <span className="tech-pill">PayPal &amp; Stripe APIs</span>
-              <span className="tech-pill">Vercel</span>
-            </div>
-          </div>
-
-          <div className="cta-card mt-20">
-            <h2 className="text-3xl font-extrabold">Work with an Agency That Builds for Long-Term Growth</h2>
-            <p className="text-muted text-base mt-2">Get in touch to discuss your platform requirements or book a technical consultation.</p>
-            <div className="mt-6">
-              <Link href="/contact" className="btn btn--primary btn--lg">
-                <span>Start a Project</span>
-              </Link>
-            </div>
+          <div className="prose" style={{ fontSize: 19 }}>
+            <p>Most businesses get locked into subscription platforms, generic templates and spreadsheet workarounds that slow everything down as orders grow.</p>
+            <p>We take a different approach. We build custom storefronts, API bridges and internal admin tools that you fully own. From the database to the codebase, every line belongs to your business, and the hosting account is in your name.</p>
+            <p>That is why clients keep working with us after launch: there is nothing to escape from, only things to build next.</p>
           </div>
         </div>
       </section>
+      <section className="section section--paper2">
+        <div className="wrap about-grid">
+          <div>
+            <span className="label">What we specialise in</span>
+            <h2 className="h2" style={{ marginTop: 22 }}>The whole path, from first click to the books.</h2>
+          </div>
+          <ul className="ticks">
+            <li><strong>Owned e-commerce.</strong> Stores with native checkout, WhatsApp order confirmation and courier booking, with no monthly platform rent.</li>
+            <li><strong>Courier and profit automation.</strong> PostEx and other courier APIs synced to orders, with live profit and loss.</li>
+            <li><strong>Custom websites.</strong> Fast Next.js sites with SEO built in from the first page.</li>
+            <li><strong>Performance marketing.</strong> Meta campaigns and WhatsApp lead funnels that sort enquiries for you.</li>
+            <li><strong>Operations support.</strong> Ongoing remote admin, inbox triage and coordination.</li>
+          </ul>
+        </div>
+      </section>
+      <section className="section">
+        <div className="wrap about-grid">
+          <div>
+            <span className="label">Our stack</span>
+            <h2 className="h3" style={{ marginTop: 22, maxWidth: '18ch' }}>Modern, boring in the right places, and easy to hand over.</h2>
+          </div>
+          <div className="stack">
+            {['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Supabase', 'Vercel', 'Cloudflare', 'OpenAI & Claude APIs', 'PostEx API', 'PayPal & Stripe', 'Meta Ads & Pixel', 'WhatsApp'].map((t) => <span key={t}>{t}</span>)}
+          </div>
+        </div>
+      </section>
+      <section className="section section--paper2">
+        <div className="wrap">
+          <span className="label">Clients, in their words</span>
+          <div className="quotes" style={{ marginTop: 48 }}>
+            {testimonials.map((t) => (
+              <figure className="quote" key={t.id}>
+                <figcaption className="quote__who">
+                  <img src={t.avatar} alt="" width={56} height={56} loading="lazy" />
+                  <div><b>{t.name}</b><span>{t.title}, {t.company}</span></div>
+                </figcaption>
+                <blockquote><p className="quote__big">{t.highlight}</p></blockquote>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+      <EndCta />
     </>
   );
 }

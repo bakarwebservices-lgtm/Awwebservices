@@ -23,7 +23,7 @@ export default function StoreRail() {
   const track = useRef<HTMLDivElement>(null);
   const bar = useRef<HTMLElement>(null);
   const count = useRef<HTMLSpanElement>(null);
-  const items = liveWork;
+  const items = liveWork.filter((w) => w.kind === 'store');
 
   useGSAP(
     () => {
@@ -74,12 +74,12 @@ export default function StoreRail() {
     <section className="section" ref={root} aria-labelledby="stores-title" style={{ paddingBottom: 'clamp(64px, 8vw, 120px)' }}>
       <div className="wrap stores-head">
         <div>
-          <span className="label label--emerald">Live, taking orders</span>
+          <span className="label label--emerald">E-commerce</span>
           <h2 className="h2" id="stores-title" style={{ marginTop: 22 }}>
-            Stores we built. <span className="hl" data-paint>Open any.</span>
+            Online stores we built. <span className="hl" data-paint>Open any.</span>
           </h2>
         </div>
-        <p className="lead" style={{ maxWidth: '30ch' }}>Real brands, real domains, selling today. Every one runs on its owner&rsquo;s own hosting.</p>
+        <p className="lead" style={{ maxWidth: '30ch' }}>Real brands taking orders today, on their own domains and their own hosting. No Shopify rent.</p>
       </div>
 
       <div className="rail" ref={rail} onScroll={onNativeScroll}>
@@ -104,8 +104,8 @@ export default function StoreRail() {
             </a>
           ))}
           <div className="store store--end">
-            <h3 className="h3">Yours could be the next tab people keep open.</h3>
-            <Link className="link" href="/work">See all work</Link>
+            <h3 className="h3">Want one for your brand?</h3>
+            <Link className="link" href="/services/e-commerce">How our stores work</Link>
           </div>
         </div>
         <div className="wrap rail-foot">

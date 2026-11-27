@@ -78,6 +78,16 @@ export const liveWork: LiveItem[] = [
     country: 'Pakistan',
   },
   {
+    id: 'nain',
+    name: 'Nain Naqsh',
+    niche: 'Jewellery',
+    line: 'Earrings, rings and bangles in a soft, gold-lit storefront.',
+    url: 'https://nainnaqsh.com',
+    domain: 'nainnaqsh.com',
+    kind: 'store',
+    country: 'Pakistan',
+  },
+  {
     id: 'attireburg',
     name: 'Attireburg',
     niche: 'Apparel & print on demand',
@@ -120,7 +130,7 @@ export const concepts: ConceptItem[] = [
   { id: 'arena', name: 'Champions Arena', niche: 'Slot booking', url: 'https://arena-booking-xi.vercel.app' },
 ];
 
-/** What every store we build ships with. Sourced from the sales playbook; keep it true. */
+/** What every store we build ships with (shown on the e-commerce service page). Sourced from the sales playbook; keep it true. */
 export const storeFeatures = [
   { title: 'Every COD order confirmed on WhatsApp', text: 'The customer gets a message the moment they order. Fake orders drop before they ship.' },
   { title: 'Couriers booked from the admin', text: 'Book and track Pakistani couriers without opening another portal.' },

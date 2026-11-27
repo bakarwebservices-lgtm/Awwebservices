@@ -19,7 +19,7 @@ export function Mark({ sub = true }: { sub?: boolean }) {
       <span className="mark__box" aria-hidden="true">AW</span>
       <span className="mark__name">
         AW Web Services
-        {sub && <small>Stores you own · Lahore</small>}
+        {sub && <small>Digital agency · Lahore</small>}
       </span>
     </span>
   );

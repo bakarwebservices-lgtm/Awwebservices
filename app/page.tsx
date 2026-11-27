@@ -4,7 +4,6 @@ import React from 'react';
 import JsonLd from '@/components/JsonLd';
 import Reel from '@/components/home/Reel';
 import Clock from '@/components/home/Clock';
-import RentMeter from '@/components/home/RentMeter';
 import StoreRail from '@/components/home/StoreRail';
 import CaseList from '@/components/home/CaseList';
 import DragRail from '@/components/home/DragRail';
@@ -12,13 +11,13 @@ import Words from '@/components/Words';
 import EndCta from '@/components/EndCta';
 import { projects } from '@/data/projects';
 import { services } from '@/data/services';
-import { concepts, storeFeatures } from '@/data/stores';
+import { concepts } from '@/data/stores';
 import { testimonials } from '@/data/testimonials';
 import { WHATSAPP_LINK } from '@/lib/siteConfig';
 
-const TITLE = 'AW Web Services | Online stores you own, built in Lahore';
+const TITLE = 'AW Web Services | Custom Web Development, E-Commerce, Marketing & Automation';
 const DESC =
-  'We build Pakistani brands their own online store with WhatsApp order confirmation, courier booking and real profit tracking built in. One-time price, no monthly Shopify rent.';
+  'AW Web Services is a Lahore digital agency building custom websites, e-commerce stores, Meta ad campaigns and business automation systems, engineered for growth and fully owned by you.';
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -28,6 +27,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', title: TITLE, description: DESC, images: ['/images/og.png'] },
 };
 
+const START_LINK = `${WHATSAPP_LINK}?text=${encodeURIComponent('Hi AW Web Services, I would like to discuss a project.')}`;
 const MOCKUP_LINK = `${WHATSAPP_LINK}?text=${encodeURIComponent('Hi AW, I would like a free homepage mockup for my brand.')}`;
 
 const Arrow = () => (
@@ -43,7 +43,7 @@ export default function HomePage() {
     name: 'AW Web Services',
     url: 'https://www.awweb.online',
     logo: 'https://www.awweb.online/images/logo-mark.png',
-    description: 'Lahore agency that builds brands their own e-commerce stores, plus automation, Meta ads and admin support.',
+    description: 'Digital agency in Lahore providing custom web development, e-commerce platforms, digital marketing, business automation and virtual assistance.',
     email: 'bakarwebservices@gmail.com',
     telephone: '+923061513191',
     address: { '@type': 'PostalAddress', addressLocality: 'Lahore', addressCountry: 'PK' },
@@ -61,24 +61,25 @@ export default function HomePage() {
       <section className="hero">
         <div className="wrap">
           <div className="hero__top">
-            <span className="label">AI systems for online stores</span>
+            <span className="label">Web · E-commerce · Marketing · Automation</span>
             <span className="label label--plain muted">Lahore · <Clock /> PKT</span>
           </div>
           <h1 className="hero__title">
-            <span className="row"><span>Stop renting</span></span>
-            <span className="row indent"><span>your <span className="hl">store.</span></span></span>
+            <span className="row"><span>We build the</span></span>
+            <span className="row indent"><span><span className="hl">systems</span> behind</span></span>
+            <span className="row"><span>growing brands.</span></span>
           </h1>
           <div className="hero__bottom">
             <p className="lead">
-              We build Pakistani brands their own online store, with WhatsApp order confirmation, courier booking and real profit built in.
-              You pay once. It&rsquo;s yours.
+              Custom websites, online stores, Meta ads and business automation for companies in Pakistan and abroad.
+              Built around how you work, and fully yours.
             </p>
             <p className="hero__note">
-              <span>Free homepage mockup <b>before you pay anything.</b></span>
+              <span>No vendor lock-in. <b>Code, data and hosting stay in your name.</b></span>
             </p>
             <div className="hero__actions">
-              <a className="btn btn--emerald" href={MOCKUP_LINK} target="_blank" rel="noopener noreferrer">
-                Get my free mockup <Arrow />
+              <a className="btn btn--emerald" href={START_LINK} target="_blank" rel="noopener noreferrer">
+                Start a project <Arrow />
               </a>
               <Link className="btn btn--line" href="/work">See the work</Link>
             </div>
@@ -90,50 +91,36 @@ export default function HomePage() {
       {/* THE IDEA */}
       <section className="section">
         <div className="wrap statement-grid">
-          <span className="label">The idea</span>
-          <Words text="Shopify is a rented shop. You pay every month and it is *never* yours. We build the shop, hand you the keys, and leave the rent out." />
+          <span className="label">How we work</span>
+          <Words text="Most businesses run on a Facebook page, a few rented tools and a spreadsheet someone updates by hand. We replace that with *one* system you own: the site, the store, the ads and the automation behind them." />
         </div>
       </section>
 
-      {/* RENT METER */}
-      <section className="section section--ink" aria-labelledby="rent-title">
-        <div className="wrap rent">
-          <div>
-            <span className="label" style={{ color: 'var(--emerald-light)' }}>Do the maths</span>
-            <h2 className="h2" id="rent-title" style={{ marginTop: 22 }}>
-              Rent adds up. <span className="hl hl--light" data-paint>Owning</span> doesn&rsquo;t.
-            </h2>
-            <p className="lead" style={{ marginTop: 28 }}>
-              A Shopify plan plus the apps a COD store needs costs about Rs 1.3 lakh a year, for as long as you sell. Slide to see where that goes.
-            </p>
+      {/* SERVICES */}
+      <section className="section section--paper2" aria-labelledby="svc-title" style={{ paddingTop: 'clamp(72px, 8vw, 128px)' }}>
+        <div className="wrap">
+          <div className="stores-head">
+            <div>
+              <span className="label">What we do</span>
+              <h2 className="h2" id="svc-title" style={{ marginTop: 22 }}>
+                Five services, <span className="hl" data-paint>one team.</span>
+              </h2>
+            </div>
+            <p className="lead" style={{ maxWidth: '32ch' }}>Take one, or let them work together: the site brings people in, the ads bring more, the automation handles what follows.</p>
           </div>
-          <RentMeter />
-        </div>
-      </section>
-
-      {/* LIVE STORES */}
-      <div id="stores">
-        <StoreRail />
-      </div>
-
-      {/* FEATURES */}
-      <section className="section section--paper2" aria-labelledby="feat-title">
-        <div className="wrap feat">
-          <div className="feat__aside">
-            <span className="label">In every store</span>
-            <h2 className="h2" id="feat-title" style={{ marginTop: 22 }}>
-              Built in, <span className="hl" data-paint>not bolted on.</span>
-            </h2>
-            <p className="lead">What Pakistani COD brands actually need, already there on day one. No app store to shop in for the basics.</p>
-          </div>
-          <ul className="feat__list">
-            {storeFeatures.map((f) => (
-              <li key={f.title}>
-                <h3>{f.title}</h3>
-                <p>{f.text}</p>
-              </li>
-            ))}
-          </ul>
+          <nav className="svc" aria-label="Services">
+            <ul>
+              {services.map((s) => (
+                <li key={s.slug}>
+                  <Link href={`/services/${s.slug}`}>
+                    <span className="svc__name">{s.short}</span>
+                    <span className="svc__desc">{s.oneLine}</span>
+                    <span className="svc__go">Details <Arrow /></span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </section>
 
@@ -155,19 +142,23 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* E-COMMERCE PROJECTS */}
+      <div id="stores">
+        <StoreRail />
+      </div>
+
       {/* CONCEPTS / FREE MOCKUP */}
       <section className="section" aria-labelledby="concepts-title">
         <div className="wrap concepts-head">
           <div>
-            <span className="label">The free mockup</span>
+            <span className="label">Concepts & mockups</span>
             <h2 className="h2" id="concepts-title" style={{ marginTop: 22 }}>
-              Before you pay, we design <span className="hl" data-paint>your homepage.</span>
+              See it <span className="hl" data-paint>before you pay.</span>
             </h2>
           </div>
           <div>
             <p className="lead">
-              Send your logo and three or four photos. We build a homepage for your brand, free, so you see it before you decide.
-              Some we made for other niches:
+              For new clients we design the homepage first, free, from your logo and a few photos. Here are concepts we made for florists, auto shops, HVAC firms, fashion and sports brands:
             </p>
             <div style={{ display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap', marginTop: 28 }}>
               <a className="btn" href={MOCKUP_LINK} target="_blank" rel="noopener noreferrer">Ask for mine <Arrow /></a>
@@ -215,31 +206,6 @@ export default function HomePage() {
               </figure>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* SERVICES */}
-      <section className="section" aria-labelledby="svc-title">
-        <div className="wrap">
-          <div className="stores-head">
-            <div>
-              <span className="label">What we do</span>
-              <h2 className="h2" id="svc-title" style={{ marginTop: 22 }}>Stores first. Then everything around them.</h2>
-            </div>
-          </div>
-          <nav className="svc" aria-label="Services">
-            <ul>
-              {services.map((s) => (
-                <li key={s.slug}>
-                  <Link href={`/services/${s.slug}`}>
-                    <span className="svc__name">{s.short}</span>
-                    <span className="svc__desc">{s.oneLine}</span>
-                    <span className="svc__go">Details <Arrow /></span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
         </div>
       </section>
 

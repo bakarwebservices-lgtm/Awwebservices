@@ -27,24 +27,24 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.awweb.online'),
   title: {
-    default: 'AW Web Services | Online stores you own, built in Lahore',
+    default: 'AW Web Services | Websites, e-commerce, marketing & automation',
     template: '%s | AW Web Services',
   },
   description:
-    'AW Web Services builds Pakistani brands their own online store: WhatsApp order confirmation, courier booking and real profit tracking built in. One-time price, no monthly Shopify rent.',
+    'AW Web Services is a Lahore digital agency: custom websites, e-commerce stores, Meta ads, business automation and virtual assistance, built for growth and fully owned by you.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.awweb.online',
     siteName: 'AW Web Services',
-    title: 'AW Web Services | Online stores you own, built in Lahore',
-    description: 'Your own online store, not a rented one. WhatsApp COD confirmation, courier booking and real profit, built in.',
-    images: [{ url: '/images/og.png', width: 1200, height: 630, alt: 'AW Web Services: stop renting your store.' }],
+    title: 'AW Web Services | Websites, e-commerce, marketing & automation',
+    description: 'Custom websites, online stores, Meta ads and automation, fully owned by you.',
+    images: [{ url: '/images/og.png', width: 1200, height: 630, alt: 'AW Web Services' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AW Web Services | Online stores you own',
-    description: 'Your own online store, not a rented one.',
+    title: 'AW Web Services | Websites, e-commerce, marketing & automation',
+    description: 'Custom websites, online stores, Meta ads and automation.',
     images: ['/images/og.png'],
   },
   icons: {

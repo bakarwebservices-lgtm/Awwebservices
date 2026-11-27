@@ -4,9 +4,9 @@ import Link from 'next/link';
 export interface Crumb { name: string; href?: string }
 
 /** Inner-page header: breadcrumbs, a label, one big title, a lead line. */
-export default function PageHead({ crumbs, label, title, lead, children }: { crumbs: Crumb[]; label?: string; title: React.ReactNode; lead?: React.ReactNode; children?: React.ReactNode }) {
+export default function PageHead({ crumbs, label, title, lead, children, long }: { crumbs: Crumb[]; label?: string; title: React.ReactNode; lead?: React.ReactNode; children?: React.ReactNode; long?: boolean }) {
   return (
-    <section className="page-head">
+    <section className={`page-head${long ? ' page-head--long' : ''}`}>
       <div className="wrap">
         <nav className="crumbs" aria-label="Breadcrumb">
           <Link href="/">Home</Link>

@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { WHATSAPP_LINK } from '@/lib/siteConfig';
 
-const MOCKUP_LINK = `${WHATSAPP_LINK}?text=${encodeURIComponent('Hi AW, I would like a free homepage mockup for my brand.')}`;
+const MOCKUP_LINK = `${WHATSAPP_LINK}?text=${encodeURIComponent('Hi AW Web Services, I would like to discuss a project.')}`;
 
 const Arrow = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -19,7 +19,7 @@ export default function EndCta({ title }: { title?: React.ReactNode }) {
         </h2>
         <div className="end__row">
           <p className="lead">
-            Message us on WhatsApp with your Instagram or current site. You get a straight answer, and a free mockup if it&rsquo;s a fit.
+            Tell us on WhatsApp what you want built: a site, a store, ads or a system. You get a straight answer and a plan, not a sales script.
           </p>
           <div className="end__actions">
             <a className="btn" href={MOCKUP_LINK} target="_blank" rel="noopener noreferrer">WhatsApp 0306 1513191 <Arrow /></a>

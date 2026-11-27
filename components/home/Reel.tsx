@@ -5,11 +5,14 @@
  * page scroll (and reverses when scrolling up), and slows to a crawl under the pointer.
  */
 import React, { useEffect, useRef } from 'react';
-import { liveWork } from '@/data/stores';
+import { liveWork, concepts } from '@/data/stores';
 
 export default function Reel() {
   const track = useRef<HTMLDivElement>(null);
-  const items = liveWork.filter((w) => w.kind === 'store');
+  const live = liveWork.map((w) => ({ id: w.id, name: w.name, url: w.url, cap: w.domain }));
+  const demo = concepts.filter((c) => c.id !== 'arena').map((c) => ({ id: c.id, name: c.name, url: c.url, cap: 'Concept · ' + c.niche }));
+  // interleave live work with concepts so the line shows range, not just stores
+  const items = live.flatMap((l, i) => (demo[i] ? [l, demo[i]] : [l])).concat(demo.slice(live.length));
   const loop = [...items, ...items];
 
   useEffect(() => {
@@ -62,7 +65,7 @@ export default function Reel() {
   }, []);
 
   return (
-    <div className="reel" aria-label="Online stores we have built">
+    <div className="reel" aria-label="Websites and stores we have built">
       <div className="reel__track" ref={track}>
         {loop.map((s, i) => (
           <a
@@ -75,11 +78,11 @@ export default function Reel() {
             tabIndex={i >= items.length ? -1 : 0}
           >
             <div className="phone">
-              <img src={`/images/work/${s.id}-mobile.webp`} alt={i < items.length ? `${s.name} online store on a phone` : ''} width={540} height={1168} loading={i < 5 ? 'eager' : 'lazy'} />
+              <img src={`/images/work/${s.id}-mobile.webp`} alt={i < items.length ? `${s.name} on a phone` : ''} width={540} height={1168} loading={i < 5 ? 'eager' : 'lazy'} />
             </div>
             <div className="reel__cap">
               <b>{s.name}</b>
-              <span>{s.domain}</span>
+              <span>{s.cap}</span>
             </div>
           </a>
         ))}

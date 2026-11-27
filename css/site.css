@@ -767,3 +767,17 @@ html { overflow-x: clip; }
   .sticky-whatsapp-root { right: 23px; bottom: 92px; }
   .sticky-whatsapp-btn { width: 54px; height: 54px; }
 }
+.hero__title { font-size: clamp(40px, 10.4vw, 184px); }
+.page-head--long .h1 { font-size: var(--fs-2); max-width: 20ch; line-height: 1; }
+.svc-rows { display: grid; gap: clamp(64px, 8vw, 128px); }
+.svc-row { display: grid; gap: 28px; align-items: center; }
+.svc-row__img { aspect-ratio: 4 / 3; }
+.svc-row__img img { transition: transform 1.2s var(--ease); }
+.svc-row:hover .svc-row__img img { transform: scale(1.04); }
+.svc-row__list { margin-top: 22px; display: grid; gap: 10px; }
+.svc-row__list li { position: relative; padding-left: 22px; color: var(--ink-2); font-size: 16px; }
+.svc-row__list li::before { content: ''; position: absolute; left: 0; top: 0.72em; width: 10px; height: 2px; background: var(--emerald); }
+@media (min-width: 1024px) {
+  .svc-row { grid-template-columns: 1fr 1fr; gap: 72px; }
+  .svc-row:nth-child(even) .svc-row__img { order: 2; }
+}
